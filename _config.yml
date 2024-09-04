@@ -1,8 +1,10 @@
-title: Just the Docs Template
-description: A starter template for a Jeykll site using the Just the Docs theme!
+title: FTLE Hub
+description: Welcome to your one stop solution for all your FTLE needs!
 theme: just-the-docs
+color_scheme: dark
 
-url: https://just-the-docs.github.io
+url: https://sreejithsanthosh.github.io/FTLEhub
 
 aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+    Sreejith's Website : https://sreejithsanthosh.github.io
+    Mattia Serra Group : https://mattiaserra.com
