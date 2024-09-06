@@ -6,7 +6,7 @@ nav_order: 1
 
 ## What is FTLE?
 
-FTLE (Finite Time Lyapunov Exponent) is a method of quantifying material flow, whereby you identify the most robust structures which act as the finite-time analogues of stable and unstable manifolds (See [Reference](https://en.wikipedia.org/wiki/Lagrangian_coherent_structure) ).
+FTLE (Finite Time Lyapunov Exponent) is a method of quantifying material flow, whereby you identify the most robust structures which act as the finite-time analogues of stable and unstable manifolds (See [Reference](https://en.wikipedia.org/wiki/Lagrangian_coherent_structure) ). Check this out 
 
 ![FTLESchematic](Images/FTLEFig.png) 
 
