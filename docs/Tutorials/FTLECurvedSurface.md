@@ -1,6 +1,6 @@
 ---
 title: FTLE on Curved Surfaces 
-parent: Tutorial on Using FTLE codes
+parent: Tutorial - FTLE codes
 layout: home
 nav_order: 1
 ---
@@ -34,3 +34,9 @@ Further developement of this code to improve robustness of this method and speed
 git pull
 ```
 
+## Data required for Langrangian analaysis 
+
+To perform the Lagrangian analysis, we require the velocity field $$ \mathbf{v}(\mathbf{x},t) $$ that quantifies the material flow on a manifold $$\mathbf{x} \in \mathcal{M}$$ and the manifold. 
+
+
+ Obtaining velocity data from tissue mechanics and active nematic simulations are quite straight forward, but obtaining them from experimental live imaging of biological systems are more difficult. Several methods exist to extract this information such as [ImSAnE](https://github.com/idse/imsane)  and [TubULAR](https://npmitchell.github.io/tubular/). The Lagrangian Analysis method that we describe here works well for both static and dynamic tissues.  

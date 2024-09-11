@@ -1,5 +1,5 @@
 ---
-title: Tutorial on Using FTLE codes
+title: Tutorial - FTLE codes
 layout: home 
 nav_order: 2
 has_children: true

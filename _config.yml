@@ -2,7 +2,7 @@ title: FTLE Hub
 description: Welcome to your one stop solution for all your FTLE needs!
 theme: just-the-docs
 color_scheme: dark
-
+math: katex
 url: https://sreejithsanthosh.github.io/FTLEhub
 
 aux_links:
