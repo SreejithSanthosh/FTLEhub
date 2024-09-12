@@ -34,16 +34,37 @@ Further developement of this code to improve robustness of this method and speed
 git pull
 ```
 
-## Data required for Langrangian analaysis 
+## Data required for Langrangian analaysis and Formating
 
-To perform the Lagrangian analysis, we require the velocity field $$ \mathbf{v}(\mathbf{x},t) $$ that quantifies the material flow on a manifold $$\mathbf{x} \in \mathcal{M}$$ and the manifold. The manifold information $$ \mathcal{M}$$ is stored as a mesh with discrete node points $$ \mathbf{x}_i = [x_i,y_i,z_i] \in \mathcal{R}^3$$ , where $$ i \in \{1,N_p\}$$ and $$N_p$$ is total number of nodes. The connectivity of the mesh is given by a triangulation $$ T $$ which is a set of all the mesh faces, which for say face $$ i \in \{1,N_f\}$$ would be another set of three vertices $$ \{i_1,i_2,i_3\}$$ where $$ i_1,i_2,i_3 \in \{1,N_p\}$$ are the indices of the nodes that form face $$ i $$, where $$N_f$$ is the total number of faces on the mesh. 
+To perform the Lagrangian analysis, we require the velocity field $$ \mathbf{v}(\mathbf{x},t) $$ that quantifies the material flow on a manifold $$\mathbf{x} \in \mathcal{M}(t)$$. The Lagrangian Analysis method that we describe here works well for both static surfaces where the manifold on which the flow happens is time-independent and dynamic surfaces where the manifold on which the flow happens is time-dependent. 
+
+  > > **NOTE:** Obtaining velocity data from tissue mechanics and active nematic simulations are quite straight forward, but obtaining them from experimental live imaging of biological systems are more difficult. Several methods exist to extract this information such as [ImSAnE](https://github.com/idse/imsane)  and [TubULAR](https://npmitchell.github.io/tubular/). 
+
+
+
+The manifold information $$ \mathcal{M}$$ is stored as a mesh with discrete node points $$ \mathbf{x}_i = [x_i,y_i,z_i] \in \mathcal{R}^3$$ , where $$ i \in \{1,N_p(t)\}$$ and $$N_p(t)$$ is total number of nodes on the manifold at time $$t$$. The connectivity of the mesh is given by a triangulation $$ T $$ which is a set of all the mesh faces, which for say face $$ i \in \{1,N_f(t)\}$$ would be another set of three vertices $$ \{i_1,i_2,i_3\}$$ where $$ i_1,i_2,i_3 \in \{1,N_p(t)\}$$ are the indices of the nodes that form face $$ i $$, where $$N_f(t)$$ is the total number of faces on the mesh at time $$t$$. The velocity field is stored as $$\mathbf{v}_i(t) = [v_i^1(t),v_i^2(t),v_i^3(t)] $$ where $$v_i^1(t),v_i^2(t)$$ and $$v_i^3(t)$$ are the x,y and z-component of the velocity at node $$i$$ at time $$t$$.
  
 Before you run the Lagrangian analysis, the velocity field data and the manifold on which it exists need to be stored in a `.mat` file to read by the MATLAB code, where the variables are 
-- x : cell array with size ($$ N_t,1$$)
-- y : cell array with size ($$ N_t,1$$)
-- z 
-- TrianT
-- time 
-- v 
 
-  > > **NOTE:** Obtaining velocity data from tissue mechanics and active nematic simulations are quite straight forward, but obtaining them from experimental live imaging of biological systems are more difficult. Several methods exist to extract this information such as [ImSAnE](https://github.com/idse/imsane)  and [TubULAR](https://npmitchell.github.io/tubular/). The Lagrangian Analysis method that we describe here works well for both static and dynamic tissues.
+- x : cell array of size ($$ N_t,1$$), where the cell array element `x{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the x-coordinate $$x_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$.
+
+- y : cell array of size ($$ N_t,1$$), where the cell array element `y{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the y-coordinate $$y_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$.
+- z : cell array of size ($$ N_t,1$$), where the cell array element `z{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the z-coordinate $$z_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$.
+
+- TrianT : cell array of size ($$ N_t,1$$), where the cell array element `TrianT{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_f(i),3)$$ with mesh connectivity (For example, $$[i_1,i_2,i_3] $$ for a mesh face with nodes $$i_1,i_2$$ and $$i_3$$) are appended along the rows, where $$N_f(i)$$ is the total number of mesh faces on the manifold at $$t = i$$.
+
+- time : double array of size ($$ 1,N_t$$), which stores information regarding the time
+
+- v : cell array of size ($$ 3, N_t$$) , where the cell array element `v{1,i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the x-coodinate of the velocity $$v^1_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$. Similarily the y and z component of the velocity is stored in `v{2,i}` and `v{3,i}` respectively.
+
+An example dataset is given in `./Data/staticMesh.mat` in the code directory, which can be visualized by runnning the code `./Data/vizExampleData.m`.
+
+## Performing Lagrangian Analysis for a Single Time Interval
+
+We will now explain how to run the code `mainSingleTimeInterval.m` to compute the Lagrangian deformation information for a single chosen time interval $$[t_0,t_f]$$. 
+
+1. **Load the data** : Once the data is formatted appropriately as mentioned in [Data Formatting](#data-required-for-langrangian-analaysis-and-formating), it can be loaded onto the 
+
+
+
+
