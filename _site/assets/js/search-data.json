@@ -1,0 +1,107 @@
+{"0": {
+    "doc": "Contact us",
+    "title": "Contact us",
+    "content": "This website was created by Sreejith Santhosh , who is a graduate student at the Serra Group at UC San Diego. In case of any issues or queries regarding the code or the contents of this website, please reach out to Sreejith Santhosh or Mattia Serra. We will try to reply back to your emails ASAP. ",
+    "url": "/docs/Contact.html",
+    
+    "relUrl": "/docs/Contact.html"
+  },"1": {
+    "doc": "FTLE on Curved Surfaces",
+    "title": "Pre-requisites",
+    "content": "The code was built on MATLAB R2023a in a Windows 10 system. The following MATLAB addons need to be installed to run the code, . | Parallel Computing Toolbox : The code uses parallelization methods provided in this toolbox to run the advection of tracer particles, | Lidar Toolbox : Provides mesh processing capabilities, | Computer Vision Toolbox : Provides mesh processing capabilities. | . We have tested these codes on a Mac OSX 15 and Ubuntu 20 operating systems. Since we couldn’t test our code on a lot more versions of MATLAB and OS distributions, there could be possible unexpected errors when running this code on other system specifications. We also assume that git is installed and set up in the system, as all the code are set up on GitHub. If not, we refer you to this link, explaining the same. ",
+    "url": "/docs/Tutorials/FTLECurvedSurface.html#pre-requisites",
+    
+    "relUrl": "/docs/Tutorials/FTLECurvedSurface.html#pre-requisites"
+  },"2": {
+    "doc": "FTLE on Curved Surfaces",
+    "title": "Installation",
+    "content": "To install the code, navigate to the path where you would want to install it on the terminal and clone the github repository using the code . git clone https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git . This will generate a directory called curvedSurfaceFTLE which contains all the code. To check if all the necessary components are working, run main.m on MATLAB. This runs the deformation analysis on an example dataset of motion of cells on the pancreatic spheroids given in ./Data/staticMesh.mat and would present the following result, . In addition the visalization of the velocity field, forward and backward advection of tracer particles would be given in /saveResults directory as vizVelocity.mp4 , forAdvct.mp4 and bckAdvct.mp4 respectively. Further developement of this code to improve robustness of this method and speed it up is currently ongoing. To get those updates use the command . git pull . ",
+    "url": "/docs/Tutorials/FTLECurvedSurface.html#installation",
+    
+    "relUrl": "/docs/Tutorials/FTLECurvedSurface.html#installation"
+  },"3": {
+    "doc": "FTLE on Curved Surfaces",
+    "title": "Data required for Langrangian analaysis and Formating",
+    "content": "To perform the Lagrangian analysis, we require the velocity field \\(\\mathbf{v}(\\mathbf{x},t)\\) that quantifies the material flow on a manifold \\(\\mathbf{x} \\in \\mathcal{M}(t)\\). The Lagrangian Analysis method that we describe here works well for both static surfaces where the manifold on which the flow happens is time-independent and dynamic surfaces where the manifold on which the flow happens is time-dependent. NOTE: Obtaining velocity data from tissue mechanics and active nematic simulations are quite straight forward, but obtaining them from experimental live imaging of biological systems are more difficult. Several methods exist to extract this information such as ImSAnE and TubULAR. The manifold information \\(\\mathcal{M}\\) is stored as a mesh with discrete node points \\(\\mathbf{x}_i = [x_i,y_i,z_i] \\in \\mathcal{R}^3\\) , where \\(i \\in \\{1,N_p(t)\\}\\) and \\(N_p(t)\\) is total number of nodes on the manifold at time \\(t\\). The connectivity of the mesh is given by a triangulation \\(T\\) which is a set of all the mesh faces, which for say face \\(i \\in \\{1,N_f(t)\\}\\) would be another set of three vertices \\(\\{i_1,i_2,i_3\\}\\) where \\(i_1,i_2,i_3 \\in \\{1,N_p(t)\\}\\) are the indices of the nodes that form face \\(i\\), where \\(N_f(t)\\) is the total number of faces on the mesh at time \\(t\\). The velocity field is stored as \\(\\mathbf{v}_i(t) = [v_i^1(t),v_i^2(t),v_i^3(t)]\\) where \\(v_i^1(t),v_i^2(t)\\) and \\(v_i^3(t)\\) are the x,y and z-component of the velocity at node \\(i\\) at time \\(t\\). Before you run the Lagrangian analysis, the velocity field data and the manifold on which it exists need to be stored in a .mat file to read by the MATLAB code, where the variables are . | x : cell array of size (\\(N_t,1\\)), where the cell array element x{i} \\(i\\in \\{1,N_t\\}\\) is a double array of size \\((N_p(i),1)\\) with the x-coordinate \\(x_i\\) of all the mesh nodes, where \\(N_p(i)\\) is the total number of points on the manifold at \\(t = i\\). | y : cell array of size (\\(N_t,1\\)), where the cell array element y{i} \\(i\\in \\{1,N_t\\}\\) is a double array of size \\((N_p(i),1)\\) with the y-coordinate \\(y_i\\) of all the mesh nodes, where \\(N_p(i)\\) is the total number of points on the manifold at \\(t = i\\). | z : cell array of size (\\(N_t,1\\)), where the cell array element z{i} \\(i\\in \\{1,N_t\\}\\) is a double array of size \\((N_p(i),1)\\) with the z-coordinate \\(z_i\\) of all the mesh nodes, where \\(N_p(i)\\) is the total number of points on the manifold at \\(t = i\\). | TrianT : cell array of size (\\(N_t,1\\)), where the cell array element TrianT{i} \\(i\\in \\{1,N_t\\}\\) is a double array of size \\((N_f(i),3)\\) with mesh connectivity (For example, \\([i_1,i_2,i_3]\\) for a mesh face with nodes \\(i_1,i_2\\) and \\(i_3\\)) are appended along the rows, where \\(N_f(i)\\) is the total number of mesh faces on the manifold at \\(t = i\\). | time : double array of size (\\(1,N_t\\)), which stores information regarding the time . | v : cell array of size (\\(3, N_t\\)) , where the cell array element v{1,i} \\(i\\in \\{1,N_t\\}\\) is a double array of size \\((N_p(i),1)\\) with the x-coodinate of the velocity \\(v^1_i\\) of all the mesh nodes, where \\(N_p(i)\\) is the total number of points on the manifold at \\(t = i\\). Similarily the y and z component of the velocity is stored in v{2,i} and v{3,i} respectively. | . An example dataset is given in ./Data/staticMesh.mat in the code directory, which can be visualized by runnning the code ./Data/vizExampleData.m. NOTE: The accuracy of the Lagrangian Analysis code requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately the equal sizes, deviation from this results in the spurious results. The more finer the mesh faces, the better the accuracy of the advection and deformation computed. ",
+    "url": "/docs/Tutorials/FTLECurvedSurface.html#data-required-for-langrangian-analaysis-and-formating",
+    
+    "relUrl": "/docs/Tutorials/FTLECurvedSurface.html#data-required-for-langrangian-analaysis-and-formating"
+  },"4": {
+    "doc": "FTLE on Curved Surfaces",
+    "title": "Performing Lagrangian Analysis for a Single Time Interval",
+    "content": "We will now explain how to run the code main.m to compute the Lagrangian deformation information for a single chosen time interval \\([t_0,t_f]\\). | Load the data : Once the data is formatted appropriately as mentioned in Data Formatting, it can be loaded onto the script by proving the right path load(PATH TO THE DATA FILE); Nt = size(time,2); . | Setting parameters for the simulation : There are a few parameters that needs to be set depending on the type of data and the system configuration on wich you are running the script, as described below . | isStatic : should be set to isStatic = 1 if the mesh surface on which the motion happens is time-independent and isStatic = 0 is the mesh changes over time. The code runs considerably faster for static meshes. | cpu_num : The code parallelizes the Lagrangian analysis using the parfor method. Therefore, set this variable to cpu_num = Nc, where \\(Nc\\) is the number of cpu cores available. Note that a copy of the dataset goes to each core, whereby the total data that exists on the RAM might exceed the system capabilities. For example, if your data is x GB and you paralellize over Nc cores, the total RAM required is \\(\\approx\\) &gt; x * Nc GB. | Plotting parameters Nplot and fntSz: Nplot sets the number of frames that is saved in the video while plotting the advection results. fntSz similarly sets the font size of the text and elements on those plots | Advection parameters ct_f and ct_i and dt: If you need to analyze the Lagrangian deformation from \\(t = t0\\) to \\(t = tf\\), input ct_f and ct_i so that time(ct_f) = tf and time(ct_0) = t0. The time-step dt for the advection | . | Running Code : After setting these parameters as mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection \\(t0\\to tf\\) and backward advection \\(tf \\to t0\\) of tracer particles. This will be saved in the ./SaveResults folder. The deformation information will be displayed as a MATLAB plot using the code written in %% Calculate and Visualize the FTLE values. | . ",
+    "url": "/docs/Tutorials/FTLECurvedSurface.html#performing-lagrangian-analysis-for-a-single-time-interval",
+    
+    "relUrl": "/docs/Tutorials/FTLECurvedSurface.html#performing-lagrangian-analysis-for-a-single-time-interval"
+  },"5": {
+    "doc": "FTLE on Curved Surfaces",
+    "title": "FTLE on Curved Surfaces",
+    "content": "The code for computing the coherent structures and Lagrangian deformation for flow on a curved surface is given in this link. The following is a tutorial on how to use this code. To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript S. Santhosh et al. Please reach out to us in case of any issues with the code, and we will try to work with you to get it to work for your dataset. ",
+    "url": "/docs/Tutorials/FTLECurvedSurface.html",
+    
+    "relUrl": "/docs/Tutorials/FTLECurvedSurface.html"
+  },"6": {
+    "doc": "FTLE on 2-D and 3-D Euclidean Space Using velocity data",
+    "title": "FTLE on 2-D and 3-D Euclidean Space Using velocity data",
+    "content": "The code for computing FTLE for flow on curved surface are given at source. We will provide a detailed tutorial on how to use this code for flow on curved surfaces. To understand the mathematical background and methods used to compute FTLE on curved surface, we refer you to the accompanying manuscript S. Santhosh et al. ",
+    "url": "/docs/Tutorials/FTLEEuclidean.html",
+    
+    "relUrl": "/docs/Tutorials/FTLEEuclidean.html"
+  },"7": {
+    "doc": "FTLE on 2-D and 3-D Euclidean Space Using Sparse Trajectories",
+    "title": "FTLE on 2-D and 3-D Euclidean Space Using Sparse Trajectories",
+    "content": "The code for computing FTLE for flow on curved surface are given at source. We will provide a detailed tutorial on how to use this code for flow on curved surfaces. To understand the mathematical background and methods used to compute FTLE on curved surface, we refer you to the accompanying manuscript S. Molawi et al. ",
+    "url": "/docs/Tutorials/FTLESparseTrajectories.html",
+    
+    "relUrl": "/docs/Tutorials/FTLESparseTrajectories.html"
+  },"8": {
+    "doc": "FTLE in Synthetic Active Sytems",
+    "title": "FTLE in Synthetic Active Sytems",
+    "content": "There a growing corpus of literature highlights the role of LCS structures identified using FTLE methods in active flows, primarily in active nematic flow. We list some of the recent developements and must-reads so that you can get a sense of where it has been applied and how it is interpreted and how it has physical significance. | Defect-mediated dynamics of coherent structres in active nematics : This work from M. Serra et al, introduces the concept of LCS into analyzing the flows generated in active flows generated by active nematic systems. The paper goes on to analyze and correlate the motion of the LCS structures and couples it to the nematic orientational field. The paper also highlights the role of topological defects in generating the motion of these strutures. | . ",
+    "url": "/docs/FTLEinActiveSystems.html",
+    
+    "relUrl": "/docs/FTLEinActiveSystems.html"
+  },"9": {
+    "doc": "FTLE in Biological Flows",
+    "title": "FTLE in Biological Flows",
+    "content": "There a growing corpus of literature highlights the role of LCS structures identified using FTLE methods in biological flows, primarily in morphogenesis. We list some of the recent developements and must-reads so that you can get a sense of where it has been applied and how it is interpreted and how it has biological significance. | Dynamic Morphoskeletons in Development : This work from M. Serra et al, introduces the concept of LCS into analyzing the flows generated in morphogenetic flows during Chick and Drosophila gastrulation. The paper also goes through concepts of why FTLE based methods are ideal to uncover hidden structure in the flow. | A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors : In collaboration with Royer Lab at CZ biohub, the fate specfication of NMP progenitor cells are analyzed from the perspective of morphogenetic flows. FTLE analysis reveals the emergence of a transport barrier between the PSM and the neural tube restricting the NMP population to PSM fate at later stages. | Control of epiblast cell fate by mechanical cues: Add details . | . ",
+    "url": "/docs/FTLEinBiology.html",
+    
+    "relUrl": "/docs/FTLEinBiology.html"
+  },"10": {
+    "doc": "Tutorial - FTLE codes",
+    "title": "Tutorial - FTLE codes",
+    "content": "There are quite many codes developed to compute different FTLE for flows on different geometries. We will now provide a one-stop solution and tutorial for all your FTLE needs, whether your flow is in 2-D/3-D Euclidean space or on a curved surface in 3-D. ",
+    "url": "/docs/TutorialFTLECode.html",
+    
+    "relUrl": "/docs/TutorialFTLECode.html"
+  },"11": {
+    "doc": "Introduction",
+    "title": "What is FTLE?",
+    "content": "FTLE (Finite Time Lyapunov Exponent) is a method of quantifying material flow, whereby you identify the most robust structures which act as the finite-time analogues of stable and unstable manifolds (See Reference ). Check this out . ",
+    "url": "/#what-is-ftle",
+    
+    "relUrl": "/#what-is-ftle"
+  },"12": {
+    "doc": "Introduction",
+    "title": "How do we calculate FTLE?",
+    "content": "To compute the FTLE field we start of by describing the dynamical system \\(\\frac{d \\mathbf{x}}{dt} = \\mathbf{v}(\\mathbf{x},t)\\), where \\(\\mathbf{v}(\\mathbf{x},t)\\) is the velocity field generated from the material flow. A conventional procedure to generate the velocity field fom a series of snapshots of the flow proccesses is to use PIV methods (See Ref,PIVLab is a very nice software to easily compute PIV from series of images). ",
+    "url": "/#how-do-we-calculate-ftle",
+    
+    "relUrl": "/#how-do-we-calculate-ftle"
+  },"13": {
+    "doc": "Introduction",
+    "title": "Why you should use FTLE on your flow dataset",
+    "content": "Structures identified using LCS methods are objective, as in they are invariant to time-dependent rigid rotations and translations. They are also mathematically shown to be the most robust structures in the flow, thereby making it robust to noise. ",
+    "url": "/#why-you-should-use-ftle-on-your-flow-dataset",
+    
+    "relUrl": "/#why-you-should-use-ftle-on-your-flow-dataset"
+  },"14": {
+    "doc": "Introduction",
+    "title": "Introduction",
+    "content": " ",
+    "url": "/",
+    
+    "relUrl": "/"
+  }
+}
