@@ -13,7 +13,12 @@ Please [reach out to us](../Contact) in case of any issues with the code, and we
 
 ## Pre-requisites 
 
-The code was built on MATLAB R2023a in a Windows 10 system. We have tested these codes on a *Mac OSX 15* and *Ubuntu 20* operating systems. Since we couldn't test our code on a lot more versions of MATLAB and OS distributions, there could be possible unexpected errors when running this code on other system specifications. We also assume that git is installed and set up in the system, as all the code are set up on GitHub. If not, we refer you to this [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), explaining the same.
+The code was built on MATLAB R2023a in a Windows 10 system. The following MATLAB addons need to be installed to run the code, 
+- [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
+- [Lidar Toolbox](https://www.mathworks.com/help/lidar/index.html?s_tid=CRUX_lftnav)
+- [Computer Vision Toolbox](https://www.mathworks.com/products/computer-vision.html)
+
+We have tested these codes on a *Mac OSX 15* and *Ubuntu 20* operating systems. Since we couldn't test our code on a lot more versions of MATLAB and OS distributions, there could be possible unexpected errors when running this code on other system specifications. We also assume that git is installed and set up in the system, as all the code are set up on GitHub. If not, we refer you to this [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), explaining the same.
 
 
 ## Installation 
@@ -23,9 +28,9 @@ To install the code, navigate to the path where you would want to install it on 
 ```
 git clone  https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git
 ```
-This will generate a directory called **curvedSurfaceFTLE** which contains all the code. To check if all the necessary components are working, run `mainSingleTimeInterval.m` on MATLAB. This runs the deformation analysis on an example dataset of motion of cells on the pancreatic spheroids given in `./Data/staticMesh.mat` and would present the following result, 
+This will generate a directory called **curvedSurfaceFTLE** which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an example dataset of motion of cells on the pancreatic spheroids given in `./Data/staticMesh.mat` and would present the following result, 
 
-![Result of FTLE Analaysis](../../Images/exampleResult.png)
+![Result of FTLE Analaysis](../../Images/resultCodeMAIN.png)
 
 In addition the visalization of the velocity field, forward and backward advection of tracer particles would be given in `/saveResults` directory as `vizVelocity.mp4` , `forAdvct.mp4` and `bckAdvct.mp4` respectively.
 
@@ -65,7 +70,7 @@ An example dataset is given in `./Data/staticMesh.mat` in the code directory, wh
 
 ## Performing Lagrangian Analysis for a Single Time Interval
 
-We will now explain how to run the code `mainSingleTimeInterval.m` to compute the Lagrangian deformation information for a single chosen time interval $$[t_0,t_f]$$. 
+We will now explain how to run the code `main.m` to compute the Lagrangian deformation information for a single chosen time interval $$[t_0,t_f]$$. 
 
 1. **Load the data** : Once the data is formatted appropriately as mentioned in [Data Formatting](#data-required-for-langrangian-analaysis-and-formating), it can be loaded onto the script by proving the right path 
 ```
@@ -78,9 +83,9 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 - Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t = t0$$ to $$t = tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. <span style = "color:red">The time-step ``dt`` for the advection </span> 
 3. **Running Code** : After setting these parameters as mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf $$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code writter in  ``%% Calculate and Visualize the FTLE values``. To interpret these results, refer to <span style ="color:red">documentationLagrangianDeformation</span>
 
-## Performing Lagrangian Analysis for a Multiple Time Interval
+<!-- ## Performing Lagrangian Analysis for a Multiple Time Interval
 
-Quite regularly we would want to see how the deformation evolves for increasing time intervals $$[t0,tf]$$ where for a constant $$ t0$$ you vary $$tf$$, whereby you can see the emergence of the structures in the flow. The code provided in ``mainMultTimeInterval.m`` does that for you. We will now go through how to set up this code and visualize the results using the code given in ``plotMultTimeInterval.m``
+Quite regularly we would want to see how the deformation evolves for increasing time intervals $$[t0,tf]$$ where for a constant $$ t0$$ you vary $$tf$$, whereby you can see the emergence of the structures in the flow. The code provided in ``mainMultTimeInterval.m`` does that for you. We will now go through how to set up this code and visualize the results using the code given in ``plotMultTimeInterval.m`` -->
 
 
 
