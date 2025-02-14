@@ -14,9 +14,9 @@ Please [reach out to us](../Contact) in case of any issues with the code, and we
 ## Pre-requisites 
 
 The code was built on MATLAB R2023a in a Windows 10 system. The following MATLAB addons need to be installed to run the code, 
-- [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html)
-- [Lidar Toolbox](https://www.mathworks.com/help/lidar/index.html?s_tid=CRUX_lftnav)
-- [Computer Vision Toolbox](https://www.mathworks.com/products/computer-vision.html)
+- [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html) : The code uses parallelization methods provided in this toolbox to run the advection of tracer particles.
+- [Lidar Toolbox](https://www.mathworks.com/help/lidar/index.html?s_tid=CRUX_lftnav) : Provides mesh processing capabilities.
+- [Computer Vision Toolbox](https://www.mathworks.com/products/computer-vision.html) : Provides mesh processing capabilities.
 
 We have tested these codes on a *Mac OSX 15* and *Ubuntu 20* operating systems. Since we couldn't test our code on a lot more versions of MATLAB and OS distributions, there could be possible unexpected errors when running this code on other system specifications. We also assume that git is installed and set up in the system, as all the code are set up on GitHub. If not, we refer you to this [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git), explaining the same.
 
@@ -81,7 +81,8 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 - ``cpu_num`` : The code parallelizes the Lagrangian analysis using the [parfor](https://www.mathworks.com/help/parallel-computing/parfor.html) method. Therefore, set this variable to ``cpu_num = Nc ``, where $$Nc$$ is the number of cpu cores available. Note that a copy of the dataset goes to each core, whereby the total data that exists on the RAM might exceed the system capabilities. For example, if your data is x GB and you paralellize over Nc cores, the total RAM required is $$ \approx$$ > x * Nc GB.
 - Plotting parameters ``Nplot`` and ``fntSz``: ``Nplot`` sets the number of frames that is saved in the video while plotting the advection results. ``fntSz`` similarly sets the font size of the text and elements on those plots
 - Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t = t0$$ to $$t = tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. <span style = "color:red">The time-step ``dt`` for the advection </span> 
-3. **Running Code** : After setting these parameters as mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf $$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code writter in  ``%% Calculate and Visualize the FTLE values``. To interpret these results, refer to <span style ="color:red">documentationLagrangianDeformation</span>
+3. **Running Code** : After setting these parameters as mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf $$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
+<!-- To interpret these results, refer to <span style ="color:red">documentationLagrangianDeformation</span> -->
 
 <!-- ## Performing Lagrangian Analysis for a Multiple Time Interval
 
