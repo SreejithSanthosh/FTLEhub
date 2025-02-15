@@ -19,15 +19,20 @@ Recent work have demonstrated the usefulness of analyzing active flows generated
 
 ## How do we calculate FTLE?
 
-To compute the FTLE field we start of by describing the dynamical system $$\frac{d \mathbf{x}}{dt} = \mathbf{v}(\mathbf{x},t)$$, where $$\mathbf{v}(\mathbf{x},t)$$ is the velocity field generated from the material flow. 
+We will now describe how to compute the FTLE for a 2D flow described by the velocity field $$\mathbf{v}(\mathbf{x},t)$$ were $$ \mathbf{x},\mathbf{v} \in \mathbb{R}^2$$. The formalism required to compute FTLE for flows on 2D curved surfaces embedded in 3D is different and we refer you to the paper [S. Santhosh et al]() for details.
 
 >> In general, to experimentally compute the velocity field of a flow PIV methods are used (See [Ref](https://en.wikipedia.org/wiki/Particle_image_velocimetry), [PIVLab](https://pivlab.blogspot.com/p/blog-page_19.html) is a MATLAB toolbox to easily compute PIV). 
 
-To study the Lagrangian features of the flow, we compute the flow map  
-$$ \mathbf{F}_{t_0}^t  = \int $$
-
-The FTLE is computed using the right Cauchy-Green strain tensor $$\mathbf{C}_{t_0}^t(\mathbf{x}_0)$$, which quantifies the Lagrangian deformation experienced by a material patch initially at $$\mathbf{x}_0$$ over the time-interval $$[t_0,t]$$. 
- 
+To study the Lagrangian features of the flow, we compute the flow map 
+<div> 
+$$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)  = \mathbf{x}_0 + \int_{t_0}^t \mathbf{v}(\mathbf{F}_{t_0}^\tau(\mathbf{x}_0),\tau) d\tau. $$
+</div>
+The FTLE is computed using the right Cauchy-Green strain tensor $$\mathbf{C}_{t_0}^t(\mathbf{x}_0) = (\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))^\top(\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0)),$$
+which quantifies the Lagrangian deformation experienced by a material patch initially at $$\mathbf{x}_0$$ over the time-interval $$[t_0,t]$$. The eigenvalues of the $$\mathbf{C}_{t_0}^t(\mathbf{x}_0)$$ are positive, since it is real and symmetric. The FTlE field is given by, 
+<div>
+$$ \Lambda_{t_0}^t(\mathbf{x}_0) = \frac{1}{2|t-t_0|}\text{log}(\lambda_2),$$
+ </div>
+where $$\lambda_2$$ is the largest eigenvalue of $$\mathbf{C}_{t_0}^t(\mathbf{x}_0)$$.
 
 ## References
 

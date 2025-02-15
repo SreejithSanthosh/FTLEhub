@@ -1,5 +1,5 @@
 ---
-title: FTLE in Synthetic Active Sytems 
+title: FTLE in Active Nematics 
 layout: home
 nav_order: 4
 ---
