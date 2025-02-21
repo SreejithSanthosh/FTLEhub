@@ -528,6 +528,7 @@ def run_simulation(node_connections, node_positions, node_velocities, particle_p
 For ease of plotting the FTLE values on your mesh as colormap, it is easiest to have your initial particles be the node positions then you can directly use your mesh structure. As is done here:
 
 ```
+# Color bar settings
 scalar_bar_args = {
     "vertical": True,            # Vertical color bar
     "title_font_size": 12,        # Title size
@@ -579,6 +580,47 @@ pl.show()
 For an exmaple of how this looks, using a data of a zebra fish heart, for ``dt`` && = 0.1 && here is a pyvista plot of the forward FTLE values computed for all three schemes: 
 
 ![Introduction To Curved Surface FTLE](../../Images/repoftleSchemeExample.png)
+
+
+Alternatively, you could plot the scatter plot of the points and assign a color map:
+
+```
+scalar_bar_args = {
+    "vertical": True,
+    "title_font_size": 12,
+    "label_font_size": 10,
+    "n_labels": 5,  # Reduce number of labels
+    "position_x": 0.85,  # Adjust position
+    "position_y": 0.1,
+    "width": 0.1,
+    "height": 0.7
+}
+
+# Extract node positions (first time step)
+points = node_positions[:, :, 0]  
+
+# Initialize PyVista Plotter with 3 subplots
+window_size = (1920, 1080)
+pl = pv.Plotter(shape=(1, 3), off_screen=False, window_size=window_size)
+
+# === SUBPLOTS ===
+pl.subplot(0, 0)
+pl.add_points(points, scalars=fast_fftle, cmap='jet', point_size=5.0, scalar_bar_args=scalar_bar_args)
+pl.add_title('Fast Euler Scheme')
+
+
+pl.subplot(0, 1)
+pl.add_points(points, scalars=fftle, cmap='jet', point_size=5.0, scalar_bar_args=scalar_bar_args)
+pl.add_title('Euler Scheme')
+
+pl.subplot(0, 2)
+pl.add_points(points, scalars=Rfftle, cmap='jet', point_size=5.0, scalar_bar_args=scalar_bar_args)
+pl.add_title('RK4 Scheme')
+
+pl.show()
+
+```
+![Introduction To Curved Surface FTLE](../../Images/repoFTLEscaterExample.png)
 
 
 
