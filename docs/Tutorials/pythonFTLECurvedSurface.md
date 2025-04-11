@@ -6,28 +6,19 @@ nav_order: 1
 ---
 
 
-The code for computing the coherent structures and Lagrangian deformation for flow on a curved surface is given in this [link](https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git). To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript [S. Santhosh et al](Necessary Link).
+The python package for computing the coherent structures and Lagrangian deformation for flow on a curved surface is given in this [link](https://github.com/bfencil/ftlePackage). To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript [S. Santhosh et al](Necessary Link).
 
-
-## Pre-requisites 
-
-
-The python code was written in Python version 3.11.8. The following libraries were used: numpy, scipy, pyvista, numba, and itertools.
 
 
 
 ## Installation 
 
-To install the code, navigate to the path where you would want to install it on the terminal and clone the github repository using the code 
+To install the python package you can you the following command in your python environment:
 
 ```
-git clone  https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git
+pip install -e https://github.com/bfencil/ftlePackage.git#egg=ftlePackage
 ```
 
-Further developement of this code to improve robustness of this method and speed it up is currently ongoing. To get those updates use the command  
-```
-git pull
-```
 
 
 
