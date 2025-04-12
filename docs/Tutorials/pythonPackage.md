@@ -24,17 +24,17 @@ This pacakge was made in python version 3.11.8.
 
 
 
-## Dense FTLE Computations in $$ \mathbb R^2$$ and $$\mathbb R^3$$
+## Dense FTLE Computations in $$\mathbb R^2$$ and $$\mathbb R^3$$
 
 
 
 
-## Sparse FTLE Computations $$ \mathbb R^2$$ and $$\mathbb R^3$$
+## Sparse FTLE Computations $$\mathbb R^2$$ and $$\mathbb R^3$$
 
 
 
 
-## Curved Surfaces in $$ \mathbb R^3 $$
+## Curved Surfaces in $$\mathbb R^3 $$
 
 
 The data for a surface in $$ \mathbb R^3 $$ is given as a mesh with: 
