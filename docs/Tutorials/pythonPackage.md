@@ -156,7 +156,7 @@ from ftle.flat.utilities import plot_FTLE_2d, plot_FTLE_3d
 ```python
 plot_FTLE_2d(particles_positions, ftle)
 ```
-
+Place example here!
 ---
 
 ### Example FTLE Plot in 3D
@@ -164,7 +164,7 @@ plot_FTLE_2d(particles_positions, ftle)
 ```python
 plot_FTLE_3d(particles_positions, ftle)
 ```
-
+Place example here!
 ---
 
 
