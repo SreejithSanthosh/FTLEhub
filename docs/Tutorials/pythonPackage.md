@@ -34,23 +34,68 @@ This pacakge was made in python version 3.11.8.
 
 
 
-## Curved Surfaces in $$\mathbb R^3 $$
 
 
-The data for a surface in $$ \mathbb R^3 $$ is given as a mesh with: 
+## Surfaces in $\mathbb{R}^3$
+
+### Overview
+
+This section provides functionality for computing FTLE (Finite Time Lyapunov Exponent) fields for flows on triangulated surfaces in $\mathbb{R}^3$. 
+
+This is distinct from the dense and sparse FTLE methods in Euclidean domains, as here the mesh itself evolves over time and particles are constrained to remain on the surface throughout the advection process.
+
+The primary function for users is `ftle_mesh`, which wraps the entire process of particle advection and FTLE computation for a triangulated, staggered mesh surface.
+
+Additional functions such as `FTLE_compute` are available if finer control is needed (e.g. using your own advection scheme or particle data).
+
+---
+
+## Example Usage
+
+```python
+from ftle.curved.mesh import ftle_mesh
+import h5py
 
 
-- Positions: A staggered list of dimensions (T , N_t, 3), where T corresponds to the amount of time steps and N_t is the amount of nodes at time t, each of dimensions (x,y,z).
+def load_mesh_data_h5(h5_file_path):
+    """
+    Load staggered curved surface mesh data from an HDF5 file.
+    Expects groups:
+        /node_cons/{t}
+        /position/{t}
+        /velocity/{t}
+        /time_steps
+    """
+    with h5py.File(h5_file_path, 'r') as f:
+        time_steps = f["time_steps"][:]
+        keys = sorted(f["position"].keys(), key=lambda k: int(k))
+        position = [f["position"][k][:] for k in keys]
+        velocity = [f["velocity"][k][:] for k in keys]
+        node_cons = [f["node_cons"][k][:] for k in keys]
 
-- Velocities: A staggered list of dimension (T, N_t 3), where each index corresponds to the node position of the same index.
+    return {
+        'node_cons': node_cons,
+        'position': position,
+        'velocity': velocity,
+        'time_steps': time_steps
+    }
 
-- Time steps: A list of the time indexes of the data of size T, indexed starting at $$ t=0 $$
+file_path = "path/to/your/mesh_data.h5"
 
-- Node connections: A staggered list of dimension (T, M_t, k) consisting of integer values corresponding to node indexes for positions and velocities. M_t is the amount of faces at a time step, with k possible connections from that node to another other nodes.
+mesh_data = load_mesh_data_h5(file_path)
 
-
-The primary function used to run the FTLE anaylys is ftle_mesh below along with a description of its functionality:
-
+ftle, trajectories = ftle_mesh(
+    node_cons = mesh_data['node_cons'],
+    node_positions = mesh_data['position'],
+    node_velocities = mesh_data['velocity'],
+    particle_positions = mesh_data['position'][0],
+    initial_time = 0,
+    final_time = 28,
+    time_steps = mesh_data['time_steps'],
+    direction = "forward",
+    plot_ftle = True,
+    neighborhood = 15
+)
 
 
 
