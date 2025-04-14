@@ -16,7 +16,7 @@ The python package for computing the coherent structures and Lagrangian deformat
 To install the python package you can use the following command in your python environment:
 
 ```
-pip install -e https://github.com/bfencil/ftlePackage.git#egg=ftlePackage
+pip install -e git+https://github.com/bfencil/ftlePackage.git#egg=ftle_package
 ```
 
 This pacakge was made in python version 3.11.8.
