@@ -28,9 +28,6 @@ This pacakge was made in python version 3.11.8.
 
 
 
-
-## Sparse FTLE Computations $$\mathbb R^2$$ and $$\mathbb R^3$$
-
 ## Sparse FTLE Computations in $\mathbb{R}^2$ and $\mathbb{R}^3$
 
 ### Overview
