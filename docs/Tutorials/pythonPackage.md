@@ -163,7 +163,7 @@ ftle = FTLE_compute(
 
 ## Inputs for `FTLE_compute`
 
-This function allows direct computation of the FTLE field given known particle trajectories. It is particularly useful when the advection has already been performed externally or when re-evaluating FTLE on precomputed data.
+This function allows direct computation of the FTLE field given known particle trajectories. It is particularly useful when the advection has already been performed externally or when re-evaluating FTLE on precomputed data(like what is returned from `ftle_mesh`.
 
 - `node_connections_t`  
   A list of connectivity arrays for each time step, where each array has shape `(M_t, 3)` defining the mesh triangles.
