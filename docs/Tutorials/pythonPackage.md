@@ -112,13 +112,13 @@ The `ftle_mesh` function computes the FTLE field for flows on a triangulated sur
   A list of arrays of shape `(N_t, 3)` for each time step. These are the velocity vectors at each node.
 
 - `particle_positions`  
-  An array of shape `(P, 3)` containing the initial positions of the particles to advect on the surface, where `P` is the number of particles.
+  An array of shape `(P, 3)` containing the initial positions of the particles to advect on the surface, where `P` is the number of particles, for ease of plotting the final results it is recommended that the initial positions just correspond to the node positions at the initial time.
 
 - `initial_time`  
-  An integer specifying the starting time index for the advection.
+  An integer specifying the starting time index for the advection. This must respect final time with respect to the `direction`('forward'/'backward') i.e if `direction` is 'backward' then `initial_time` $>$ `final_time`. Just reverse the inequality for 'forward'.
 
 - `final_time`  
-  An integer specifying the ending time index for the advection.
+  An integer specifying the ending time index for the advection. This must respect final time with respect to the `direction`('forward'/'backward') i.e if `direction` is 'backward then `initial_time` $>$ `final_time`. Just reverse the inequality for 'forward'.
 
 - `time_steps`  
   An array of time values corresponding to the available mesh data (usually consecutive integers starting at 0).
@@ -127,7 +127,7 @@ The `ftle_mesh` function computes the FTLE field for flows on a triangulated sur
   A string, either `"forward"` or `"backward"` indicating the direction of advection.
 
 - `plot_ftle`  
-  Optional boolean. If `True`, automatically generates a 3D PyVista plot of the FTLE field.
+  Optional boolean. If `True`, automatically generates a 3D PyVista plot of the FTLE field. This does not save the plot.
 
 - `neighborhood`  
   Integer (default 15). The number of nearest neighboring particles used when computing the local FTLE gradient.
@@ -161,6 +161,35 @@ ftle = FTLE_compute(
 )
 ```
 
+## Inputs for `FTLE_compute`
 
+This function allows direct computation of the FTLE field given known particle trajectories. It is particularly useful when the advection has already been performed externally or when re-evaluating FTLE on precomputed data.
+
+- `node_connections_t`  
+  A list of connectivity arrays for each time step, where each array has shape `(M_t, 3)` defining the mesh triangles.
+
+- `node_positions_t`  
+  A list of arrays of node positions for each time step, with each array of shape `(N_t, 3)`.
+
+- `centroids_t`  
+  A list of arrays of triangle centroids for each time step. These can be generated using the helper function `compute_centroids_staggered`.
+
+- `initial_positions`  
+  A `(P, 3)` array containing the positions of particles at the initial time step.
+
+- `final_positions`  
+  A `(P, 3)` array containing the positions of particles at the final time step.
+
+- `initial_time`  
+  Integer index specifying the start time.
+
+- `final_time`  
+  Integer index specifying the end time.
+
+- `neighborhood`  
+  The number of neighboring particles to use for local FTLE estimation. Defaults to 15.
+
+- `lam`  
+  A small regularization constant (default $1 \times 10^{-10}$) used to stabilize the inversion of matrices during gradient estimation.
 
 
