@@ -52,55 +52,26 @@ Additional functions such as `FTLE_compute` are available if finer control is ne
 
 ### Example Usage
 
-The function `FTLE_mesh` uses the input mesh data with a defined vector field data for the mesh to advect particles constrained to the mesh and to compute the FTLE values at each initial particle position. The mesh does not need any specific structure and the mesh itself can move over time and have a different number of nodes per time step. The advection scheme used is a standard RK4 scheme and KDtrees are used to assist in the projecting particles down to the surface after each time step. It is worth noting that due to the general design of `FTLE_mesh` to work with meshes that are not well defined over time(different number of nodes per time step), the RK4 integration time step is just set to $$dt=1$$(i.e the assumed difference between time steps in the mesh data). `FTLE_mesh` returns the FTLE data along with the trajectory data. Also `FTLE_mesh` has built in plotting functionality in a function `plot_FTLE_mesh` which will be discussed more later. 
+The function `FTLE_mesh` uses the input mesh data with a defined vector field data for the mesh to advect particles constrained to the mesh and to compute the FTLE values at each initial particle position. The mesh does not need any specific structure and the mesh itself can move over time and have a different number of nodes per time step. The advection scheme used is a standard RK4 scheme and KDtrees are used to assist in the projecting particles down to the surface after each time step. It is worth noting that due to the general design of `FTLE_mesh` to work with meshes that are not well defined over time(different number of nodes per time step), the RK4 integration time step is just set to $$dt=1$$(i.e the assumed difference between time steps in the mesh data). `FTLE_mesh` returns the FTLE data along with the trajectory data. Also `FTLE_mesh` has built in plotting functionality in a function `plot_FTLE_mesh` which is discussed more in a later section. 
+
 ```python
 from ftle.curved.mesh import ftle_mesh
-import h5py
 
-
-def load_mesh_data_h5(h5_file_path):
-    """
-    Load staggered curved surface mesh data from an HDF5 file.
-    Expects groups:
-        /node_cons/{t}
-        /position/{t}
-        /velocity/{t}
-        /time_steps
-    """
-    with h5py.File(h5_file_path, 'r') as f:
-        time_steps = f["time_steps"][:]
-        keys = sorted(f["position"].keys(), key=lambda k: int(k))
-        position = [f["position"][k][:] for k in keys]
-        velocity = [f["velocity"][k][:] for k in keys]
-        node_cons = [f["node_cons"][k][:] for k in keys]
-
-    return {
-        'node_cons': node_cons,
-        'position': position,
-        'velocity': velocity,
-        'time_steps': time_steps
-    }
-
-file_path = "path/to/your/mesh_data.h5"
-
-mesh_data = load_mesh_data_h5(file_path)
-
-initial_time = 0
-
-ftle, trajectories = ftle_mesh(
-    node_cons = mesh_data['node_cons'],
-    node_positions = mesh_data['position'],
-    node_velocities = mesh_data['velocity'],
-    particle_positions = mesh_data['position'][initial_time],
-    initial_time,
-    final_time = 28,
-    time_steps = mesh_data['time_steps'],
-    direction = "forward",
-    plot_ftle = True,
-    save_path="my_plot.png",
-    camera_setup=((130.4046, -178.1839, -1312.8635), (379.1223, 531.1033, 147.2741), -152.84 ),
-    neighborhood = 15
-)
+ftle_values , trajectories = def FTLE_mesh(
+    node_connections,           # List[np.ndarray], each (M_t, 3)
+    node_positions,             # List[np.ndarray], each (N_t, 3)
+    node_velocities,            # List[np.ndarray], each (N_t, 3)
+    particle_positions,         # (P, 3)
+    initial_time,               # int
+    final_time,                 # int
+    time_steps,                 # (T,)
+    direction="forward",        # "forward" or "backward"
+    plot_ftle=False,            # If True, calls plot_ftle_mesh
+    save_path = None,
+    camera_setup = None,
+    neighborhood=15,            # For FTLE computation
+    lam=1e-10                   # Regularization
+):
 ```
 
 ### Inputs for `ftle_mesh`
@@ -160,7 +131,7 @@ Here are the expected inputs
 
 ```python
 
-ftle = def FTLE_mesh(
+ftle_values = def FTLE_mesh(
     node_connections,           # List[np.ndarray], each (M_t, 3)
     node_positions,             # List[np.ndarray], each (N_t, 3)
     node_velocities,            # List[np.ndarray], each (N_t, 3)
@@ -174,7 +145,7 @@ ftle = def FTLE_mesh(
     camera_setup = None,
     neighborhood=15,            # For FTLE computation
     lam=1e-10                   # Regularization
-)
+):
 ```
 
 - `node_cons`  
