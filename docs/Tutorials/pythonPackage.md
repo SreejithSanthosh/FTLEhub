@@ -330,9 +330,9 @@ plot_FTLE_mesh(node_cons, node_positions, initial_time, final_time, back_ftle, d
 
 The data in the .h5 file is for a Zrebra fish heart and for the given time have the following FTLE field: 
 
-!(../../Images/zebraFishHeartAttractor.png)
+![](../../Images/zebraFishHeartAttractor.png)
 
-!(../../Images/zebraFishHeartRepeller.png)
+![](../../Images/zebraFishHeartRepeller.png)
 
 
 
