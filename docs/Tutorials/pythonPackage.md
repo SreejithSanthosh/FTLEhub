@@ -37,7 +37,6 @@ The sparse FTLE routines are designed to work with velocity fields that are defi
 Sparse FTLE computations are especially useful when:
 
 - Your velocity field is only known at irregular points (experimental data, scattered sensors).
-- The underlying space is $\mathbb{R}^2$ or $\mathbb{R}^3$ (Euclidean).
 - You want to avoid gridding or meshing overhead.
 
 Sparse FTLE methods rely on KD-Trees and least-squares estimation of the deformation gradient using nearest-neighbor points.
@@ -113,7 +112,7 @@ ftle_values, trajectories = FTLE_2d_sparse(
 
 ## FTLE Computation via `compute_Ftle_sparse`
 
-The function `compute_Ftle_sparse` can be used directly if you have only the initial and final positions of particles.
+The function `compute_Ftle_sparse` can be used directly if you have only the initial and final positions of particles, this works for both `d=2,3`. 
 
 ```python
 from ftle.flat.sparse import compute_Ftle_sparse
