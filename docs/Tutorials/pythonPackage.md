@@ -96,6 +96,8 @@ ftle, trajectories = ftle_mesh(
     time_steps = mesh_data['time_steps'],
     direction = "forward",
     plot_ftle = True,
+    save_path="my_plot.png",
+    view_angle=(45, 30),
     neighborhood = 15
 )
 ```
@@ -130,6 +132,12 @@ The `ftle_mesh` function computes the FTLE field for flows on a triangulated sur
 
 - `plot_ftle`  
   Optional boolean. If `True`, automatically generates a 3D PyVista plot of the FTLE field. This does not save the plot.
+
+- `save_path`
+   Optional string. If `plot_ftle` is true then having a save path specified will save the 3d plot in that directory. Take note that if a save path is given the PyVista plotting window will not appear due to PyVista plots having to be saved off screen.
+
+- `view_angle`
+  Optional tuple: (azimuth, elavation). 
 
 - `neighborhood`  
   Integer (default 15). The number of nearest neighboring particles used when computing the local FTLE gradient.
