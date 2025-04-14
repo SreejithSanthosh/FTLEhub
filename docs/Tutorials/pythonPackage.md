@@ -22,9 +22,150 @@ pip install -e git+https://github.com/bfencil/ftlePackage.git#egg=ftlePackage
 This pacakge was made in python version 3.11.8.
 
 
+## Dense FTLE Computations in $\mathbb{R}^2$ and $\mathbb{R}^3$
+
+### Overview
+
+The dense FTLE codes differ from the sparse FTLE codes in that the initial particle positions are set on a uniform grid that spans the entire domain. This is opposed to the sparse FTLE codes where particles are placed arbitrarily in space.
+
+This uniform grid structure is useful when:
+
+- A global picture of the entire velocity field is desired.
+- The velocity data itself is sparse but the user wants a continuous FTLE field.
+- It simplifies the FTLE computation using finite-difference schemes.
+
+The primary functions of interest for dense FTLE computations are:
+
+- `FTLE_2d_dense` — for dense FTLE computation in $\mathbb{R}^2$.
+- `FTLE_3d_dense` — for dense FTLE computation in $\mathbb{R}^3$.
 
 
-## Dense FTLE Computations in $$\mathbb R^2$$ and $$\mathbb R^3$$
+---
+
+### Example Usage
+
+A typical workflow using `FTLE_2d_dense` looks like this:
+
+```python
+from ftle.flat.dense import FTLE_2d_dense
+
+ftle_values, trajectories = FTLE_2d_dense(
+    velocity_points,
+    velocity_vectors,
+    x_grid,
+    y_grid,
+    dt,
+    initial_time,
+    final_time,
+    time_steps,
+    direction,
+    time_indepedent=False,
+    plot_ftle=True
+)
+```
+
+---
+
+### Inputs for `FTLE_2d_dense`
+
+- `velocity_points`: (M, 2) array of the known locations where velocity data is given.
+- `velocity_vectors`: (M, 2) if time-independent or (M, 2, T) if time-dependent velocity vectors.
+- `x_grid`: 2D array of X positions from `np.meshgrid`.
+- `y_grid`: 2D array of Y positions from `np.meshgrid`.
+- `dt`: Float, time step size for RK4 integration. Must have $0 < dt \leq 1$.
+- `initial_time`: Starting time index.
+- `final_time`: Ending time index.
+- `time_steps`: List of available time steps.
+- `direction`: String `"forward"` or `"backward"`.
+- `time_indepedent`: Boolean, if True uses static velocity field.
+- `plot_ftle`: Boolean, if True plots the FTLE field directly.
+
+
+---
+
+### Inputs for `FTLE_3d_dense`
+
+Very similar to `FTLE_2d_dense` but adapted for 3D.
+
+```python
+from ftle.flat.dense import FTLE_3d_dense
+
+ftle_values, trajectories = FTLE_3d_dense(
+    velocity_points,
+    velocity_vectors,
+    x_grid,
+    y_grid,
+    z_grid,
+    dt,
+    initial_time,
+    final_time,
+    time_steps,
+    direction,
+    time_indepedent=False,
+    plot_ftle=True
+)
+```
+
+#### Inputs
+
+- `x_grid, y_grid, z_grid`: 3D arrays from `np.meshgrid`.
+- All other inputs are the same as `FTLE_2d_dense`.
+
+---
+
+### FTLE Computation Methodology
+
+The FTLE computation for dense grids uses a finite difference scheme to compute the deformation gradient tensor $\partial X_f / \partial X_0$.
+
+- For 2D: This is done in `FTLE_2d_compute`.
+- For 3D: This is done in `FTLE_3d_compute`.
+
+Both methods:
+
+- Use central differences across the local grid.
+- Build the deformation gradient $F$.
+- Compute the Cauchy-Green strain tensor $C = F^T F$.
+- Extract the largest eigenvalue of $C$.
+- Compute FTLE as:
+
+$$
+\text{FTLE} = \frac{1}{2 |t_f - t_i|} \ln(\sqrt{\lambda_{max}})
+$$
+
+where $\lambda_{max}$ is the largest eigenvalue of $C$.
+
+---
+
+### Notes on Usage
+
+- The uniform grid from `np.meshgrid` must fully cover the desired domain.
+- For plotting FTLE:
+
+```python
+from ftle.flat.utilities import plot_FTLE_2d, plot_FTLE_3d
+```
+
+- The plotting functions will automatically scatter the FTLE values over the grid points.
+
+- In 3D, the plotting shows the full 3D cloud of points and also provides 2D slices along the $XZ$ plane at select $Y$ values.
+
+---
+
+### Example FTLE Plot in 2D
+
+```python
+plot_FTLE_2d(particles_positions, ftle)
+```
+
+---
+
+### Example FTLE Plot in 3D
+
+```python
+plot_FTLE_3d(particles_positions, ftle)
+```
+
+---
 
 
 
