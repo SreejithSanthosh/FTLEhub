@@ -130,6 +130,7 @@ The `FTLE_compute` function computes FTLE values directly given initial and fina
 Here are the expected inputs
 
 ```python
+ftle.curved.mesh import FTLE_compute
 
 ftle_values = def FTLE_mesh(
     node_connections,           # List[np.ndarray], each (M_t, 3)
@@ -180,6 +181,8 @@ ftle_values = def FTLE_mesh(
 The `plot_FTLE_mesh` function can be called directly by importing it `from ftle.curved.utilities import plot_FTLE_mesh`.  Here are the expected inputs:
 
 ```python
+from ftle.curved.utilities import plot_FTLE_mesh
+
 def plot_FTLE_mesh(
     node_cons,
     node_positions,
