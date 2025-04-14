@@ -84,12 +84,14 @@ file_path = "path/to/your/mesh_data.h5"
 
 mesh_data = load_mesh_data_h5(file_path)
 
+initial_time = 0
+
 ftle, trajectories = ftle_mesh(
     node_cons = mesh_data['node_cons'],
     node_positions = mesh_data['position'],
     node_velocities = mesh_data['velocity'],
-    particle_positions = mesh_data['position'][0],
-    initial_time = 0,
+    particle_positions = mesh_data['position'][initial_time],
+    initial_time,
     final_time = 28,
     time_steps = mesh_data['time_steps'],
     direction = "forward",
