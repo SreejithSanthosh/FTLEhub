@@ -31,7 +31,104 @@ This pacakge was made in python version 3.11.8.
 
 ## Sparse FTLE Computations $$\mathbb R^2$$ and $$\mathbb R^3$$
 
+## Sparse FTLE Computations in $\mathbb{R}^2$ and $\mathbb{R}^3$
 
+### Overview
+
+The sparse FTLE routines are designed to work with velocity fields that are defined only at scattered locations in space. These methods do not require a grid or mesh. Instead, they interpolate the velocity field from known velocity locations and compute FTLE from particle trajectories.
+
+Sparse FTLE computations are especially useful when:
+
+- Your velocity field is only known at irregular points (experimental data, scattered sensors).
+- The underlying space is $\mathbb{R}^2$ or $\mathbb{R}^3$ (Euclidean).
+- You want to avoid gridding or meshing overhead.
+
+Sparse FTLE methods rely on KD-Trees and least-squares estimation of the deformation gradient using nearest-neighbor points.
+
+---
+
+## Available Functions
+
+- `FTLE_2d_sparse` : Sparse FTLE calculation for 2D velocity fields.
+- `FTLE_3d_sparse` : Sparse FTLE calculation for 3D velocity fields.
+- `compute_Ftle_sparse` : Computes FTLE values given only initial and final particle positions.
+- `plot_FTLE_2d` : Visualization for 2D FTLE.
+- `plot_FTLE_3d` : Visualization for 3D FTLE with optional slicing.
+
+---
+
+## Example Usage: FTLE_2d_sparse
+
+```python
+from ftle.flat.sparse import FTLE_2d_sparse
+
+ftle_values, trajectories = FTLE_2d_sparse(
+    velocity_points,     # (M, 2) array of known velocity locations
+    velocity_vectors,    # (M, 2) or (M, 2, T) array of velocity vectors
+    particle_positions,  # (N, 2) array of initial particle positions
+    dt=0.1,              # Integration time step (0 < dt <= 1)
+    initial_time=0,      
+    final_time=10,       
+    time_steps=np.arange(0, 11),  
+    direction='forward', 
+    time_indepedent=False,
+    plot_ftle=True,      
+    neighborhood=10      
+)
+```
+
+## Inputs for `FTLE_2d_sparse` and `FTLE_3d_sparse`
+
+- `velocity_points`  
+  Array of shape `(M, d)` where `d=2` or `3`. These are the known locations of the velocity data.
+
+- `velocity_vectors`  
+  Array of shape `(M, d)` if the velocity is time-independent, or `(M, d, T)` if time-dependent.
+
+- `particle_positions`  
+  Initial positions of particles, of shape `(N, d)`.
+
+- `dt`  
+  Time step size for integration. Must satisfy `0 < dt <= 1`.
+
+- `initial_time` and `final_time`  
+  Integers specifying start and end time steps for the advection.
+
+- `time_steps`  
+  Array of allowed time steps (must be consecutive integers starting from 0).
+
+- `direction`  
+  Either `"forward"` or `"backward"` advection.
+
+- `time_indepedent`  
+  Boolean. If `True`, velocity field is assumed to be time-invariant.
+
+- `plot_ftle`  
+  Boolean. If `True`, generates a plot of the FTLE field.
+
+- `neighborhood`  
+  Integer. Number of nearest neighbors to use when computing FTLE values.
+
+- `lam`  
+  Small regularization constant (default $1 \times 10^{-10}$) for stability.
+
+---
+
+## FTLE Computation via `compute_Ftle_sparse`
+
+The function `compute_Ftle_sparse` can be used directly if you have only the initial and final positions of particles.
+
+```python
+from ftle.flat.sparse import compute_Ftle_sparse
+
+ftle_values = compute_Ftle_sparse(
+    initial_positions,  # (N, d)
+    final_positions,    # (N, d)
+    initial_time, 
+    final_time, 
+    k=10                # Number of nearest neighbors for FTLE computation
+)
+```
 
 
 
