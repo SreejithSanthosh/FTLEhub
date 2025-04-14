@@ -245,7 +245,6 @@ def plot_FTLE_mesh(
 - `camera_setup`
   Optional tuple: (camera position, focal point, camera roll). 
 
-- `neighborhood`  
 
 When no save_path is specified then you can press 'c' in the PyVista plotting window to display needed information to specifiy `camera_setup` with respect to your current camera view in the PyVista plotting window.
 
