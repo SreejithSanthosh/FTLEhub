@@ -2,12 +2,12 @@
 title: FTLE on Curved Surfaces 
 parent: Tutorial - FTLE codes
 layout: home
-nav_order: 1
+nav_order: 3
 ---
 
-The code for computing Coherent Structures based on Finite-Time-Lyapunov Exponents (FTLE) and Lagrangian deformation for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git). 
+The MATLAB code for computing Coherent Structures based on Finite-Time-Lyapunov Exponents (FTLE) and Lagrangian deformation for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git). 
 The following tutorial provides instructions on how to use the code. To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript 
-[S. Santhosh, XXX PUT ALL AUTHORS XX et al](Necessary Link). [NEED TO WRITE THAT \LAMBDA IS THE FTLE. SIMILAR FOR \LAMBDAISO. YOU CAN ADD A PLOT LEGEND SOMEWHERE UP HERE]
+[S. Santhosh, C. Zhu, B. Fencil, M. Serra](Necessary Link). [NEED TO WRITE THAT \LAMBDA IS THE FTLE. SIMILAR FOR \LAMBDAISO. YOU CAN ADD A PLOT LEGEND SOMEWHERE UP HERE]
 
 ![Introduction To Curved Surface FTLE](../../Images/FTLEBanner.png)
 
@@ -66,12 +66,12 @@ Before you run the Lagrangian analysis, the velocity field data and the manifold
 An example dataset is given in `./Data/staticMesh.mat` in the code directory, which can be visualized by running the code `./Data/vizExampleData.m`.
 
 
-  > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.  
+  > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.       
 
 
-## Performing Lagrangian Analysis for a Single Time Interval
+## Performing Lagrangian Analysis
 
-We now explain how to run the code `main.m` to compute the Lagrangian deformation information for a single chosen time interval $$[t_0,t_f]$$. 
+We now explain how to run the code `main.m` to compute the Lagrangian deformation information for a chosen time interval $$[t_0,t_f]$$. 
 
 1. **Load the data** : Once the data is formatted appropriately as mentioned in [Data Formatting](#data-required-for-langrangian-analaysis-and-formating), it can be loaded onto the script by providing the right path 
 ```
@@ -81,7 +81,7 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 - ``isStatic``  : should be set to ``isStatic = 1`` if the mesh surface on which the motion happens is time-independent and ``isStatic = 0`` if the mesh changes over time. The code runs considerably faster for static meshes.
 - ``cpu_num`` : The code parallelizes the Lagrangian analysis using the [parfor](https://www.mathworks.com/help/parallel-computing/parfor.html) method. Therefore, set this variable to ``cpu_num = Nc ``, where $$Nc$$ is the number of CPU cores available. Note that a copy of the dataset goes to each core, whereby the total data that exists in the RAM might exceed the system's capabilities. For example, if your data is x GB and you parallelize over Nc cores, the total RAM required is $$ \approx$$ > x * Nc GB.
 - Plotting parameters ``Nplot`` and ``fntSz``: ``Nplot`` sets the number of frames that are saved in the video while plotting the advection results. ``fntSz`` similarly sets the font size of the text and elements on those plots
-- Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t = t0$$ to $$t = tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. <span style = "color:red">The time-step ``dt`` for the advection </span> 
+- Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t = t0$$ to $$t = tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. The parameter ``dt`` is the time-step for advection.
 3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf $$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
 <!-- To interpret these results, refer to <span style ="color:red">documentationLagrangianDeformation</span> -->
 
