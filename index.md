@@ -21,17 +21,21 @@ Consider the flow field around a saddle point (Panel (a)): a nearby patch of flu
 
 Overall, Repelling and Attracting LCSs provide a reduced representation of a temporally and spatially varying flow, enabling robust quantification of complex and noisy velocity datasets, a systematic comparison between flows in different experiments and comparisons with theoretical models. Coherent structures also provide a simplified understanding of flow geometry, identify dynamic domain boundaries, and provide a new perspective for optimal flow control. Finite-Time-Lyapunov-Exponents enable identifying repelling and Attracting LCSs as ridges (or regions with high FTLE values) of a scalar field. While Coherent Structures were initially motivated to analyze atmospheric and oceanic flows, recent works have demonstrated their utility in studying biological systems and active matter (see panel (b) and [examples](./docs/FTLEinBiology) of recent papers). 
 
+<!-- ![Introduction To Curved Surface FTLE](./Images/MainIntroBanner.png) -->
+
 
 ## How do we calculate FTLE?
 
-We will now describe how to compute the FTLE for a 2D flow described by the velocity field $$\mathbf{v}(\mathbf{x},t)$$ were $$ \mathbf{x},\mathbf{v} \in \mathbb{R}^2$$. The formalism required to compute FTLE for flows on 2D curved surfaces embedded in 3D is different and we refer you to the paper [S. Santhosh et al]() for details.
+We describe how to compute FTLE and Attracting/Repelling LCSs for a 2D flow described by the velocity field $$\mathbf{v}(\mathbf{x},t)$$. For the formalism to compute FTLE for flows on 2D curved surfaces embedded in 3D, please refer to [ref].
 
->> In general, to experimentally compute the velocity field of a flow PIV methods are used (See [Ref](https://en.wikipedia.org/wiki/Particle_image_velocimetry), [PIVLab](https://pivlab.blogspot.com/p/blog-page_19.html) is a MATLAB toolbox to easily compute PIV). 
-
-To study the Lagrangian features of the flow, we compute the flow map 
+>> We assume a simulated or measured velocity field is given. If one needs to reconstruct the velocity from experimental flow data, Particle Image Velocimetry methods are common (See [Ref](https://en.wikipedia.org/wiki/Particle_image_velocimetry), and [PIVLab](https://pivlab.blogspot.com/p/blog-page_19.html) is a MATLAB toolbox). 
+>> 
+>> To study the Lagrangian features of the flow, we compute the flow (or trajectory) map 
 <div> 
-$$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)  = \mathbf{x}_0 + \int_{t_0}^t \mathbf{v}(\mathbf{F}_{t_0}^\tau(\mathbf{x}_0),\tau) d\tau. $$
+$$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)  = \mathbf{x}_0 + \int_{t_0}^t \mathbf{v}(\mathbf{F}_{t_0}^\tau(\mathbf{x}_0),\tau) d\tau,$$
 </div>
+that maps initial positions $$(\mathbf{x}_0)$$ at $$t_0$$ to their time $t$ position $$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)$$. The deformation gradient $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))$$ quantifies derivatives of the flow map with respect to small changes in initial conditions and consists of a 2x2 matrix for any $$(\mathbf{x}_0)$$ and time interval 
+
 The FTLE is computed using the right Cauchy-Green strain tensor $$\mathbf{C}_{t_0}^t(\mathbf{x}_0) = (\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))^\top(\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0)),$$
 which quantifies the Lagrangian deformation experienced by a material patch initially at $$\mathbf{x}_0$$ over the time-interval $$[t_0,t]$$. The eigenvalues of the $$\mathbf{C}_{t_0}^t(\mathbf{x}_0)$$ are positive, since it is real and symmetric. The FTlE field is given by, 
 <div>
