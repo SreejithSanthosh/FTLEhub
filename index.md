@@ -11,9 +11,7 @@ Coherent Structures are persistent, robust structures in a flow that summarize c
 <figure>
 <img src="./Images/MainIntroBanner.png" alt="Alt text">
 <figcaption>(a) Deformation of a fluid patch close to a saddle point (i.e., a fixed point) of a steady velocity (v(x)) (left), and to attracting and repelling LCSs in an unsteady velocity v(x,t) (right). The stable and unstable manifolds of the fixed point are static in time and influence material transport only in steady velocity fields over long times. Attracting and Repelling LCSs, instead, i) are computable for steady and unsteady velocities; ii) they are dynamic in time; and iii) summarize material transport and deformations over any desired time interval [t_0,t_0+T]. (b-i) Examples of Coherent Structures in physical and biological flows. (b) Short-time attractors (or Attracting Eulerian Coherent Structures) aid search and rescue operations at sea [Ref]. (c) Attracting and Repelling LCSs in atmospheric flows [Ref]. (d) WRITE what it is and replace it with laboratory flow [REF]. (e) FTLE and Attracting LCSs in active nematic flows [REF]. (f) FTLE and Attracting LCSs in a beating zebrafish heart [ref]. (g) FTLE and Attracting LCSs in multicellular flows during avian gastrulation [ref].   
- 
-(b) Examples of flow which has been analyzed using the LCS framework. </figcaption>
-</figure>
+ </figure>
 
 <!-- ![Introduction To Curved Surface FTLE](./Images/MainIntroBanner.png) -->
 
