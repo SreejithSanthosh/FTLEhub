@@ -1,9 +1,9 @@
----
+<!-- ---
 title: FTLE on Curved Surfaces - Python Implementation 
 parent: Tutorial - FTLE codes
 layout: home
 nav_order: 4
----
+--- -->
 
 
 The python package for computing the coherent structures and Lagrangian deformation for flow on a curved surface is given in this [link](https://github.com/SreejithSanthosh/CurvedSurfacesFTLEPython). To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript [S. Santhosh et al](Necessary Link).
