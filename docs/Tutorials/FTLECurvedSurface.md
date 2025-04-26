@@ -52,9 +52,9 @@ The manifold information $$ \mathcal{M}$$ is stored as a mesh with discrete node
  
 Before you run the Lagrangian analysis, the velocity field data and the manifold on which it is defined need to be stored in a `.mat` file to be read by the MATLAB code, where the variables are 
 
-- x : cell array of size ($$ N_t,1$$), where the cell array element `x{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the x-coordinate $$x_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$.
-- y : cell array of size ($$ N_t,1$$), where the cell array element `y{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the y-coordinate $$y_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$.
-- z : cell array of size ($$ N_t,1$$), where the cell array element `z{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the z-coordinate $$z_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$.
+- x : cell array of size ($$ N_t,1$$), where $$ N_t$$ is the number of time points of the dataset. Each cell array element `x{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number of points on the manifold at $$t = k$$.
+- y : cell array of size ($$ N_t,1$$), where $$ N_t$$ is the number of time points of the dataset. Each cell array element `y{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the y-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number of points on the manifold at $$t = k$$.
+- z : cell array of size ($$ N_t,1$$), where $$ N_t$$ is the number of time points of the dataset. Each cell array element `z{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the z-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number of points on the manifold at $$t = k$$.
 [THROUGHOUT: MAKE SURE THE NOTATION IS CONSISTENT WITH THE CODE]
 
 - TrianT : cell array of size ($$ N_t,1$$), where the cell array element `TrianT{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_f(i),3)$$ with mesh connectivity (For example, $$[i_1,i_2,i_3] $$ for a mesh face with nodes $$i_1,i_2$$ and $$i_3$$) are appended along the rows, where $$N_f(i)$$ is the total number of mesh faces on the manifold at $$t = i$$. [THIS SENTENCE IS NOT GRAMATICALLY CORRECT]
