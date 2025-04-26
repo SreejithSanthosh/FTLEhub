@@ -18,7 +18,7 @@ Consider the flow field around a saddle point (Panel (a)): a nearby patch of flu
 
 Overall, Repelling and Attracting LCSs provide a reduced representation of a temporally and spatially varying flow, enabling robust quantification of complex and noisy velocity datasets, a systematic comparison between flows in different experiments and comparisons with theoretical models. Coherent structures also provide a simplified understanding of flow geometry, identify dynamic domain boundaries, and provide a new perspective for optimal flow control. Finite-Time-Lyapunov-Exponents enable identifying repelling and Attracting LCSs as ridges (or regions with high FTLE values) of a scalar field. While Coherent Structures were initially motivated to analyze atmospheric and oceanic flows, recent works have demonstrated their utility in studying biological systems and active matter (see panel (b) and [examples](./docs/FTLEinBiology) of recent papers). 
 
-## How do we calculate FTLE?
+## How to calculate FTLE?
 
 We describe how to compute FTLE and Attracting/Repelling LCSs for a 2D flow described by the velocity field $$\mathbf{v}(\mathbf{x},t)$$. For the formalism to compute FTLE for flows on 2D curved surfaces embedded in 3D, please refer to [ref].
 
@@ -39,7 +39,7 @@ where $$\lambda_2(\mathbf{x}_0)$$ is the largest singular eigenvalue of $$\mathb
 <img src="./Images/deformationIntroFTLE.png" alt="Alt text">
 <figcaption> </figcaption>
 </figure>
-High $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark initial fluid positions $$(\mathbf{x}_0)$$ where initially close tracers will highly separate by time $$t$$ (left panel). Repelling LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t_0}^t(\mathbf{x}_0)$$ (or $$_{f}\Lambda $$) computed from trajectories in forward time (left panel).  By contrast, Attracting LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t}^{t_0}(\mathbf{x}_t)$$ (or $$_{b}\Lambda $$) computed from trajectories in backward time (right panel).  Attracting LCSs locate the final positions $$(\mathbf{x}_t)$$ where initially distinct tracers will maximally converge. 
+High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark initial fluid positions $$(\mathbf{x}_0)$$ where initially close tracers will highly separate by time $$t$$ (left panel). Repelling LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t_0}^t(\mathbf{x}_0)$$ (or $$_{f}\Lambda $$) computed from trajectories in forward time (left panel).  By contrast, Attracting LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t}^{t_0}(\mathbf{x}_t)$$ (or $$_{b}\Lambda $$) computed from trajectories in backward time (right panel).  Attracting LCSs locate the final positions $$(\mathbf{x}_t)$$ where initially distinct tracers will maximally converge. 
 
 ## References
 
