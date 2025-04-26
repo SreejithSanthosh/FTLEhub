@@ -30,7 +30,7 @@ To install the code, navigate to the path where you would want to install it on 
 ```
 git clone  https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git
 ```
-This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/staticMesh.mat` and presents the following result, [The datasets is not on a staticMesh PLEASE UPDATE IT] [FIGURE BELOW: REPLACE ZETA WITH XI TO BE CONSISTENT WITH THE PAPER. PLEASE ALSO ADD A LINE EXPLAINING LAMBDA ISO AND REFERE THE READER TO THE PAPER]
+This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/staticMesh.mat` and presents the following result, [The datasets is not on a staticMesh PLEASE UPDATE IT] [FIGURE BELOW: REPLACE ZETA WITH XI TO BE CONSISTENT WITH THE PAPER + PLEASE ALSO ADD A LINE EXPLAINING LAMBDA ISO AND REFERE THE READER TO THE PAPER + BELOW MAKE SURE TO WRITE T_0 AND T_F CONSISTENTLY. SOMETIMES I READ T0 AND TF]
 
 ![Result of FTLE Analaysis](../../Images/resultCodeMAIN.png)
 
