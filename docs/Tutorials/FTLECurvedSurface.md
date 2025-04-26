@@ -30,7 +30,7 @@ To install the code, navigate to the path where you would want to install it on 
 ```
 git clone  https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git
 ```
-This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an example dataset of motion of cells on the pancreatic spheroids given in `./Data/staticMesh.mat` and presents the following result, 
+This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/staticMesh.mat` and presents the following result, 
 
 ![Result of FTLE Analaysis](../../Images/resultCodeMAIN.png)
 
