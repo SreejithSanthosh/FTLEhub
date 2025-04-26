@@ -4,7 +4,7 @@ layout: home
 nav_order: 3
 ---
 
-Below, we list recent publications elucidating the usefulness of Coherent Structures in understanding and controlling biological and active matter flows. 
+Below, we list recent publications leveraging Coherent Structures to understand and control living and active matter flows. 
 
 - [Dynamic Morphoskeletons in Development](https://www.mattiaserra.com/_files/ugd/297716_66be52fd4f954943b0243f0e88c75084.pdf) [1]: Robust quantification and experimental variability of in-toto morphogenetic flows during Chick and Drosophila gastrulation. 
 
@@ -14,6 +14,8 @@ Below, we list recent publications elucidating the usefulness of Coherent Struct
 
 - [Optimal Control of Short-Time Attractors in Active Nematics]() []: Attracting Eulerian Coherent Structures enables the design of short-time material traps in Active Nematics flows.
 
-- 
+- [A mechanochemical model recapitulates distinct vertebrate gastrulation modes]() []: Mechanistic principles, Control and phenotypic variability of Attracting LCSs in multicellular flows during avian gastrulation.  
 
 - [Control of epiblast cell fate by mechanical cues](https://www.biorxiv.org/content/10.1101/2024.06.24.600402v1.abstract) [3]: Repelling LCSs reveals hidden embryo compartmentalization and mediate cell-fate bifurcations in chick embryogenesis at stages HH4-HH8.
+
+- [Morphogen Patterning in Dynamic Tissues](https://www.biorxiv.org/content/10.1101/2024.06.24.600402v1.abstract) [3]: Attracting and Repelling LCSs mediates diffusive morphogen transport in dynamic tissues, revealing profound synergies between morphogenetic movements and morphogen patterning. 
