@@ -1,14 +1,19 @@
 ---
-title: FTLE in Biological Flows 
+title: Recent Applications to Living/Active Matter 
 layout: home
 nav_order: 3
 ---
 
-There a growing corpus of literature highlights the role of LCS structures identified using FTLE methods in biological flows, primarily in morphogenesis. We list some of the recent developements and must-reads so that you can get a sense of where it has been applied and how it is interpreted and how it has biological significance. 
+Below, we list recent publications elucidating the usefulness of Coherent Structures in understanding and controlling biological and active matter flows. 
 
-- [Dynamic Morphoskeletons in Development](https://www.mattiaserra.com/_files/ugd/297716_66be52fd4f954943b0243f0e88c75084.pdf) : This work from M. Serra et al, introduces the concept of LCS into analyzing the flows generated in morphogenetic flows during Chick and Drosophila gastrulation. The paper also goes through concepts of why FTLE based methods are ideal to uncover hidden structure in the flow.
+- [Dynamic Morphoskeletons in Development](https://www.mattiaserra.com/_files/ugd/297716_66be52fd4f954943b0243f0e88c75084.pdf) [1]: Robust quantification and experimental variability of in-toto morphogenetic flows during Chick and Drosophila gastrulation. 
 
-- [A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors](https://www.cell.com/cell/fulltext/S0092-8674(24)01147-4) : In collaboration with Royer Lab at CZ biohub, the fate specfication of NMP progenitor cells are analyzed from the perspective of morphogenetic flows. FTLE analysis reveals the emergence of a transport barrier between the PSM and the neural tube restricting the NMP population to PSM fate at later stages.
+- [A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors](https://www.cell.com/cell/fulltext/S0092-8674(24)01147-4) [2]: Repelling LCSs reveals hidden embryo compartmentalization and subsequent fate bifurcation in Zebrafish embryonic development during body axis elongation. 
+  
+- [Defect-mediated dynamics of coherent structures in active nematics](https://www.mattiaserra.com/_files/ugd/297716_386711d929574f0abc01a7abdaab2ef0.pdf) [4]: Attracting and Repelling LCSs---steered by topological defects---reveal distinct, dynamic transport and deformation patterns in active nematics.
 
-- [Control of epiblast cell fate by mechanical cues](https://www.biorxiv.org/content/10.1101/2024.06.24.600402v1.abstract): Add details
+- [Optimal Control of Short-Time Attractors in Active Nematics]() []: Attracting Eulerian Coherent Structures enables the design of short-time material traps in Active Nematics flows.
 
+- 
+
+- [Control of epiblast cell fate by mechanical cues](https://www.biorxiv.org/content/10.1101/2024.06.24.600402v1.abstract) [3]: Repelling LCSs reveals hidden embryo compartmentalization and mediate cell-fate bifurcations in chick embryogenesis at stages HH4-HH8.
