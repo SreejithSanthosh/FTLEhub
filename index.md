@@ -29,14 +29,13 @@ We describe how to compute FTLE and Attracting/Repelling LCSs for a 2D flow desc
 <div> 
 $$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)  = \mathbf{x}_0 + \int_{t_0}^t \mathbf{v}(\mathbf{F}_{t_0}^\tau(\mathbf{x}_0),\tau) d\tau,$$
 </div>
-that maps initial positions $$(\mathbf{x}_0)$$ at $$t_0$$ to their time $t$ position $$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)$$. The deformation gradient $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))$$ quantifies derivatives of the flow map with respect to small changes in initial conditions and consists of a 2x2 matrix for any $$(\mathbf{x}_0)$$ and time interval 
+that maps initial positions $$(\mathbf{x}_0)$$ at $$t_0$$ to their time $t$ position $$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)$$. The deformation gradient $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))$$ quantifies derivatives of the flow map with respect to small changes in initial conditions and is represented as a 2x2 matrix for any $$(\mathbf{x}_0)$$ and time interval $$[t_0,t]$$. 
 
-The FTLE is computed using the right Cauchy-Green strain tensor $$\mathbf{C}_{t_0}^t(\mathbf{x}_0) = (\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))^\top(\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0)),$$
-which quantifies the Lagrangian deformation experienced by a material patch initially at $$\mathbf{x}_0$$ over the time-interval $$[t_0,t]$$. The eigenvalues of the $$\mathbf{C}_{t_0}^t(\mathbf{x}_0)$$ are positive, since it is real and symmetric. The FTlE field is given by, 
+The FTLE field is given by 
 <div>
-$$ \Lambda_{t_0}^t(\mathbf{x}_0) = \frac{1}{2|t-t_0|}\text{log}(\lambda_2),$$
+$$ \Lambda_{t_0}^t(\mathbf{x}_0) = \frac{1}{|t-t_0|}\text{log}(\lambda_2),$$
  </div>
-where $$\lambda_2$$ is the largest eigenvalue of $$\mathbf{C}_{t_0}^t(\mathbf{x}_0)$$.
+where $$\lambda_2$$ is the largest singular eigenvalue of $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))$$.
 
 <figure>
 <img src="./Images/deformationIntroFTLE.png" alt="Alt text">
