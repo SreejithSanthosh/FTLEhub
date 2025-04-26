@@ -1,3 +1,3 @@
-Documentation for different MATLAB and Python codes that can be used to compute FTLE for flows in 2-D,3-D Euclidean and on curved surfaces.
+Documentation for MATLAB and Python codes for computing FTLE for flows in 2-D, 3-D, and for flows on dynamic surfaces.
 
-We also provide resources to further interpret these results and provide physical interpretations for these various structures.
+We provide resources to provide physical interpretations for various Coherent Structures.
