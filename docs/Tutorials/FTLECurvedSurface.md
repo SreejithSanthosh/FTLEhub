@@ -52,18 +52,13 @@ The manifold information $$ \mathcal{M}$$ is stored as a mesh with discrete node
  
 Before you run the Lagrangian analysis, the velocity field data and the manifold on which it is defined need to be stored in a `.mat` file to be read by the MATLAB code, where the variables are 
 
-- x : cell array of size ($$ N_t,1$$), where $$ N_t$$ is the number of time points of the dataset. Each cell array element `x{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number mesh nodes at $$t = k$$.
-- y : cell array of size ($$ N_t,1$$), where $$ N_t$$ is the number of time points of the dataset. Each cell array element `y{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the y-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$.
-- z : cell array of size ($$ N_t,1$$), where $$ N_t$$ is the number of time points of the dataset. Each cell array element `z{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the z-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$.
+- time : vector of size ($$ 1,N_t$$), where $$ N_t$$ is the number of time points of the dataset. 
+- x : cell array of size ($$ N_t,1$$). Each cell array element `x{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number mesh nodes at $$t = k$$. Similarly, the y and z components of the mesh nodes are stored in `y` and `z`. 
+- TrianT : cell array of size ($$N_t,1$$). The cell array element `TrianT{k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_f(k),3)$$ whose $$j-th$$ raw contains the mesh connectivity of face $$j$$ (e.g. $$[i_1,i_2,i_3] $$ for a mesh face with nodes $$i_1,i_2,i_3$$). $$N_f(k)$$ denotes the number of mesh faces at time $$t = k$$. 
+- v : cell array of size ($$ 3, N_t$$) , where the cell array element `v{1,k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
 [THROUGHOUT: MAKE SURE THE NOTATION IS CONSISTENT WITH THE CODE]
 
-- TrianT : cell array of size ($$ N_t,1$$), where the cell array element `TrianT{i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_f(i),3)$$ with mesh connectivity (For example, $$[i_1,i_2,i_3] $$ for a mesh face with nodes $$i_1,i_2$$ and $$i_3$$) are appended along the rows, where $$N_f(i)$$ is the total number of mesh faces on the manifold at $$t = i$$. [THIS SENTENCE IS NOT GRAMATICALLY CORRECT]
-
-- time : double array of size ($$ 1,N_t$$), which stores time information 
-
-- v : cell array of size ($$ 3, N_t$$) , where the cell array element `v{1,i}` $$i\in \{1,N_t\} $$ is a double array of size $$(N_p(i),1)$$ with the x-coodinate of the velocity $$v^1_i$$ of all the mesh nodes, where $$N_p(i)$$ is the total number of points on the manifold at $$t = i$$. Similarly, the y and z components of the velocity are stored in `v{2,i}` and `v{3,i}`.
-
-An example dataset is given in `./Data/staticMesh.mat` in the code directory, which can be visualized by running the code `./Data/vizExampleData.m`.
+An example dataset is provided in `./Data/staticMesh.mat` in the code directory, which can be visualized by running `./Data/vizExampleData.m`. [IS IT A STATIC MESH? IF NOT CHANGE THE NAME DIRECORY]
 
 
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.       
