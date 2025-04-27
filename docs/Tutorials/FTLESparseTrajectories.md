@@ -1,5 +1,5 @@
 ---
-title: FTLE on 2-D and 3-D Euclidean Space Using Sparse Trajectories
+title: FTLE from 2-D and 3-D Moisy and Sparse Trajectories
 parent: Tutorial - FTLE codes
 layout: home
 nav_order: 2
