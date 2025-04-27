@@ -1,5 +1,5 @@
 ---
-title: FTLE on Curved Surfaces 
+title: FTLE from Flows on Curved Surfaces 
 parent: Tutorial - FTLE codes
 layout: home
 nav_order: 3
