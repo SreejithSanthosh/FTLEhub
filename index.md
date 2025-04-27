@@ -60,4 +60,4 @@ High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark ini
 
 [xx5] : Serra, M., Serrano Nájera, G., Chuai, M., Plum, A. M., Santhosh, S., Spandan, V., ... & Mahadevan, L. (2023). A mechanochemical model recapitulates distinct vertebrate gastrulation modes. Science advances, 9(49), eadh8152. 
 
-*This is a restricted set of references on Coherent Structures. We refer the reader to the above publications and references for an extensive reference list.  
+*This is a restricted set of references on Coherent Structures. We refer the reader to the aforementioned publications and their references for an extensive list.  
