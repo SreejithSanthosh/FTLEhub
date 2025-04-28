@@ -50,17 +50,18 @@ Before you run the Lagrangian analysis, the velocity field data and the manifold
 - Node connections : cell array of size ($$N_t,1$$). The cell array element `TrianT{k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_f(k),3)$$ whose $$j-th$$ raw contains the mesh connectivity of face $$j$$ (e.g. $$[i_1,i_2,i_3] $$ for a mesh face with nodes $$i_1,i_2,i_3$$). $$N_f(k)$$ denotes the number of mesh faces at time $$t = k$$. 
 - v : cell array of size ($$ 3, N_t$$) , where the cell array element `v{1,k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
 
-An example dataset is provided in `./Data/growingSphere.h5` in the Python code directory, which can be visualized by running `./Example/Sphere.py`.
+An example dataset is provided in `./Data/growingSphere.h5` in the Python code directory, which can be visualized by running `./Example/Sphere.py`. Running this example for the time frame 0 to 21 for both Forward and Backward FTLE fields we get the following results:
 
+
+![](../../Images/Sphere0_21.png)
+
+![](../../Images/Sphere21_0.png)
 
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.
 
 
 
 
-![](../../Images/zebraFishHeartAttractor.png)
-
-![](../../Images/zebraFishHeartRepeller.png)
 
 
 
