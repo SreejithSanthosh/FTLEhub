@@ -60,6 +60,24 @@ An example dataset is provided in `./Data/growingSphere.h5` in the Python code d
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.
 
 
+## Performing Lagrangian Analysis
+
+Once you load the data you can run the code by importing the `FTLE_mesh` function form `ftle\Curved\CurvedSurfaceMain.py`. There are several parameters to adjust. 
+
+- `direction` : The direciton of the advection process use `forward` or `backward` for computing the Forward(Repellers) and Backward(Attractors) FTLE-LCS structures repsectiviely. The default value is `forward`.
+
+- `initial_time` , `final_time`: The time index values in $$\{0,1,2,\ldots,T_{final\,time}\}$$ you want the advection process to start from and end at. These values depend on the value of `direction`. If you select `forward` then it is required that `initial_time` < `final_time`. Likewise if `backward` is selected it is required that `initial_time` > `final_time`.
+  
+- `plot_ftle`: `True`, `False` value for indicating whether to plot the FTLE field over the mesh. The default value is `False`.
+
+- `save_path`: The path to the directory where you want the plot to be saved. The default value is `None`.
+
+- `camera_setup`: This is used for orienting the camera for the save plotting image, this only matters if you choose to specify a `save_path`. This takes in a tuple of the form `(camera_position, camera_focal_point, degree)`. A good `camera_setup` can be determined by running the Analysis for when `plot_ftle` is set to `True`, which allows for the camera details in the plotting window to be printed out to the terminal.
+
+- `neighborhood`: This is the amount of nodes used in the sparse FTLE computations on the mesh. This neighborhood corresponds directly to the amount of nodes about each node of the mesh that go into the FTLE computation. The defualt value is 15.
+
+- `lam`: This is a regularization parameter for the FTLE computations the defualt value is $$10^{-10}$$. There should be no reason to change this value, however meshes that are unusually sparse or dense may require different values. 
+
 ## References
 
 [1] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  
