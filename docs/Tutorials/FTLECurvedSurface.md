@@ -34,8 +34,7 @@ This will generate a directory called **curvedSurfaceFTLE**, which contains all 
 
 ![Result of FTLE Analaysis](../../Images/resultCodeMAIN.png)
 
-The Lagrangian deformation results above are for the time interval $$(t0=1,tf=23)$$. $$\Lambda$$ is the FTLE field, $$\xi$$ is the axis of maximum deformation and $${}_{iso}\Lambda$$  quantifies the isotropic Lagrangian deformation experienced. For, further details on these quantities and the algoritham used to compute them, we refer you to the accompanying manuscript 
-[1].
+The Lagrangian deformation results above are for the time interval $$(t0=1,tf=23)$$. $$\Lambda$$ is the FTLE field, $$\xi$$ is the axis of maximum deformation and $${}_{iso}\Lambda$$  quantifies the isotropic Lagrangian deformation experienced. For further details on these quantities and the algorithm used to compute them, we refer you to the accompanying manuscript [1].
 
 Further development of this code is currently ongoing to improve the robustness of the method and increase its speed. To get those updates, use the command  
 ```
