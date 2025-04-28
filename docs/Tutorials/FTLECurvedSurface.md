@@ -7,7 +7,7 @@ nav_order: 3
 
 The MATLAB code for computing Coherent Structures based on Finite-Time-Lyapunov Exponents (FTLE) and Lagrangian deformation for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git). 
 The following tutorial provides instructions on how to use the code. To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript 
-[S. Santhosh, C. Zhu, B. Fencil, M. Serra](Necessary Link). [NEED TO WRITE THAT \LAMBDA IS THE FTLE. SIMILAR FOR \LAMBDAISO. WRITE ALSO B_LAMBDA AND F_LAMBDA NEXT TO THE LAMBDA YOU INSERTED NOW]
+[1]. [NEED TO WRITE THAT \LAMBDA IS THE FTLE. SIMILAR FOR \LAMBDAISO. WRITE ALSO B_LAMBDA AND F_LAMBDA NEXT TO THE LAMBDA YOU INSERTED NOW]
 
 ![Introduction To Curved Surface FTLE](../../Images/FTLEBanner.png)
 
@@ -30,11 +30,12 @@ To install the code, navigate to the path where you would want to install it on 
 ```
 git clone  https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git
 ```
-This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/staticMesh.mat` and presents the following result, [The datasets is not on a staticMesh PLEASE UPDATE IT] [FIGURE BELOW: REPLACE ZETA WITH XI TO BE CONSISTENT WITH THE PAPER + PLEASE ALSO ADD A LINE EXPLAINING LAMBDA ISO AND REFERE THE READER TO THE PAPER + BELOW MAKE SURE TO WRITE T_0 AND T_F CONSISTENTLY. SOMETIMES I READ T0 AND TF]
+This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/growingSphere.mat` and presents the following result, [The datasets is not on a staticMesh PLEASE UPDATE IT] [FIGURE BELOW: REPLACE ZETA WITH XI TO BE CONSISTENT WITH THE PAPER + PLEASE ALSO ADD A LINE EXPLAINING LAMBDA ISO AND REFERE THE READER TO THE PAPER + BELOW MAKE SURE TO WRITE T_0 AND T_F CONSISTENTLY. SOMETIMES I READ T0 AND TF]. In addition, the visualization of the velocity field, forward and backward advection of tracer particles would be given in `/saveResults` directory as `vizVelocity.mp4` , `forAdvct.mp4`, and `bckAdvct.mp4` respectively.
 
 ![Result of FTLE Analaysis](../../Images/resultCodeMAIN.png)
 
-In addition, the visualization of the velocity field, forward and backward advection of tracer particles would be given in `/saveResults` directory as `vizVelocity.mp4` , `forAdvct.mp4`, and `bckAdvct.mp4` respectively.
+The Lagrangian deformation results above are for the time interval $$ (t0 = 1,tf = 23) $$. $$ \Lambda $$ is the FTLE field, $$ \xi $$ is the axis of maximum deformation and $${}_{iso}\Lambda$$  quantifies the isotropic Lagrangian deformation experienced. For, further details on these quantities and the algoritham used to compute them, we refer you to the accompanying manuscript 
+[1].
 
 Further development of this code is currently ongoing to improve the robustness of the method and increase its speed. To get those updates, use the command  
 ```
@@ -58,7 +59,7 @@ Before you run the Lagrangian analysis, the velocity field data and the manifold
 - v : cell array of size ($$ 3, N_t$$) , where the cell array element `v{1,k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
 [THROUGHOUT: MAKE SURE THE NOTATION IS CONSISTENT WITH THE CODE]
 
-An example dataset is provided in `./Data/staticMesh.mat` in the code directory, which can be visualized by running `./Data/vizExampleData.m`. [IS IT A STATIC MESH? IF NOT CHANGE THE NAME DIRECORY]
+An example dataset is provided in `./Data/growingSphere.mat` in the code directory, which can be visualized by running `./Data/vizExampleData.m`. [IS IT A STATIC MESH? IF NOT CHANGE THE NAME DIRECORY]
 
 
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.       
@@ -66,7 +67,7 @@ An example dataset is provided in `./Data/staticMesh.mat` in the code directory,
 
 ## Performing Lagrangian Analysis
 
-We now explain how to run the code `main.m` to compute the Lagrangian deformation information for a chosen time interval $$[t_0,t_f]$$. 
+We now explain how to run the code `main.m` to compute the Lagrangian deformation information for a chosen time interval $$[t0,tf]$$. 
 
 1. **Load the data** : Once the data is formatted appropriately as described above, it can be loaded onto the script by providing the right path 
 ```
@@ -77,13 +78,13 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 - ``cpu_num`` : The code parallelizes the Lagrangian analysis using the [parfor](https://www.mathworks.com/help/parallel-computing/parfor.html) method. Therefore, set this variable to ``cpu_num = Nc ``, where $$Nc$$ is the number of CPU cores available. Note that a copy of the dataset is sent to each core, which may cause the total data in RAM to exceed the system's capabilities. For example, if your data is x GB and you parallelize over Nc cores, the total RAM required is $$ \approx$$ > x * Nc GB.
 - Plotting parameters ``Nplot`` and ``fntSz``: ``Nplot`` sets the number of frames that are saved in the video while plotting the advection results. ``fntSz`` similarly sets the font size of the text and elements on those plots.
 - Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t = t0$$ to $$t = tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. The parameter ``dt`` is the time-step for advection.
-3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf $$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
-<!-- To interpret these results, refer to <span style ="color:red">documentationLagrangianDeformation</span> -->
+- Regularization parameter ``regulFac`` sets the strength of the regularization used while computing the Lagrangian deformation quantities for noisy velocity fields. For further information we refer you to Section S3. in the accompanying manuscript [1].  
 
-<!-- ## Performing Lagrangian Analysis for a Multiple Time Interval
-
-Usually, one wants to see how the deformation evolves for increasing time intervals $$[t0,tf]$$ where for a constant $$ t0$$ you vary $$tf$$ to detect the emergence and the dynamics of the Coherent Structures [THROUGHOUT: write Coherent Structures with capital C and S] in the flow. The code provided in ``mainMultTimeInterval.m`` does that for you. We will now go through how to set up this code and visualize the results using the code given in ``plotMultTimeInterval.m`` -->
+3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0 \to tf $$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
 
 
 
 
+## References
+
+[1] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  

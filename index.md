@@ -10,16 +10,16 @@ Coherent Structures are persistent, robust structures in a flow that summarize c
 
 <figure>
 <img src="./Images/MainIntroBanner.png" alt="Alt text">
-<figcaption>(a) Deformation of a fluid patch close to a saddle point (i.e., a fixed point) of a steady (i.e., time independent) velocity (left), and to Attracting and repelling LCSs in an unsteady (i.e., time dependent) velocity (right). Attracting and Repelling Coherent Structures are special surfaces in 3D flows or curves in 2D flows where nearby tracer particles maximally converge or separate. (b-i) Examples of Coherent Structures in physical and biological flows. (b) Short-time attractors (or Attracting Eulerian Coherent Structures) aid search and rescue operations at sea [Ref]. (c) Attracting and Repelling LCSs in atmospheric flows [Ref]. (d) WRITE what it is and replace it with laboratory flow [REF]. (e) FTLE and Attracting LCSs in active nematic flows [REF]. (f) FTLE and Attracting LCSs in a beating zebrafish heart [ref]. (g) FTLE and Attracting LCSs in multicellular flows during avian gastrulation [ref]. [SREEJITH, MAKE THE CHANGES WE DISCUSSED AND USE  [t_0,t] for time intervals as below.]</figcaption>
+<figcaption>(a) Deformation of a fluid patch close to a saddle point (i.e., a fixed point) of a steady (i.e., time independent) velocity (left), and to Attracting and repelling LCSs in an unsteady (i.e., time dependent) velocity (right). Attracting and Repelling Coherent Structures are special surfaces in 3D flows or curves in 2D flows where nearby tracer particles maximally converge or separate. (b-i) Examples of Coherent Structures in physical and biological flows. (b) Short-time attractors (or Attracting Eulerian Coherent Structures) aid search and rescue operations at sea [5]. (c-d) Attracting and Repelling LCSs in (c) atmospheric flows [6] and (d) CFD flows for a cylinder wake [7]. (e) FTLE and Attracting LCSs in active nematic flows [8]. (f) FTLE and Attracting LCSs in a beating zebrafish heart [8]. (g) FTLE and Attracting LCSs in multicellular flows during avian gastrulation [9]. [SREEJITH, MAKE THE CHANGES WE DISCUSSED AND USE  [t_0,t] for time intervals as below.]</figcaption>
  </figure>
 
 ## Why is coherent structure identification useful?
 Consider the flow field around a saddle point (Panel (a)): a nearby patch of fluid (cyan) converges to the fixed point along its stable manifold (red curve) and separates along the unstable manifold (blue curve). Stable and unstable manifolds of saddle points, however, have important limitations: i) are meaningful only in steady velocities ($$\mathbf{v}(\mathbf{x})$$); ii) describe the evolution of material patches only in the infinite-time limit (not over finite or short times); iii) are static (do not deform/move in time). Repelling and Attracting LCSs generalize stable and unstable manifolds of fixed points, overcoming the above limitations. i) They are computable for both steady and unsteady ($$\mathbf{v}(\mathbf{x},t)$$) velocity fields; ii) they shape material patches over the desired time interval of interest $$[t_0, t]$$; iii) they are dynamic (move and deform over time); iv) they reveal regions on the flow with the highest Lagrangian deformations; v) they are objective; i.e., invariant to time-dependent rotations and translations of the coordinate system used to describe motion. 
 
-Overall, Repelling and Attracting LCSs provide a reduced representation of a temporally and spatially varying flow, enabling robust quantification of complex and noisy velocity datasets, a systematic comparison between flows in different experiments and comparisons with theoretical models. Coherent structures also provide a simplified understanding of flow geometry, identify dynamic domain boundaries, and provide a new perspective for optimal flow control. While Coherent Structures were initially motivated to analyze atmospheric and oceanic flows, recent works have demonstrated their utility in studying biological systems and active matter, see e.g. panels b-XXX above and examples of recent papers [xx1-xx5] summarized [here](./docs/LivingandActiveMatter.md). 
+Overall, Repelling and Attracting LCSs provide a reduced representation of a temporally and spatially varying flow, enabling robust quantification of complex and noisy velocity datasets, a systematic comparison between flows in different experiments and comparisons with theoretical models. Coherent structures also provide a simplified understanding of flow geometry, identify dynamic domain boundaries, and provide a new perspective for optimal flow control. While Coherent Structures were initially motivated to analyze atmospheric and oceanic flows, recent works have demonstrated their utility in studying biological systems and active matter, see e.g. panels (e-g) above and examples of recent papers [8-13] summarized [here](./docs/LivingandActiveMatter.md). 
 
 ## How to calculate FTLE?
-Finite-Time-Lyapunov-Exponents enable identifying Repelling and Attracting LCSs as ridges (or regions with high FTLE values) of a scalar field. We describe how to compute FTLE and Attracting/Repelling LCSs for a 2D flow described by the velocity field $$\mathbf{v}(\mathbf{x},t)$$. For the formalism to compute FTLE for flows on 2D curved surfaces embedded in 3D, please refer to [ref].
+Finite-Time-Lyapunov-Exponents enable identifying Repelling and Attracting LCSs as ridges (or regions with high FTLE values) of a scalar field. We describe how to compute FTLE and Attracting/Repelling LCSs for a 2D flow described by the velocity field $$\mathbf{v}(\mathbf{x},t)$$. For the formalism to compute FTLE for flows on 2D curved surfaces embedded in 3D, please refer to [8].
 
 >> We assume a simulated or measured velocity field is given. If one needs to reconstruct the velocity from experimental flow data, Particle Image Velocimetry methods are common (See [Ref](https://en.wikipedia.org/wiki/Particle_image_velocimetry), and [PIVLab](https://pivlab.blogspot.com/p/blog-page_19.html) is a MATLAB toolbox). 
 >> 
@@ -50,14 +50,22 @@ High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark ini
 
 [4] : Nolan, P. J., Serra, M., & Ross, S. D. (2020). Finite-time Lyapunov exponents in the instantaneous limit and material transport. Nonlinear Dynamics, 100(4), 3825-3852.
 
-[xx1] : Serra, M., Streichan, S., Chuai, M., Weijer, C. J., & Mahadevan, L. (2020). Dynamic morphoskeletons in development. Proceedings of the National Academy of Sciences, 117(21), 11444-11449.
+[5] : Serra, M., Sathe, P., Rypina, I., Kirincich, A., Ross, S. D., Lermusiaux, P., ... & Haller, G. (2020). Search and rescue at sea aided by hidden flow structures. Nature communications, 11(1), 2525.
 
-[xx2] : Lange, M., Granados, A., VijayKumar, S., Bragantini, J., Ancheta, S., Kim, Y. J., ... & Royer, L. A. (2024). A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors. Cell, 187(23), 6742-6759.
+[6] : Lekien, F., & Ross, S. D. (2010). The computation of finite-time Lyapunov exponents on unstructured meshes and for non-Euclidean manifolds. Chaos: An Interdisciplinary Journal of Nonlinear Science, 20(1).
+
+[7] : Kasten, J., Petz, C., Hotz, I., Hege, H. C., Noack, B. R., & Tadmor, G. (2010). Lagrangian feature extraction of the cylinder wake. Physics of fluids, 22(9).
+
+[8] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  
+
+[9] : Serra, M., Streichan, S., Chuai, M., Weijer, C. J., & Mahadevan, L. (2020). Dynamic morphoskeletons in development. Proceedings of the National Academy of Sciences, 117(21), 11444-11449.
+
+[10] : Lange, M., Granados, A., VijayKumar, S., Bragantini, J., Ancheta, S., Kim, Y. J., ... & Royer, L. A. (2024). A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors. Cell, 187(23), 6742-6759.
   
-[xx3] : Serra, M., Lemma, L., Giomi, L., Dogic, Z., & Mahadevan, L. (2023). Defect-mediated dynamics of coherent structures in active nematics. Nature Physics, 19(9), 1355-1361.
+[11] : Serra, M., Lemma, L., Giomi, L., Dogic, Z., & Mahadevan, L. (2023). Defect-mediated dynamics of coherent structures in active nematics. Nature Physics, 19(9), 1355-1361.
 
-[xx4] : Sinigaglia, C., Braghin, F., & Serra, M. (2024). Optimal control of short-time attractors in active nematics. Physical Review Letters, 132(21), 218302.
+[12] : Sinigaglia, C., Braghin, F., & Serra, M. (2024). Optimal control of short-time attractors in active nematics. Physical Review Letters, 132(21), 218302.
 
-[xx5] : Serra, M., Serrano Nájera, G., Chuai, M., Plum, A. M., Santhosh, S., Spandan, V., ... & Mahadevan, L. (2023). A mechanochemical model recapitulates distinct vertebrate gastrulation modes. Science advances, 9(49), eadh8152. 
+[13] : Serra, M., Serrano Nájera, G., Chuai, M., Plum, A. M., Santhosh, S., Spandan, V., ... & Mahadevan, L. (2023). A mechanochemical model recapitulates distinct vertebrate gastrulation modes. Science advances, 9(49), eadh8152. 
 
 *This is a restricted set of references on Coherent Structures. We refer the reader to the aforementioned publications and their references for an extensive list.  
