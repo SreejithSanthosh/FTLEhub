@@ -45,10 +45,10 @@ The manifold information $$\mathcal{M}$$ is stored as a mesh with discrete node 
 Before you run the Lagrangian analysis, the velocity field data and the manifold on which it is defined need to be loaded into the Python file(i.e from a .h5 file) and have the data strucutre:
 
 
-- time : vector of size ($$1,N_t$$), where $$N_t$$ is the number of time points of the dataset. 
-- x : cell array of size ($$N_t,1$$). Each cell array element `x{k}` $$k\in\{1,N_t\}$$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number mesh nodes at $$t=k$$. Similarly, the y and z components of the mesh nodes are stored in `y` and `z`. 
+- Time steps: vector of size ($$1,N_t$$), where $$N_t$$ is the number of time points of the dataset. 
+- Node Positions : cell array of size ($$N_t,1$$). Each cell array element `x{k}` $$k\in\{1,N_t\}$$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number mesh nodes at $$t=k$$. Similarly, the y and z components of the mesh nodes are stored in `y` and `z`. 
 - Node connections : cell array of size ($$N_t,1$$). The cell array element `TrianT{k}` $$k\in\{1,N_t\}$$ is a matrix of size $$(N_f(k),3)$$ whose $$j-th$$ raw contains the mesh connectivity of face $$j$$ (e.g. $$[i_1,i_2,i_3]$$ for a mesh face with nodes $$i_1,i_2,i_3$$). $$N_f(k)$$ denotes the number of mesh faces at time $$t = k$$. 
-- v : cell array of size ($$3,N_t$$) , where the cell array element `v{1,k}` $$k\in\{1,N_t\}$$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
+- Node velocities : cell array of size ($$3,N_t$$) , where the cell array element `v{1,k}` $$k\in\{1,N_t\}$$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
 
 An example dataset is provided in `./Data/growingSphere.h5` in the Python code directory, which can be visualized by running `./Example/Sphere.py`. Running this example for the time frame 0 to 21 for both Forward and Backward FTLE fields we get the following results:
 
