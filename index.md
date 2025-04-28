@@ -33,7 +33,7 @@ The FTLE field is given by
 <div>
 $$ \Lambda_{t_0}^t(\mathbf{x}_0) = \frac{1}{|t-t_0|}\text{log}(\lambda_2(\mathbf{x}_0)),$$
  </div>
-where $$\lambda_2(\mathbf{x}_0)$$ is the largest singular eigenvalue of $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0))$$. 
+where $$\lambda_2(\mathbf{x}_0)$$ is the largest singular value of $$\mathbf{\nabla}_{\mathbf{x}_0}\mathbf{F}_{t_0}^t(\mathbf{x}_0)$$. 
 <figure>
 <img src="./Images/deformationIntroFTLE.png" alt="Alt text">
 <figcaption> </figcaption>
