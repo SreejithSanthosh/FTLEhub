@@ -2,12 +2,12 @@
 title: FTLE from Flows on Curved Surfaces 
 parent: Tutorial - FTLE codes
 layout: home
-nav_order: 3
+nav_order: 1
 ---
 
 The MATLAB code for computing Coherent Structures based on Finite-Time-Lyapunov Exponents (FTLE) and Lagrangian deformation for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git). 
 The following tutorial provides instructions on how to use the code. To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript 
-[1]. [NEED TO WRITE THAT \LAMBDA IS THE FTLE. SIMILAR FOR \LAMBDAISO. WRITE ALSO B_LAMBDA AND F_LAMBDA NEXT TO THE LAMBDA YOU INSERTED NOW]
+[1]. 
 
 ![Introduction To Curved Surface FTLE](../../Images/FTLEBanner.png)
 
@@ -30,7 +30,7 @@ To install the code, navigate to the path where you would want to install it on 
 ```
 git clone  https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git
 ```
-This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/growingSphere.mat` and presents the following result, [The datasets is not on a staticMesh PLEASE UPDATE IT] [FIGURE BELOW: REPLACE ZETA WITH XI TO BE CONSISTENT WITH THE PAPER + PLEASE ALSO ADD A LINE EXPLAINING LAMBDA ISO AND REFERE THE READER TO THE PAPER + BELOW MAKE SURE TO WRITE T_0 AND T_F CONSISTENTLY. SOMETIMES I READ T0 AND TF]. In addition, the visualization of the velocity field, forward and backward advection of tracer particles would be given in `/saveResults` directory as `vizVelocity.mp4` , `forAdvct.mp4`, and `bckAdvct.mp4` respectively.
+This will generate a directory called **curvedSurfaceFTLE**, which contains all the code. To check if all the necessary components are working, run `main.m` on MATLAB. This runs the deformation analysis on an synthetic example dataset given in `./Data/growingSphere.mat` and presents the result given below. In addition, the visualization of the velocity field, forward and backward advection of tracer particles would be given in `/saveResults` directory as `vizVelocity.mp4` , `forAdvct.mp4`, and `bckAdvct.mp4` respectively.
 
 ![Result of FTLE Analaysis](../../Images/resultCodeMAIN.png)
 
@@ -57,9 +57,8 @@ Before you run the Lagrangian analysis, the velocity field data and the manifold
 - x : cell array of size ($$ N_t,1$$). Each cell array element `x{k}` $$k\in \{1,N_t\} $$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number mesh nodes at $$t = k$$. Similarly, the y and z components of the mesh nodes are stored in `y` and `z`. 
 - TrianT : cell array of size ($$N_t,1$$). The cell array element `TrianT{k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_f(k),3)$$ whose $$j-th$$ raw contains the mesh connectivity of face $$j$$ (e.g. $$[i_1,i_2,i_3] $$ for a mesh face with nodes $$i_1,i_2,i_3$$). $$N_f(k)$$ denotes the number of mesh faces at time $$t = k$$. 
 - v : cell array of size ($$ 3, N_t$$) , where the cell array element `v{1,k}` $$k\in \{1,N_t\} $$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t = k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
-[THROUGHOUT: MAKE SURE THE NOTATION IS CONSISTENT WITH THE CODE]
 
-An example dataset is provided in `./Data/growingSphere.mat` in the code directory, which can be visualized by running `./Data/vizExampleData.m`. [IS IT A STATIC MESH? IF NOT CHANGE THE NAME DIRECORY]
+An example dataset is provided in `./Data/growingSphere.mat` in the code directory, which can be visualized by running `./Data/vizExampleData.m`.
 
 
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.       
