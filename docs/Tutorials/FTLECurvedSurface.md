@@ -56,7 +56,7 @@ Before you run the Lagrangian analysis, the velocity field data and the manifold
 - time : vector of size ($$1,N_t$$), where $$N_t$$ is the number of time points of the dataset. 
 - x : cell array of size ($$N_t,1$$). Each cell array element `x{k}` $$k\in\{1,N_t\}$$ is vector of size $$(N_p(k),1)$$ containing the x-coordinate of all the $$(N_p(k)$$ mesh nodes, where $$N_p(k)$$ is the total number mesh nodes at $$t = k$$. Similarly, the y and z components of the mesh nodes are stored in `y` and `z`. 
 - TrianT : cell array of size ($$N_t,1$$). The cell array element `TrianT{k}` $$k\in\{1,N_t\} $$ is a matrix of size $$(N_f(k),3)$$ whose $$j-th$$ raw contains the mesh connectivity of face $$j$$ (e.g. $$[i_1,i_2,i_3]$$ for a mesh face with nodes $$i_1,i_2,i_3$$). $$N_f(k)$$ denotes the number of mesh faces at time $$t = k$$. 
-- v : cell array of size ($$3,N_t$$) , where the cell array element `v{1,k}` $$k\in\{1,N_t\} $$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t=k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
+- v : cell array of size ($$3,N_t$$) , where the cell array element `v{1,k}` $$k\in\{1,N_t\}$$ is a matrix of size $$(N_p(k),1)$$ with the x-component of the velocity all the mesh nodes. $$N_p(k)$$ is the total number of mesh nodes at $$t=k$$. Similarly, the y and z components of the velocity are stored in `v{2,k}` and `v{3,k}`. 
 
 An example dataset is provided in `./Data/growingSphere.mat` in the code directory, which can be visualized by running `./Data/vizExampleData.m`.
 
@@ -79,7 +79,7 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 - Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t=t0$$ to $$t=tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. The parameter ``dt`` is the time-step for advection.
 - Regularization parameter ``regulFac`` sets the strength of the regularization used while computing the Lagrangian deformation quantities for noisy velocity fields. For further information we refer you to Section S3. in the accompanying manuscript [1].  
 
-3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf$$ and backward advection $$ tf \to t0 $$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
+3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf$$ and backward advection $$tf \to t0$$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
 
 
 
