@@ -54,22 +54,22 @@ High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark ini
 
 [6] : Nolan, P. J., Serra, M., & Ross, S. D. (2020). Finite-time Lyapunov exponents in the instantaneous limit and material transport. Nonlinear Dynamics, 100(4), 3825-3852.
 
-[5] : Serra, M., Sathe, P., Rypina, I., Kirincich, A., Ross, S. D., Lermusiaux, P., ... & Haller, G. (2020). Search and rescue at sea aided by hidden flow structures. Nature communications, 11(1), 2525.
+[7] : Serra, M., Sathe, P., Rypina, I., Kirincich, A., Ross, S. D., Lermusiaux, P., ... & Haller, G. (2020). Search and rescue at sea aided by hidden flow structures. Nature communications, 11(1), 2525.
 
-[6] : Lekien, F., & Ross, S. D. (2010). The computation of finite-time Lyapunov exponents on unstructured meshes and for non-Euclidean manifolds. Chaos: An Interdisciplinary Journal of Nonlinear Science, 20(1).
+[8] : Lekien, F., & Ross, S. D. (2010). The computation of finite-time Lyapunov exponents on unstructured meshes and for non-Euclidean manifolds. Chaos: An Interdisciplinary Journal of Nonlinear Science, 20(1).
 
-[7] : Kasten, J., Petz, C., Hotz, I., Hege, H. C., Noack, B. R., & Tadmor, G. (2010). Lagrangian feature extraction of the cylinder wake. Physics of fluids, 22(9).
+[9] : Kasten, J., Petz, C., Hotz, I., Hege, H. C., Noack, B. R., & Tadmor, G. (2010). Lagrangian feature extraction of the cylinder wake. Physics of fluids, 22(9).
 
-[8] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  
+[10] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  
 
-[9] : Serra, M., Streichan, S., Chuai, M., Weijer, C. J., & Mahadevan, L. (2020). Dynamic morphoskeletons in development. Proceedings of the National Academy of Sciences, 117(21), 11444-11449.
+[11] : Serra, M., Streichan, S., Chuai, M., Weijer, C. J., & Mahadevan, L. (2020). Dynamic morphoskeletons in development. Proceedings of the National Academy of Sciences, 117(21), 11444-11449.
 
-[10] : Lange, M., Granados, A., VijayKumar, S., Bragantini, J., Ancheta, S., Kim, Y. J., ... & Royer, L. A. (2024). A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors. Cell, 187(23), 6742-6759.
+[12] : Lange, M., Granados, A., VijayKumar, S., Bragantini, J., Ancheta, S., Kim, Y. J., ... & Royer, L. A. (2024). A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors. Cell, 187(23), 6742-6759.
   
-[11] : Serra, M., Lemma, L., Giomi, L., Dogic, Z., & Mahadevan, L. (2023). Defect-mediated dynamics of coherent structures in active nematics. Nature Physics, 19(9), 1355-1361.
+[13] : Serra, M., Lemma, L., Giomi, L., Dogic, Z., & Mahadevan, L. (2023). Defect-mediated dynamics of coherent structures in active nematics. Nature Physics, 19(9), 1355-1361.
 
-[12] : Sinigaglia, C., Braghin, F., & Serra, M. (2024). Optimal control of short-time attractors in active nematics. Physical Review Letters, 132(21), 218302.
+[14] : Sinigaglia, C., Braghin, F., & Serra, M. (2024). Optimal control of short-time attractors in active nematics. Physical Review Letters, 132(21), 218302.
 
-[13] : Serra, M., Serrano Nájera, G., Chuai, M., Plum, A. M., Santhosh, S., Spandan, V., ... & Mahadevan, L. (2023). A mechanochemical model recapitulates distinct vertebrate gastrulation modes. Science advances, 9(49), eadh8152. 
+[15] : Serra, M., Serrano Nájera, G., Chuai, M., Plum, A. M., Santhosh, S., Spandan, V., ... & Mahadevan, L. (2023). A mechanochemical model recapitulates distinct vertebrate gastrulation modes. Science advances, 9(49), eadh8152. 
 
-*This is a restricted set of references on Coherent Structures. We refer the reader to the aforementioned publications and their references for an extensive list.  
+*This is a limited set of references on Coherent Structures. We refer the reader to the aforementioned publications and their references for an extensive list.  
