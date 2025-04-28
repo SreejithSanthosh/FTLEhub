@@ -43,7 +43,7 @@ git pull
 
 ## Data required for Langrangian analaysis and Formating
 
-To perform the Lagrangian analysis, we require the velocity field $$\mathbf{v}(\mathbf{x},t)$$ that quantifies the material flow on a manifold $$\mathbf{x}\in\mathcal{M}(t)$$. The Lagrangian Analysis method that we describe here works well for both static surfaces, where the manifold on which the flow happens is time-independent, and dynamic surfaces, where the manifold on which the flow happens is time-dependent. 
+To perform the Lagrangian analysis, we require the velocity field $$\mathbf{v}(\mathbf{x},t)$$ that quantifies the material flow on a manifold $$\mathbf{x}\in\mathcal{M}(t)$$. The Lagrangian Analysis method described here applies to both static surfaces, where the manifold is time-independent, and dynamic surfaces, where the manifold is time-dependent. 
 
   > > **NOTE:** Obtaining velocity data from tissue mechanics and active nematic simulations is relatively simple, but obtaining them from experimental live imaging of biological systems is more difficult. Several methods exist to extract this information, such as [ImSAnE](https://github.com/idse/imsane)  and [TubULAR](https://npmitchell.github.io/tubular/). 
 
