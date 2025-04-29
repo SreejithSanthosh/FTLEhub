@@ -5,4 +5,11 @@ nav_order: 2
 has_children: true
 ---
 
-Here, we provide (or reference) codes and tutorials for computing FTLE and Coherent Structures from general 2D and 3D velocity fields, 2D and 3D sparse and noisy trajectories, and 2D flows on dynamic surfaces.
+Here, we provide codes and tutorials for computing FTLE and Coherent Structures on 2D flows on dynamic surfaces, accompanying the manuscript: 
+[1] S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, preprint,(2025)
+
+For completeness, we also refer to the codes and tutorials for computing FTLE and Coherent Structures from general 2D and 3D sparse and noisy trajectory data, accompanying the manuscript: 
+
+[2] Mowlavi, S., Serra, M., Maiorino, E., & Mahadevan, L. (2022). Detecting Lagrangian coherent structures from sparse and noisy trajectory data. Journal of Fluid Mechanics, 948, A4.
+
+For completeness, we provide codes and tutorials for computing FTLE and Coherent Structures from general 2D and 3D velocity fields.  
