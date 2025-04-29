@@ -6,6 +6,7 @@ has_children: true
 ---
 
 Here, we provide codes and tutorials for computing FTLE and Coherent Structures on 2D flows on dynamic surfaces, accompanying the manuscript: 
+
 [1] S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, preprint,(2025)
 
 For completeness, we also refer to the codes and tutorials for computing FTLE and Coherent Structures from general 2D and 3D sparse and noisy trajectory data, accompanying the manuscript: 
