@@ -63,7 +63,7 @@ An example dataset is provided in `./Data/growingSphere.h5` in the Python code d
 
 ## Performing Lagrangian Analysis
 
-Once you load the data you can run the code by importing the `FTLE_mesh` function form `ftle\Curved\CurvedSurfaceMain.py`. There are several parameters to adjust. 
+Once you load the data you can run the code by importing the `FTLE_mesh` function form `ftle\Curved\CurvedSurfaceMain.py`. There are several parameters to adjust. Alternativily you can edit and load data into `CurvedSurfaceMain.py` directly in order to run the `FTLE_mesh` function from there.
 
 - `direction` : The direciton of the advection process use `forward` or `backward` for computing the Forward(Repellers) and Backward(Attractors) FTLE-LCS structures repsectiviely. The default value is `forward`.
 
