@@ -24,5 +24,5 @@ Below, we list recent publications leveraging Coherent Structures to understand 
 - [Control of epiblast cell fate by mechanical cues](https://www.biorxiv.org/content/10.1101/2024.06.24.600402v1.abstract): Repelling LCSs reveals hidden embryo compartmentalization and mediate cell-fate bifurcations in chick embryogenesis at stages HH4-HH8.
   Guillot, C., Djeffal, Y., Serra, M., & Pourquié, O. (2024). Control of epiblast cell fate by mechanical cues. bioRxiv, 2024-06.
 
-- [Morphogen Patterning in Dynamic Tissues](https://www.biorxiv.org/content/10.1101/2025.01.04.631293v1): Attracting and Repelling LCSs mediates diffusive morphogen transport in dynamic tissues, revealing profound synergies between morphogenetic movements and morphogen patterning.
+- [Morphogen Patterning in Dynamic Tissues](https://www.biorxiv.org/content/10.1101/2025.01.04.631293v1): Attracting and Repelling LCSs mediates diffusive morphogen transport in dynamic tissues, revealing synergies between morphogenetic movements and morphogen patterning.
   Plum, A. M., & Serra, M. (2025). Morphogen Patterning in Dynamic Tissues. bioRxiv, 2025-01.
