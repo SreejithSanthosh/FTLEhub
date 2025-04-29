@@ -74,7 +74,7 @@ High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark ini
 
 <div style="border: 2px solid red; padding: 1em; border-radius: 8px; background-color: #ffe6e6;">
 <b style="color:red;">IMPORTANT NOTE:</b><br><br>
-This page is intended to provide a minimal, elementary introduction to Coherent Structures and a limited set of references, primarily for the biology and soft matter physics communities.<br><br>
+This page is intended to provide a minimal, elementary introduction to Coherent Structures and a limited set of references, primarily for the biology and soft matter physics communities.
 We refer readers to the aforementioned publications and their references for an extensive list.
 </div>
 
