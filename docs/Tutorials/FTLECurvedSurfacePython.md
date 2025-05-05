@@ -16,7 +16,7 @@ The Python code for computing Coherent Structures based on Finite-Time-Lyapunov 
 
 ## Pre-requisites
 
-This code was built in Python 3.11, on a Windows 10 system. The following python packages are needed to run the code: 
+This code was built in Python 3.11, on a Windows 10 system. The following python packages are needed and can be installed with `pip` in your Python environment: 
 
 - Numpy
 - Pyvista
