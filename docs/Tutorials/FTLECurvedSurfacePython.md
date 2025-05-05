@@ -65,9 +65,7 @@ An example dataset is provided in `./Data/growingSphere.h5` in the Python code d
 
 Once you load the data you can run the code by importing the `FTLE_mesh` function form `ftle\Curved\CurvedSurfaceMain.py`. There are several parameters to adjust. Alternativily you can edit and load data into `CurvedSurfaceMain.py` directly in order to run the `FTLE_mesh` function from there.
 
-- `direction` : The direciton of the advection process use `forward` or `backward` for computing the Forward(Repellers) and Backward(Attractors) FTLE-LCS structures repsectiviely. The default value is `forward`.
-
-- `initial_time` , `final_time`: The time index values in $$\{0,1,2,\ldots,T_{final\,time}\}$$ you want the advection process to start from and end at. These values depend on the value of `direction`. If you select `forward` then it is required that `initial_time` < `final_time`. Likewise if `backward` is selected it is required that `initial_time` > `final_time`.
+- `initial_time` , `final_time`: The interval in the `time_steps` data you want to run the simulation over. 
   
 - `plot_ftle`: `True`, `False` value for indicating whether to plot the FTLE field over the mesh. The default value is `False`.
 
