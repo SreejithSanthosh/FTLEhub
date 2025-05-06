@@ -4,6 +4,7 @@ parent: Tutorial - FTLE codes
 layout: home
 nav_order: 1
 ---
+## Lagrangian coherent structures for flows on curved surfaces 
 
 The MATLAB code for computing Coherent Structures based on Finite-Time-Lyapunov Exponents (FTLE) and Lagrangian deformation for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurfaceFTLE.git). 
 The following tutorial provides instructions on how to use the code. To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript 
@@ -13,7 +14,7 @@ The following tutorial provides instructions on how to use the code. To understa
 
 Please [contact us](../Contact) if you encounter any issues with the code, and we will work with you to fix the problem and make it work with your dataset. 
 
-## Pre-requisites 
+### Pre-requisites 
 
 The code was built on MATLAB R2023a in a Windows 10 system. The following MATLAB add-ons need to be installed to run the code, 
 - [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html) : The code uses parallelization methods provided in this toolbox to run the advection of tracer particles,
@@ -23,7 +24,7 @@ The code was built on MATLAB R2023a in a Windows 10 system. The following MATLAB
 We have tested these codes on a *Mac OSX 15* and *Ubuntu 20* operating systems. We also assume that Git is installed and set up on the system, as all the code is hosted on GitHub. If not, we refer you to this [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 
-## Installation 
+### Installation 
 
 To install the code, navigate to the path where you would want to install it on the terminal and clone the GitHub repository using the code 
 
@@ -63,7 +64,7 @@ An example dataset is provided in `./Data/growingSphere.mat` in the code directo
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.       
 
 
-## Performing Lagrangian Analysis
+### Performing Lagrangian Analysis
 
 We now explain how to run the code `main.m` to compute the Lagrangian deformation information for a chosen time interval $$[t0,tf]$$. 
 
@@ -80,8 +81,18 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 
 3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf$$ and backward advection $$tf \to t0$$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
 
+## Eulerian coherent structures for flows on curved surfaces 
+The MATLAB code to compute Eulerian coherent structures based on eigen-values of strain rate for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurface-OECS.git). The follwing tutorial provides explanation on how to use the code. 
+To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript [1].
 
+**Pre-requisites,data-formatting,Installation:** We recommend users read the tutorial given above for Lagrangian analysis, as the Eulerian code has the same software pre-requisites and data-formatting requirements. To install the code, clone the GitHub repository using the code 
+```
+git clone  https://github.com/SreejithSanthosh/curvedSurface-OECS.git
+```
+To make sure that the code works, run the script `main.m` on MATLAB. This runs the Eulerian analysis on the example dataset given in `./Data/growingSphere.mat` and presents the result given below.
 
+![Result of OECS Analaysis](../../Images/OECSResult.png)
+The result above visualizes the Eulerian coherent structures at $$t=1$$. The regions with high values of the largest eigenvalue of strain rate $$s_2(\mathbf{x},t=1)$$ corresponds to repellers and regions with low values of the smallest eigenvalue of the strain rate $$s_1(\mathbf{x},t=1)$$ corresponds to attractors. The corresponding eigen-vector axis $$ e_2(\mathbf{x},t=1) $$ and $$ e_1(\mathbf{x},t=1) $$ corresponds to the axis of maxmimum repulsion and attraction. 
 
 ## References
 
