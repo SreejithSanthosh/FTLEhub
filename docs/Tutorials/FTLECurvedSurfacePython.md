@@ -23,8 +23,9 @@ This code was built in Python 3.11, on a Windows 10 system. The following python
 - Scipy
 - Matplotlib
 - Numba
+- ffmpeg
 
-  
+
 ## Installation 
 
 To install the code, navigate to the path where you would want to install it on the terminal and clone the GitHub repository using the command: 
