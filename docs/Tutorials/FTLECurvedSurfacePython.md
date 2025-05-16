@@ -32,6 +32,8 @@ To install the code, navigate to the path where you would want to install it on 
 
 ```
 git clone  https://github.com/bfencil/CurvedSurfacesFTLEPython.git
+cd CurvedSurfacesFTLEPython
+pip install -r requirements.txt
 ```
 
 
