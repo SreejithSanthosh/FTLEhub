@@ -23,7 +23,9 @@ This code was built in Python 3.11, on a Windows 10 system. The following python
 - Scipy
 - Matplotlib
 - Numba
-- ffmpeg
+- ffmpeg-python
+
+Note that ffmpeg needs to be installed system wide via `apt`, `brew`, or from https://ffmpeg.org/download.html, in order for the python wrapper for ffmpeg to work. 
 
 
 ## Installation 
