@@ -59,9 +59,9 @@ Before you run the Lagrangian analysis, the velocity field data and the manifold
 An example dataset is provided in `./Data/growingSphere.h5` in the Python code directory, which can be visualized by running `./Example/Sphere.py`. Running this example for the time frame 0 to 21 for both Forward and Backward FTLE fields we get the following results:
 
 
-![](../../Images/Sphere0_21.png)
+![](../../Images/growingSpherePython.png)
 
-![](../../Images/Sphere21_0.png)
+
 
   > > **NOTE:** An accurate Lagrangian Analysis requires that the mesh representation of the manifold is sampled uniformly, whereby the mesh faces are approximately of equal size; deviation from this may result in spurious results. The finer the mesh faces, the better the accuracy of the advection and deformation computed. If the original data does not meet this requirement, remeshing is recommended.
 
