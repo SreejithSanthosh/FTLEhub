@@ -12,8 +12,6 @@ The following tutorial provides instructions on how to use the code. To understa
 
 ![Introduction To Curved Surface FTLE](../../Images/FTLEBanner.png)
 
-Please [contact us](../Contact) if you encounter any issues with the code, and we will work with you to fix the problem and make it work with your dataset. 
-
 ### Pre-requisites 
 
 The code was built on MATLAB R2023a in a Windows 10 system. The following MATLAB add-ons need to be installed to run the code, 
