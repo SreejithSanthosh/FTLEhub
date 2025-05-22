@@ -82,17 +82,17 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf$$ and backward advection $$tf \to t0$$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``. 
 
 ## Eulerian coherent structures for flows on curved surfaces 
-The MATLAB code to compute Eulerian coherent structures based on eigen-values of strain rate for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurface-OECS.git). The follwing tutorial provides explanation on how to use the code. 
-To understand the mathematical background or additional information on the methods discussed here, we refer you to the accompanying manuscript [1].
+The MATLAB code to compute Eulerian coherent structures based on the eigenvalues of the strain rate tensor for flow on curved surfaces is available at this [link](https://github.com/SreejithSanthosh/curvedSurface-OECS.git). The follwing tutorial provides an explanation on how to use the code. 
+To understand the mathematical background or additional information on the methods discussed here, we refer the reader to the accompanying manuscript [1].
 
-**Pre-requisites,data-formatting,Installation:** We recommend users read the tutorial given above for Lagrangian analysis, as the Eulerian code has the same software pre-requisites and data-formatting requirements. To install the code, clone the GitHub repository using the code 
+**Pre-requisites,data-formatting, Installation:** We recommend that users read the tutorial given above for Lagrangian analysis, as the Eulerian code has the same software pre-requisites and data-formatting requirements. To install the code, clone the GitHub repository using the code 
 ```
 git clone  https://github.com/SreejithSanthosh/curvedSurface-OECS.git
 ```
-To make sure that the code works, run the script `main.m` on MATLAB. This runs the Eulerian analysis on the example dataset given in `./Data/growingSphere.mat` and presents the result given below.
+To ensure that the code works, run the `main.m` script on MATLAB. This script runs the Eulerian analysis on the example dataset given in `./Data/growingSphere.mat` and presents the result below.
 
 ![Result of OECS Analaysis](../../Images/OECSResult.png)
-The result above visualizes the Eulerian coherent structures at $$t=1$$. The regions with high values of the largest eigenvalue of strain rate $$s_2(\mathbf{x},t=1)$$ corresponds to repellers and regions with low values of the smallest eigenvalue of the strain rate $$s_1(\mathbf{x},t=1)$$ corresponds to attractors. The corresponding eigen-vector axis $$ e_2(\mathbf{x},t=1) $$ and $$ e_1(\mathbf{x},t=1) $$ corresponds to the axis of maxmimum repulsion and attraction. 
+The result above visualizes the Eulerian coherent structures at $$t=1$$. The regions with positive high values of the largest eigenvalue of strain rate $$s_2(\mathbf{x},t=1)$$ corresponds to short-time repellers and regions with highly negative values of the smallest eigenvalue of the strain rate $$s_1(\mathbf{x},t=1)$$ corresponds to short-time attractors. The corresponding eigenvectors $$ e_2(\mathbf{x},t=1) $$ and $$ e_1(\mathbf{x},t=1) $$ corresponds to the axis of maxmimum repulsion and attraction rates. 
 
 ### Performing Eulerian Analysis
 
@@ -108,4 +108,4 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 
 ## References
 
-[1] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  
+[1] : Santhosh S., Zhu C., Fencil B., Serra M., preprint (2025), Coherent Structures in Active Flows on Dynamic Surfaces.
