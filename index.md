@@ -60,7 +60,7 @@ High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark ini
 
 [9] : Kasten, J., Petz, C., Hotz, I., Hege, H. C., Noack, B. R., & Tadmor, G. (2010). Lagrangian feature extraction of the cylinder wake. Physics of fluids, 22(9).
 
-[10] : S. Santhosh, C. Zhu, B. Fencil, M. Serra. Coherent Structures in Active Flows on Dynamic Surfaces, pre-print ,(2025)  
+[10] : Santhosh S., Zhu C., Fencil B., Serra M., preprint (2025), Coherent Structures in Active Flows on Dynamic Surfaces.
 
 [11] : Serra, M., Streichan, S., Chuai, M., Weijer, C. J., & Mahadevan, L. (2020). Dynamic morphoskeletons in development. Proceedings of the National Academy of Sciences, 117(21), 11444-11449.
 
