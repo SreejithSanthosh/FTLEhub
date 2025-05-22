@@ -92,19 +92,19 @@ git clone  https://github.com/SreejithSanthosh/curvedSurface-OECS.git
 To ensure that the code works, run the `main.m` script on MATLAB. This script runs the Eulerian analysis on the example dataset given in `./Data/growingSphere.mat` and presents the result below.
 
 ![Result of OECS Analaysis](../../Images/OECSResult.png)
-The result above visualizes the Eulerian coherent structures at $$t=1$$. The regions with positive high values of the largest eigenvalue of strain rate $$s_2(\mathbf{x},t=1)$$ corresponds to short-time repellers and regions with highly negative values of the smallest eigenvalue of the strain rate $$s_1(\mathbf{x},t=1)$$ corresponds to short-time attractors. The corresponding eigenvectors $$ e_2(\mathbf{x},t=1) $$ and $$ e_1(\mathbf{x},t=1) $$ corresponds to the axis of maxmimum repulsion and attraction rates. 
+The result above visualizes the Eulerian coherent structures at $$t=1$$. The regions with positive high values of the largest eigenvalue of strain rate $$s_2(\mathbf{x},t=1)$$ corresponds to short-time repellers and regions with highly negative values of the smallest eigenvalue of the strain rate $$s_1(\mathbf{x},t=1)$$ corresponds to short-time attractors. The corresponding eigenvectors $$ e_2(\mathbf{x},t=1) $$ and $$ e_1(\mathbf{x},t=1) $$ correspond to the axis of maximum repulsion and attraction rates. 
 
 ### Performing Eulerian Analysis
 
 We now explain how to run the code `main.m` to compute the Eulerian coherent structures for a given flow field.
- 1. **Load the data** : Once the data is formatted appropriately as described above, it can be loaded onto the script by providing the right path 
+ 1. **Load the data** : Once the data is formatted as described above, it can be loaded onto the script by providing the right path 
 ```
 load(PATH TO THE DATA FILE); Nt = size(time,2);
 ```
 2. **Setting parameters for the Eulerian computation** : 
 - `regulFac` : Regularization parameter used for estimating the strain-rate. Similar to the regularization parameter in the Lagrangian analysis. 
 - `t0`: Sets the time-point to do the Eulerian analysis. 
-3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data, the eigenvalues $$ (s_1,s_2)$$ and eigenvectors $$(e_1,e_2)$$ of the strain rate at $$t = t0$$.
+3. **Running Code**: After setting the above parameters, run the code. The code will visualize the velocity data, the eigenvalues $$(s_1,s_2)$$ and eigenvectors $$(e_1,e_2)$$ of the strain rate at $$t = t0$$.
 
 ## References
 
