@@ -38,7 +38,7 @@ where $$\lambda_2(\mathbf{x}_0)$$ is the largest singular value of $$\mathbf{\na
 <img src="./Images/deformationIntroFTLE.png" alt="Alt text">
 <figcaption> </figcaption>
 </figure>
-High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark initial fluid positions $$(\mathbf{x}_0)$$ where initially close tracers will highly separate by time $$t$$ (left panel). Repelling LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t_0}^t(\mathbf{x}_0)$$ (or $$_{f}\Lambda $$) computed from trajectories in forward time (left panel).  By contrast, Attracting LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t}^{t_0}(\mathbf{x}_t)$$ (or $$_{b}\Lambda $$) computed from trajectories in backward time (right panel).  Attracting LCSs locate the final positions $$(\mathbf{x}_t)$$ where initially distinct tracers will maximally converge. 
+High $$\lambda_2(\mathbf{x}_0)$$ (or $$\Lambda_{t_0}^t(\mathbf{x}_0)$$) mark initial fluid positions $$(\mathbf{x}_0)$$ where initially close tracers will highly separate by time $$t$$ (left panel). Repelling LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t_0}^t(\mathbf{x}_0)$$ (or $$_{f}\Lambda $$) computed from trajectories in forward time.  By contrast, Attracting LCSs are identified by ridges (i.e. regions of high values) of the $$\Lambda_{t}^{t_0}(\mathbf{x}_t)$$ (or $$_{b}\Lambda $$) computed from trajectories in backward time (right panel).  Attracting LCSs locate the final positions $$(\mathbf{x}_t)$$ where initially distinct tracers will maximally converge. 
 
 ## References
 
