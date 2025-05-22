@@ -13,4 +13,4 @@ For completeness, we also refer to the codes and tutorials for computing FTLE an
 
 [2] Mowlavi, S., Serra, M., Maiorino, E., & Mahadevan, L. (2022). Detecting Lagrangian coherent structures from sparse and noisy trajectory data. Journal of Fluid Mechanics, 948, A4.
 
-For completeness, we provide codes and tutorials for computing FTLE and Coherent Structures from general 2D and 3D velocity fields.  
+Last, we also provide codes and tutorials for computing FTLE and Coherent Structures from general 2D and 3D velocity fields.  
