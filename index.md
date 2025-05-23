@@ -23,6 +23,7 @@ Finite-Time-Lyapunov-Exponents enable identifying Repelling and Attracting LCSs 
 
 >> We assume a simulated or measured velocity field is given. If one needs to reconstruct the velocity from experimental flow data, Particle Image Velocimetry methods are common (See [Ref](https://en.wikipedia.org/wiki/Particle_image_velocimetry), and [PIVLab](https://pivlab.blogspot.com/p/blog-page_19.html) is a MATLAB toolbox). 
 >> 
+
 To study the Lagrangian features of the flow, we compute the flow (or trajectory) map 
 <div> 
 $$ \mathbf{F}_{t_0}^t(\mathbf{x}_0)  = \mathbf{x}_0 + \int_{t_0}^t \mathbf{v}(\mathbf{F}_{t_0}^\tau(\mathbf{x}_0),\tau) d\tau,$$
