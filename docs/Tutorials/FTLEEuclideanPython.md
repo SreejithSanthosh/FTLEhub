@@ -6,6 +6,9 @@ layout: home
 nav_order: 1
 ---
 
+## Introduction 
+
+The Python code for computing Coherent Structures based on Finite-Time-Lyapunov Exponents (FTLE) and Lagrangian deformation for flow on flat domains is available at this [link](github.com/bfencil/EuclideanFTLEPythonMatlab). 
 
 
 ## Pre-requisites
@@ -24,7 +27,7 @@ To install the code, navigate to the path where you would want to install it on 
 
 ```
 git clone  https://github.com/bfencil/EuclideanFTLEPython.git
-cd EuclideanFTLEPython
+cd EuclideanFTLEPythonMatlab
 pip install -r requirements.txt
 ```
 
