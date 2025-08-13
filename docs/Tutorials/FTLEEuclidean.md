@@ -1,5 +1,5 @@
 ---
-title: FTLE with Uniform Particle Placement — MATLAB (2D & 3D)
+title: FTLE with Uniform Trajectories — MATLAB (2D & 3D)
 parent: Tutorial - FTLE codes
 layout: home
 nav_order: 3
