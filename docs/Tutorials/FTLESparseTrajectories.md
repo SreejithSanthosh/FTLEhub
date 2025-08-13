@@ -1,7 +1,7 @@
 ---
 title: FTLE from 2-D and 3-D Noisy and Sparse Trajectories
 parent: Tutorial - FTLE codes
-layout: home
+layout: default
 nav_order: 3
 ---
 
