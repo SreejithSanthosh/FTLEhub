@@ -165,8 +165,4 @@ Both example scripts add the corresponding `MatlabCode2D`/`MatlabCode3D` folders
 
 ---
 
-## References
-
-- Standard FTLE formulation via Cauchy–Green strain and finite-time flow maps.  
-- Example flows: Bickley jet (2D), ABC flow (3D), common testbeds for Lagrangian coherent structures.
 
