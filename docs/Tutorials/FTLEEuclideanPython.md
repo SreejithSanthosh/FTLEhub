@@ -1,8 +1,8 @@
 ---
-title: FTLE with Uniform Particle Placement — Python (2D & 3D)
+title: FTLE with Uniform Trajectories — Python (2D & 3D)
 parent: Tutorial - FTLE codes
 layout: home
-nav_order: 1
+nav_order: 5
 ---
 
 ## Introduction
