@@ -136,10 +136,10 @@ Both **forward** and **backward** FTLE are supported by reversing the time axis 
 
 From MATLAB, `cd` into `FTLE/Examples` and run:
 
-- **2D** (Bickley jet): `BickleyFlowMatlab`  
+- **2D** (Bickley jet): `BickleyFlowMatlab.M`  
   Loads `Examples/Data/bickley_flow_data.(mat|h5)` and calls `Run_FTLE_2D(...)` with plotting enabled.
 
-- **3D** (ABC flow): `ABC_FlowMatlab`  
+- **3D** (ABC flow): `ABC_FlowMatlab.M`  
   Loads `Examples/Data/abc_flow_data.(mat|h5)` and calls `Run_FTLE_3D(...)` with plotting enabled.
 
 Both example scripts add the corresponding `MatlabCode2D`/`MatlabCode3D` folders to the path automatically.
