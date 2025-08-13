@@ -1,5 +1,5 @@
 ---
-title: FTLE with Uniform Trajectories — Python (2D & 3D)
+title: FTLE with Uniform Grid — Python (2D & 3D)
 parent: Tutorial - FTLE codes
 layout: default
 nav_order: 5
