@@ -92,19 +92,18 @@ The 2D and 3D codes differ only by the presence of a third spatial axis `z`. We 
 2. **Advection (RK4)**: integrate particle positions with a classical RK4 solver that:
    - linearly **interpolates in time** between the two neighboring velocity frames; and
    - uses **scattered linear interpolation in space** over `velocity_points` each substep (`scatteredInterpolant` with `'linear','none'`, then `NaN→0` outside the hull).
-
-3. **Deformation / FTLE**
-   - Estimate the **deformation gradient** on the advected grid via centered finite differences.
-   - Form the **Cauchy–Green** tensor
      
-     $$C=F^	op F$$
-   - Compute **FTLE** from the largest eigenvalue $$\lambda_{\max}(C)$$:
+3. **Deformation/FTLE**:
+   - estimate the **deformation gradient** on the advected grid via **centered finite differences**;
+   - form the **Cauchy–Green** tensor
      
-     $$\mathrm{FTLE}=rac{1}{2|t_f-t_i|}\log\left(\sqrt{\lambda_{\max}(C)}
-ight)$$
-   - Compute a simple **isotropy** measure:
+     $$C = F^\top F$$;
+   - compute **FTLE** from the largest eigenvalue $$\lambda_{\max}(C)$:
      
-     $$\mathrm{Iso}=rac{1}{2|t_f-t_i|}\log\det(C)$$
+     $$\mathrm{FTLE} = \frac{1}{2\,|t_f - t_i|}\,\log \big(\sqrt{\lambda_{\max}(C)}\big)$$.
+   - compute a simple **isotropy** measure:
+     
+     $$\mathrm{Iso} = \frac{1}{2\,|t_f - t_i|}\,\log \det(C)$$.
 
 Both **forward** and **backward** FTLE are supported by reversing the time axis and flipping the sign of `dt` internally.
 
