@@ -1,7 +1,7 @@
 ---
 title: FTLE on Curved Surfaces - Python Implementation 
 parent: Tutorial - FTLE codes
-layout: home
+layout: default
 nav_order: 2
 ---
 
