@@ -68,7 +68,7 @@ FTLE/
 
 ---
 
-## Data format (common ideas)
+## Data format 
 
 The 2D and 3D codes differ only by the presence of a third spatial axis `z`. We refer to the spatial dimension as `d ∈ {2,3}`.
 
