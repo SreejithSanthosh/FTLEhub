@@ -183,11 +183,3 @@ Run them from the repo root or `FTLE/Examples` (they set up relative paths inter
 
 ---
 
-## References
-
-- Standard FTLE formulation via Cauchy–Green strain and finite-time flow maps.
-- Example flows: Bickley jet (2D), ABC flow (3D), widely used testbeds for Lagrangian coherent structure detection.
-
----
-
-If you also plan to use the **MATLAB** implementation in this repo, see the corresponding MATLAB tutorial page; the inputs/outputs mirror the Python API with identical directory structure and naming (2D/3D capitalization preserved).
