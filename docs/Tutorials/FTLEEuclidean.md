@@ -1,7 +1,7 @@
 ---
 title: FTLE with Uniform Trajectories — MATLAB (2D & 3D)
 parent: Tutorial - FTLE codes
-layout: home
+layout: default
 nav_order: 4
 ---
 
