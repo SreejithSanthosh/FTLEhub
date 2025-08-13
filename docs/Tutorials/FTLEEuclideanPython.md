@@ -96,7 +96,7 @@ The 2D and 3D codes differ only by the presence of a third spatial axis `z`. We 
    - form the **Cauchy–Green** tensor \(C = F^\top F\);
    - compute **FTLE** from the largest eigenvalue \(\lambda_{\max}(C)\):
      \[
-     \mathrm{FTLE} = \frac{1}{2\,|t_f - t_i|}\,\log\!\big(\sqrt{\lambda_{\max}(C)}\big).
+     $$\mathrm{FTLE} = \frac{1}{2\,|t_f - t_i|}\,\log\!\big(\sqrt{\lambda_{\max}(C)}\big)$$.
      \]
    - compute a simple **isotropy** measure:
      \[
