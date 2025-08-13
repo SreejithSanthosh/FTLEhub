@@ -93,9 +93,12 @@ The 2D and 3D codes differ only by the presence of a third spatial axis `z`. We 
    - uses **scattered linear interpolation in space** over `velocity_points` at each substep.
 3. **Deformation/FTLE**:
    - estimate the **deformation gradient** on the advected grid via **centered finite differences**;
-   - form the **Cauchy–Green** tensor $$C = F^\top F$$;
-   - compute **FTLE** from the largest eigenvalue $$\lambda_{\max}(C)$: $$\mathrm{FTLE} = \frac{1}{2\,|t_f - t_i|}\,\log\!\big(\sqrt{\lambda_{\max}(C)}\big)$$.
-   - compute a simple **isotropy** measure: $$\mathrm{Iso} = \frac{1}{2\,|t_f - t_i|}\,\log\!\det(C)$$.
+   - form the **Cauchy–Green** tensor
+     $$C = F^\top F$$;
+   - compute **FTLE** from the largest eigenvalue $$\lambda_{\max}(C)$:
+     $$\mathrm{FTLE} = \frac{1}{2\,|t_f - t_i|}\,\log \big(\sqrt{\lambda_{\max}(C)}\big)$$.
+   - compute a simple **isotropy** measure:
+     $$\mathrm{Iso} = \frac{1}{2\,|t_f - t_i|}\,\log \det(C)$$.
    
 
 Both **forward** and **backward** FTLE are supported by reversing the time axis and using \(dt<0\) internally.
