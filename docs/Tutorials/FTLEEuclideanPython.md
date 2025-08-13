@@ -94,6 +94,7 @@ The 2D and 3D codes differ only by the presence of a third spatial axis `z`. We 
 3. **Deformation/FTLE**:
    - estimate the **deformation gradient** on the advected grid via **centered finite differences**;
    - form the **Cauchy–Green** tensor
+     
      $$C = F^\top F$$;
    - compute **FTLE** from the largest eigenvalue $$\lambda_{\max}(C)$:
      $$\mathrm{FTLE} = \frac{1}{2\,|t_f - t_i|}\,\log \big(\sqrt{\lambda_{\max}(C)}\big)$$.
