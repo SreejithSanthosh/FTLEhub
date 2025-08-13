@@ -136,7 +136,7 @@ Both **forward** and **backward** FTLE are supported by reversing the time axis 
 
 From MATLAB, `cd` into `FTLE/Examples` and run:
 
-- **2D** (Bickley jet): `BickleyFlow2D_Example`  
+- **2D** (Bickley jet): `BickleyFlowMatlab`  
   Loads `Examples/Data/bickley_flow_data.(mat|h5)` and calls `Run_FTLE_2D(...)` with plotting enabled.
 
 - **3D** (ABC flow): `ABC_FlowMatlab`  
