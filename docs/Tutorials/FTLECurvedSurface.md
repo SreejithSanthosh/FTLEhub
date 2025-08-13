@@ -1,7 +1,7 @@
 ---
 title: FTLE from Flows on Curved Surfaces 
 parent: Tutorial - FTLE codes
-layout: home
+layout: default
 nav_order: 1
 ---
 ## Lagrangian coherent structures for flows on curved surfaces 
