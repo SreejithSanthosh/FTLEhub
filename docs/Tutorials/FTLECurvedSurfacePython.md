@@ -85,7 +85,7 @@ Once you load the data you can run the code by importing the `FTLE_mesh` functio
 
 ## References
 
-[1] : Santhosh S., Zhu C., Fencil B., Serra M., preprint (2025), Coherent Structures in Active Flows on Dynamic Surfaces.
+[1] : Santhosh, S., Zhu, C., Fencil, B., & Serra, M. (2025). Coherent Structures in Active Flows on Dynamic Surfaces. bioRxiv, 2025-05.
 
 
 

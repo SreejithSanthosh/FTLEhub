@@ -106,4 +106,4 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 
 ## References
 
-[1] : Santhosh S., Zhu C., Fencil B., Serra M., preprint (2025), Coherent Structures in Active Flows on Dynamic Surfaces.
+[1] : Santhosh, S., Zhu, C., Fencil, B., & Serra, M. (2025). Coherent Structures in Active Flows on Dynamic Surfaces. bioRxiv, 2025-05.
