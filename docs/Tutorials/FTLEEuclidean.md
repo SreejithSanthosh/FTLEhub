@@ -1,8 +1,8 @@
 ---
-title: FTLE with Uniform Grid — MATLAB (2D & 3D)
+title: FTLE from flows on 2-D/3-D Euclidean Grid (MATLAB)
 parent: Tutorial - FTLE codes
 layout: default
-nav_order: 4
+nav_order: 2
 ---
 
 ## Introduction

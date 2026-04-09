@@ -1,5 +1,5 @@
 ---
-title: FTLE from Flows on Curved Surfaces 
+title: FTLE from flows on curved surfaces (MATLAB) 
 parent: Tutorial - FTLE codes
 layout: default
 nav_order: 1
