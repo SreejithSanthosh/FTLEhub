@@ -1,4 +1,4 @@
----
+<!-- ---
 title: FTLE from flows on 2-D/3-D Euclidean Grid (MATLAB)
 parent: Tutorial - FTLE codes
 layout: default
@@ -46,4 +46,4 @@ The two example codes for 2D and 3D flows which are `example_euclidean2D.m` and 
 
 ---
 
-
+ -->

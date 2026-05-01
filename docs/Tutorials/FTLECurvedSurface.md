@@ -1,4 +1,4 @@
----
+<!-- ---
 title: FTLE from flows on curved surfaces (MATLAB) 
 parent: Tutorial - FTLE codes
 layout: default
@@ -13,13 +13,6 @@ The following tutorial provides instructions on how to use the code. To understa
 ![Introduction To Curved Surface FTLE](../../Images/FTLEBanner.png)
 
 ### Pre-requisites 
-
-
-
-<!-- The following MATLAB add-ons need to be installed to run the code, 
-- [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing.html) : The code uses parallelization methods provided in this toolbox to run the advection of tracer particles,
-- [Lidar Toolbox](https://www.mathworks.com/help/lidar/index.html?s_tid=CRUX_lftnav) : Provides mesh processing capabilities,
-- [Computer Vision Toolbox](https://www.mathworks.com/products/computer-vision.html) : Provides mesh processing capabilities. -->
 
 The code was built on MATLAB R2025b in a Windows 10 system. We have tested these codes on a *Mac OSX 15* and *Ubuntu 20* operating systems. The most straightforwrd Installation method, is using Git, as all the code is hosted on GitHub. We assume that Git is installed and set up on the system. If not, we refer you to this [link](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git). 
 
@@ -66,21 +59,6 @@ An example dataset `example_data.mat` is provided in the GitHub repo.
 
 ### Performing Lagrangian Analysis
 
-<!-- We now explain how to run the code `main.m` to compute the Lagrangian deformation information for a chosen time interval $$[t0,tf]$$. 
-
-1. **Load the data** : Once the data is formatted appropriately as described above, it can be loaded onto the script by providing the right path 
-```
-load(PATH TO THE DATA FILE); Nt = size(time,2);
-```
-2. **Setting parameters for the simulation** :  A few parameters need to be set depending on the type of data and the system configuration on which you are running the script:  
-- ``isStatic``  : should be set to ``isStatic = 1`` if the mesh surface on which the motion happens is time-independent and ``isStatic = 0`` if the mesh changes over time. The code runs faster for static meshes.
-- ``cpu_num`` : The code parallelizes the Lagrangian analysis using the [parfor](https://www.mathworks.com/help/parallel-computing/parfor.html) method. Therefore, set this variable to ``cpu_num = Nc ``, where $$Nc$$ is the number of CPU cores available. Note that a copy of the dataset is sent to each core, which may cause the total data in RAM to exceed the system's capabilities. For example, if your data is x GB and you parallelize over Nc cores, the total RAM required is $$ \approx$$ > x * Nc GB.
-- Plotting parameters ``Nplot`` and ``fntSz``: ``Nplot`` sets the number of frames that are saved in the video while plotting the advection results. ``fntSz`` similarly sets the font size of the text and elements on those plots.
-- Advection parameters ``ct_f`` and ``ct_i`` and ``dt``: If you need to analyze the Lagrangian deformation from $$t=t0$$ to $$t=tf$$, input ``ct_f`` and ``ct_i`` so that ``time(ct_f) = tf`` and ``time(ct_0) = t0``. The parameter ``dt`` is the time-step for advection.
-- Regularization parameter ``regulFac`` sets the strength of the regularization used while computing the Lagrangian deformation quantities for noisy velocity fields. For further information we refer you to SI Section S3 in the accompanying manuscript [1].  
-
-3. **Running Code**: After setting the parameters mentioned above, run the code. The code will visualize the velocity data on the surface, forward advection $$t0\to tf$$ and backward advection $$tf \to t0$$ of tracer particles. This will be saved in the ``./SaveResults`` folder. The deformation information will be displayed as a MATLAB plot using the code written in  ``%% Calculate and Visualize the FTLE values``.  -->
-
 To run the analysis for your dataset, load the velocity dataset in the \texttt{example.m} by changing the line `load('path\_to\_dataset')`. The user must input the parameter $$\delta$$, which sets the geodesic distance over which the deformation is computed. The user also needs to provide the parameters `ct0` and `ctf`, which specify the time range for the analysis from `mesh\_time(ct0)` to `mesh\_time(ctf)`.
 
 ## Eulerian coherent structures for flows on curved surfaces 
@@ -110,4 +88,4 @@ load(PATH TO THE DATA FILE); Nt = size(time,2);
 
 ## References
 
-[1] : Santhosh, S., Zhu, C., Fencil, B., & Serra, M. (2025). Coherent Structures in Active Flows on Dynamic Surfaces. bioRxiv, 2025-05.
+[1] : Santhosh, S., Zhu, C., Fencil, B., & Serra, M. (2025). Coherent Structures in Active Flows on Dynamic Surfaces. bioRxiv, 2025-05. -->
