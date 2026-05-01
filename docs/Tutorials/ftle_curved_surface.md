@@ -49,9 +49,13 @@ This command creates a directory called:
 flow_coherent_structure
 ```
 
-which contains the MATLAB scripts, functions, and example data.
+which contains the MATLAB scripts, functions, and example data. To access the code to compute the FTLE compute for flows on curved surfaces, navigate to the folder:
 
-To check that the Lagrangian code is working, open MATLAB and run:
+```text
+ftle_on_curved_surfac
+```
+
+and set it as the root directory in MATLAB. To check that the Lagrangian code is working, run:
 
 ```matlab
 example_code_lagrangian.m
