@@ -1,10 +1,9 @@
 ---
-
-title: FTLE from Flows on Curved Surfaces (MATLAB)
-parent: Tutorial - FTLE Codes
+title: FTLE from flows on curved surfaces (MATLAB) 
+parent: Tutorial - FTLE codes
 layout: default
 nav_order: 1
-------------
+---
 
 # Lagrangian and Eulerian Coherent Structures for Flows on Curved Surfaces
 

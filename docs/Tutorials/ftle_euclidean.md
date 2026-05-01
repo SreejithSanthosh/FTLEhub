@@ -4,7 +4,7 @@ title: FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)
 parent: Tutorial - FTLE Codes
 layout: default
 nav_order: 2
-------------
+---
 
 # Lagrangian Coherent Structures for Flows in 2D/3D Euclidean Spaces
 

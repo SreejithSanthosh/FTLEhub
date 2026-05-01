@@ -4,7 +4,7 @@ title: FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)
 parent: Tutorial - FTLE Codes
 layout: default
 nav_order: 3
-------------
+---
 
 # Lagrangian Coherent Structures from Sparse and Noisy Trajectories in 2D/3D Euclidean Spaces
 
