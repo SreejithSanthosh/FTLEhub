@@ -65,11 +65,7 @@ This script loads the example dataset `example_data.mat`, visualizes the velocit
 
 ![Result of FTLE Analysis](../../Images/result_LCS_curved.png)
 
-The figure above shows the Lagrangian deformation diagnostics computed over the time interval
-
-$$
-t_0 = 0, \qquad t_f = 1.
-$$
+The figure above shows the Lagrangian deformation diagnostics computed over the time interval $t_0 = 0\rightarrow t_f = 1$.
 
 Here:
 
@@ -78,9 +74,7 @@ Here:
 * ${}_{\mathrm{iso}}\Lambda$ quantifies the isotropic component of the Lagrangian deformation.
 * ${}_{\mathrm{aniso}}\Lambda$ quantifies the anisotropic component of the Lagrangian deformation.
 
-For details on these quantities and the numerical algorithm used to compute them, refer to the accompanying manuscript [1].
-
-The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run:
+For details on these quantities and the numerical algorithm used to compute them, refer to the accompanying manuscript [1]. The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run:
 
 ```bash
 git pull
@@ -113,117 +107,27 @@ The method applies to both:
 
 ## 4. Mesh and Velocity Data Format
 
-The manifold $\mathcal{M}(t)$ is represented as a triangular mesh. The mesh consists of discrete node positions
-
-$$
-\mathbf{x}_i = [x_i, y_i, z_i],
-$$
-
-where
-
-$$
-i \in {1,2,\dots,N_p(t)},
-$$
-
-and $N_p(t)$ is the total number of mesh nodes at time $t$.
-
-The mesh connectivity is specified by a triangulation $T$, which contains the set of mesh faces. Each face
-
-$$
-j \in {1,2,\dots,N_f(t)}
-$$
-
-is defined by three node indices
-
-$$
-{i_1, i_2, i_3},
-$$
-
-which form the triangular face. Here, $N_f(t)$ denotes the total number of mesh faces at time $t$.
-
-The velocity field is stored at the mesh nodes as
-
-$$
-\mathbf{v}_i(t) = [v_i^1(t), v_i^2(t), v_i^3(t)],
-$$
-
-where $v_i^1(t)$, $v_i^2(t)$, and $v_i^3(t)$ are the $x$-, $y$-, and $z$-components of the velocity at node $i$ and time $t$.
-
-Before running the Lagrangian analysis, the mesh and velocity data must be saved in a `.mat` file readable by MATLAB. The required variables are listed below.
+The manifold $\mathcal{M}(t)$ is represented as a triangular mesh. The mesh consists of discrete node positions $\mathbf{x}_i = [x_i, y_i, z_i],$ where $ i \in {1,2,\dots,N_p(t)}, $ and $N_p(t)$ is the total number of mesh nodes at time $t$. The mesh connectivity is specified by a triangulation $T$, which contains the set of mesh faces. Each face $j \in {1,2,\dots,N_f(t)}$ is defined by three node indices $
+{i_1, i_2, i_3},$ which form the triangular face. Here, $N_f(t)$ denotes the total number of mesh faces at time $t$. The velocity field is stored at the mesh nodes as $
+\mathbf{v}_i(t) = [v_i^1(t), v_i^2(t), v_i^3(t)], $ where $v_i^1(t)$, $v_i^2(t)$, and $v_i^3(t)$ are the $x$-, $y$-, and $z$-components of the velocity at node $i$ and time $t$. Before running the Lagrangian analysis, the mesh and velocity data must be saved in a `.mat` file readable by MATLAB. The required variables are listed below.
 
 ### Required `.mat` Variables
 
-#### `mesh_time`
+- `mesh_time`: A time vector of size $ 1 \times N_t$ where $N_t$ is the number of time steps.
+- `mesh_r`: A cell array of size $ N_t \times 3.$ For each time index $i \in {1,2,\dots,N_t}$:
+    * `mesh_r{i,1}` contains the $x$-coordinates of the mesh nodes.
+    * `mesh_r{i,2}` contains the $y$-coordinates of the mesh nodes.
+    * `mesh_r{i,3}` contains the $z$-coordinates of the mesh nodes.
+Each entry is a column vector of size $
+N_q(i) \times 1, $ where $N_q(i)$ is the number of mesh nodes at time index $i$.
+- `mesh_F`: A cell array of size $ N_t \times 1.$Each entry `mesh_F{i}` contains the mesh connectivity at time index $i$ as a matrix of size $N_f(i) \times 3,$ where $N_f(i)$ is the number of triangular faces at that time. Each row of `mesh_F{i}` contains the three node indices that define one triangular face.
+- `mesh_v`: A cell array of size $N_t \times 3.$For each time index $i \in {1,2,\dots,N_t}$:
 
-A time vector of size
+    * `mesh_v{i,1}` contains the $x$-component of the velocity.
+    * `mesh_v{i,2}` contains the $y$-component of the velocity.
+    * `mesh_v{i,3}` contains the $z$-component of the velocity.
 
-$$
-1 \times N_t,
-$$
-
-where $N_t$ is the number of time steps.
-
-#### `mesh_r`
-
-A cell array of size
-
-$$
-N_t \times 3.
-$$
-
-For each time index $i \in {1,2,\dots,N_t}$:
-
-* `mesh_r{i,1}` contains the $x$-coordinates of the mesh nodes.
-* `mesh_r{i,2}` contains the $y$-coordinates of the mesh nodes.
-* `mesh_r{i,3}` contains the $z$-coordinates of the mesh nodes.
-
-Each entry is a column vector of size
-
-$$
-N_q(i) \times 1,
-$$
-
-where $N_q(i)$ is the number of mesh nodes at time index $i$.
-
-#### `mesh_F`
-
-A cell array of size
-
-$$
-N_t \times 1.
-$$
-
-Each entry `mesh_F{i}` contains the mesh connectivity at time index $i$ as a matrix of size
-
-$$
-N_f(i) \times 3,
-$$
-
-where $N_f(i)$ is the number of triangular faces at that time.
-
-Each row of `mesh_F{i}` contains the three node indices that define one triangular face.
-
-#### `mesh_v`
-
-A cell array of size
-
-$$
-N_t \times 3.
-$$
-
-For each time index $i \in {1,2,\dots,N_t}$:
-
-* `mesh_v{i,1}` contains the $x$-component of the velocity.
-* `mesh_v{i,2}` contains the $y$-component of the velocity.
-* `mesh_v{i,3}` contains the $z$-component of the velocity.
-
-Each entry is a column vector of size
-
-$$
-N_q(i) \times 1,
-$$
-
-where $N_q(i)$ is the number of mesh nodes at time index $i$.
+Each entry is a column vector of size $N_q(i) \times 1, $ where $N_q(i)$ is the number of mesh nodes at time index $i$.
 
 An example dataset, `example_data.mat`, is included in the GitHub repository.
 
