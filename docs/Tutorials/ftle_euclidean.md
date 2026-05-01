@@ -1,6 +1,6 @@
 ---
 title: FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)
-parent: Tutorial - FTLE Codes
+parent: Tutorial - FTLE codes
 layout: default
 nav_order: 2
 ---
