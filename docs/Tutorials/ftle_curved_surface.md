@@ -40,7 +40,7 @@ flow_coherent_structure
 which contains the MATLAB scripts, functions, and example data. To access the code to compute the FTLE compute for flows on curved surfaces, navigate to the folder:
 
 ```text
-ftle_on_curved_surfac
+ftle_on_curved_surface
 ```
 
 and set it as the root directory in MATLAB. To check that the Lagrangian code is working, run:
@@ -72,26 +72,11 @@ git pull
 
 ## Data Required for CS Analysis
 
-To perform the CS analysis, the code requires a velocity field
-
-$$
-\mathbf{v}(\mathbf{x},t)
-$$
-
-defined on a manifold
-
-$$
-\mathbf{x} \in \mathcal{M}(t).
-$$
-
-The method applies to both:
-
-* **Static surfaces**, where the manifold is time-independent.
-* **Dynamic surfaces**, where the manifold changes with time.
+To perform the CS analysis, the code requires a velocity field $\mathbf{v}(\mathbf{x},t)$ defined on a manifold $\mathbf{x} \in \mathcal{M}(t).$ The method applies to both:
+    * Static surfaces, where the manifold is time-independent.
+    * Dynamic surfaces, where the manifold changes with time.
 
 > **Note:** Velocity data are relatively straightforward to obtain from tissue mechanics simulations and active nematic simulations. Extracting velocity fields from experimental live-imaging data is more challenging. Tools such as [ImSAnE](https://github.com/idse/imsane) and [TubULAR](https://npmitchell.github.io/tubular/) can be used to extract surface geometry and motion from biological imaging data.
-
----
 
 ## Mesh and Velocity Data Format
 
@@ -111,14 +96,11 @@ The manifold $\mathcal{M}(t)$ is represented as a triangular mesh. The mesh cons
 
 An example dataset, `example_data.mat`, is included in the GitHub repository.
 
-> **Note:** Accurate Lagrangian analysis requires the mesh to sample the manifold approximately uniformly. In particular, mesh faces should be close to equal in size. Strong deviations from uniform sampling can introduce spurious deformation estimates. Finer meshes generally improve the accuracy of both trajectory advection and deformation calculations. If the original mesh does not satisfy these requirements, remeshing is recommended before running the analysis.
-
----
+> **Note:** Accurate Lagrangian analysis requires the mesh to sample the manifold approximately uniformly. In particular, mesh faces should be close to equal in size and should be close to an equilateral triangle as possible . Strong deviations from uniform sampling and high aspect ratio mesh faces can introduce spurious deformation estimates. Finer meshes generally improve the accuracy of both trajectory advection and deformation calculations. If the original mesh does not satisfy these requirements, remeshing is recommended before running the analysis.
 
 ## Performing the Lagrangian Analysis
 
 To run the Lagrangian analysis on your own dataset:
-
 1. Open the relevant MATLAB script.
 2. Load your dataset by replacing the dataset path with the path to your `.mat` file:
 ```matlab
@@ -129,13 +111,11 @@ load('path_to_dataset.mat')
 5. Run the script. The output includes the FTLE field, principal deformation directions, and isotropic and anisotropic deformation measures.
 
 ## Eulerian Coherent Structures for Flows on Curved Surfaces
-
 The same GitHub repository also contains MATLAB code for computing Eulerian coherent structures on curved surfaces. These structures are obtained from the eigenvalues and eigenvectors of the surface strain-rate tensor.
 
 The code is available at: [flow_coherent_structure](https://github.com/SreejithSanthosh/flow_coherent_structure.git). For the mathematical background, refer to the accompanying manuscript [1].
 
 ### Prerequisites, Installation, and Data Formatting
-
 The Eulerian code uses the same software requirements, installation procedure, and data format as the Lagrangian code described above. Therefore, users should first follow Sections 1--4 of this tutorial. To test the Eulerian code, run the following MATLAB script:
 ```matlab
 example_code_eulerian.m
@@ -144,17 +124,14 @@ This script loads `example_data.mat`, runs the Eulerian analysis, and displays t
 
 ![Result of OECS Analysis](../../Images/result_ECS_curved.png)
 
-The figure above visualizes the Eulerian coherent structures at $t=0$. Regions with large positive values of the largest strain-rate eigenvalue, $s_2(\mathbf{x},t),$ correspond to short-time repelling structures. Regions with large negative values of the smallest strain-rate eigenvalue, $
-s_1(\mathbf{x},t),$ correspond to short-time attracting structures. The associated eigenvectors have the following interpretations: $\mathbf{e}_2(\mathbf{x},t)$ gives the direction of maximum instantaneous repulsion. $\mathbf{e}_1(\mathbf{x},t)$ gives the direction of maximum instantaneous attraction.
+The figure above visualizes the Eulerian coherent structures at $t=0$. Regions with large positive values of the largest strain-rate eigenvalue, $s_2(\mathbf{x},t),$ correspond to short-time repelling structures. Regions with large negative values of the smallest strain-rate eigenvalue, $s_1(\mathbf{x},t),$ correspond to short-time attracting structures. The associated eigenvectors have the following interpretations: $\mathbf{e}_2(\mathbf{x},t)$ gives the direction of maximum instantaneous repulsion. $\mathbf{e}_1(\mathbf{x},t)$ gives the direction of maximum instantaneous attraction.
 
 ## Performing the Eulerian Analysis
 
 To compute Eulerian coherent structures for a given flow field, open the Eulerian analysis script and follow the steps below.
 1. Load the data.After formatting the data as described above, load the `.mat` file in MATLAB:
-
 ```matlab
 load('path_to_dataset.mat')
-Nt = size(mesh_time, 2);
 ```
 2. Set the Eulerian Parameters Set the following parameters:
     * `delta`: regularization parameter used to estimate the surface strain-rate tensor. This plays a role similar to the regularization parameter in the Lagrangian analysis.
