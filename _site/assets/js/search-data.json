@@ -29,59 +29,59 @@
   },"4": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
     "title": "Lagrangian and Eulerian Coherent Structures for Flows on Curved Surfaces",
-    "content": "This tutorial explains how to use the MATLAB code for computing coherent structures in flows defined on curved surfaces. The code supports both: . | Lagrangian coherent structures, computed using finite-time Lyapunov exponents (FTLEs) and Lagrangian deformation diagnostics. | Eulerian coherent structures, computed from the eigenvalues and eigenvectors of the surface strain-rate tensor. | . The MATLAB code is available in the GitHub repository: . flow_coherent_structure . For the mathematical background and additional details on the methods, please refer to the accompanying manuscript [1]. ",
+    "content": "This tutorial explains how to use the MATLAB code for computing coherent structures (CSs) in flows defined on curved surfaces. The code supports both: . | Lagrangian coherent structures, computed using finite-time Lyapunov exponents (FTLEs) and Lagrangian deformation diagnostics. | Eulerian coherent structures, computed from the eigenvalues and eigenvectors of the strain-rate tensor. | . The MATLAB code is available in the GitHub repository: flow_coherent_structure. For the mathematical background and additional details on the methods, please refer to the accompanying manuscript [1]. ",
     "url": "/docs/Tutorials/ftle_curved_surface.html#lagrangian-and-eulerian-coherent-structures-for-flows-on-curved-surfaces",
     
     "relUrl": "/docs/Tutorials/ftle_curved_surface.html#lagrangian-and-eulerian-coherent-structures-for-flows-on-curved-surfaces"
   },"5": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "1. Prerequisites",
-    "content": "The code was developed using MATLAB R2025b on a Windows 10 system. It has also been tested on: . | macOS 15 | Ubuntu 20 | . The recommended installation method is through Git, since the code is hosted on GitHub. This tutorial assumes that Git is already installed and configured on your system. If Git is not installed, follow the installation instructions here: . Installing Git . ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#1-prerequisites",
+    "title": "Prerequisites",
+    "content": "The code was developed using MATLAB R2025b on a Windows 10 system. It has also been tested on: . | macOS 15 | Ubuntu 20 | . The recommended installation method is through Git, since the code is hosted on GitHub. This tutorial assumes that Git is already installed and configured on your system. If Git is not installed, follow the installation instructions here: Installing Git . ",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#prerequisites",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#1-prerequisites"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#prerequisites"
   },"6": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "2. Installation",
+    "title": "Installation",
     "content": "Navigate to the directory where you want to install the code, then clone the GitHub repository: . git clone https://github.com/SreejithSanthosh/flow_coherent_structure.git . This command creates a directory called: . flow_coherent_structure . which contains the MATLAB scripts, functions, and example data. To access the code to compute the FTLE compute for flows on curved surfaces, navigate to the folder: . ftle_on_curved_surfac . and set it as the root directory in MATLAB. To check that the Lagrangian code is working, run: . example_code_lagrangian.m . This script loads the example dataset example_data.mat, visualizes the velocity field on a deforming sphere, runs the Lagrangian deformation analysis, and displays the results. The figure above shows the Lagrangian deformation diagnostics computed over the time interval $t_0 = 0\\rightarrow t_f = 1$. Here: . | $\\Lambda$ is the FTLE field. | $\\xi$ is the axis of maximum deformation. | ${}_{\\mathrm{iso}}\\Lambda$ quantifies the isotropic component of the Lagrangian deformation. | ${}_{\\mathrm{aniso}}\\Lambda$ quantifies the anisotropic component of the Lagrangian deformation. | . For details on these quantities and the numerical algorithm used to compute them, refer to the accompanying manuscript [1]. The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run: . git pull . ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#2-installation",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#installation",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#2-installation"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#installation"
   },"7": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "3. Data Required for Lagrangian Analysis",
-    "content": "To perform the Lagrangian analysis, the code requires a velocity field . \\[\\mathbf{v}(\\mathbf{x},t)\\] defined on a manifold . \\[\\mathbf{x} \\in \\mathcal{M}(t).\\] The method applies to both: . | Static surfaces, where the manifold is time-independent. | Dynamic surfaces, where the manifold changes with time. | . Note: Velocity data are relatively straightforward to obtain from tissue mechanics simulations and active nematic simulations. Extracting velocity fields from experimental live-imaging data is more challenging. Tools such as ImSAnE and TubULAR can be used to extract surface geometry and motion from biological imaging data. ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#3-data-required-for-lagrangian-analysis",
+    "title": "Data Required for CS Analysis",
+    "content": "To perform the CS analysis, the code requires a velocity field . \\[\\mathbf{v}(\\mathbf{x},t)\\] defined on a manifold . \\[\\mathbf{x} \\in \\mathcal{M}(t).\\] The method applies to both: . | Static surfaces, where the manifold is time-independent. | Dynamic surfaces, where the manifold changes with time. | . Note: Velocity data are relatively straightforward to obtain from tissue mechanics simulations and active nematic simulations. Extracting velocity fields from experimental live-imaging data is more challenging. Tools such as ImSAnE and TubULAR can be used to extract surface geometry and motion from biological imaging data. ",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#data-required-for-cs-analysis",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#3-data-required-for-lagrangian-analysis"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#data-required-for-cs-analysis"
   },"8": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "4. Mesh and Velocity Data Format",
-    "content": "The manifold $\\mathcal{M}(t)$ is represented as a triangular mesh. The mesh consists of discrete node positions $\\mathbf{x}_i = [x_i, y_i, z_i],$ where $ i \\in {1,2,\\dots,N_p(t)}, $ and $N_p(t)$ is the total number of mesh nodes at time $t$. The mesh connectivity is specified by a triangulation $T$, which contains the set of mesh faces. Each face $j \\in {1,2,\\dots,N_f(t)}$ is defined by three node indices $ {i_1, i_2, i_3},$ which form the triangular face. Here, $N_f(t)$ denotes the total number of mesh faces at time $t$. The velocity field is stored at the mesh nodes as $ \\mathbf{v}_i(t) = [v_i^1(t), v_i^2(t), v_i^3(t)], $ where $v_i^1(t)$, $v_i^2(t)$, and $v_i^3(t)$ are the $x$-, $y$-, and $z$-components of the velocity at node $i$ and time $t$. Before running the Lagrangian analysis, the mesh and velocity data must be saved in a .mat file readable by MATLAB. The required variables are listed below. Required .mat Variables . | mesh_time: A time vector of size $ 1 \\times N_t$ where $N_t$ is the number of time steps. | mesh_r: A cell array of size $ N_t \\times 3.$ For each time index $i \\in {1,2,\\dots,N_t}$: . | mesh_r{i,1} contains the $x$-coordinates of the mesh nodes. | mesh_r{i,2} contains the $y$-coordinates of the mesh nodes. | mesh_r{i,3} contains the $z$-coordinates of the mesh nodes. Each entry is a column vector of size $ N_q(i) \\times 1, $ where $N_q(i)$ is the number of mesh nodes at time index $i$. | . | mesh_F: A cell array of size $ N_t \\times 1.$Each entry mesh_F{i} contains the mesh connectivity at time index $i$ as a matrix of size $N_f(i) \\times 3,$ where $N_f(i)$ is the number of triangular faces at that time. Each row of mesh_F{i} contains the three node indices that define one triangular face. | mesh_v: A cell array of size $N_t \\times 3.$For each time index $i \\in {1,2,\\dots,N_t}$: . | mesh_v{i,1} contains the $x$-component of the velocity. | mesh_v{i,2} contains the $y$-component of the velocity. | mesh_v{i,3} contains the $z$-component of the velocity. | . | . Each entry is a column vector of size $N_q(i) \\times 1, $ where $N_q(i)$ is the number of mesh nodes at time index $i$. An example dataset, example_data.mat, is included in the GitHub repository. Note: Accurate Lagrangian analysis requires the mesh to sample the manifold approximately uniformly. In particular, mesh faces should be close to equal in size. Strong deviations from uniform sampling can introduce spurious deformation estimates. Finer meshes generally improve the accuracy of both trajectory advection and deformation calculations. If the original mesh does not satisfy these requirements, remeshing is recommended before running the analysis. ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#4-mesh-and-velocity-data-format",
+    "title": "Mesh and Velocity Data Format",
+    "content": "The manifold $\\mathcal{M}(t)$ is represented as a triangular mesh. The mesh consists of discrete node positions $\\mathbf{x}_i = [x_i, y_i, z_i],$ where $ i \\in {1,2,\\dots,N_p(t)}, $ and $N_p(t)$ is the total number of mesh nodes at time $t$. The mesh connectivity is specified by a triangulation $T$, which contains the set of mesh faces. Each face $j \\in {1,2,\\dots,N_f(t)}$ is defined by three node indices $ {i_1, i_2, i_3},$ which form the triangular face. Here, $N_f(t)$ denotes the total number of mesh faces at time $t$. The velocity field is stored at the mesh nodes as $ \\mathbf{v}_i(t) = [v_i^1(t), v_i^2(t), v_i^3(t)], $ where $v_i^1(t)$, $v_i^2(t)$, and $v_i^3(t)$ are the $x$-, $y$-, and $z$-components of the velocity at node $i$ and time $t$. Before running the Lagrangian analysis, the mesh and velocity data must be saved in a .mat file readable by MATLAB. The required variables are listed below. Required .mat Variables . | mesh_time: A time vector of size $ 1 \\times N_t$ where $N_t$ is the number of time steps. | mesh_r: A cell array of size $ N_t \\times 3.$ For each time index $i \\in {1,2,\\dots,N_t}$: . | mesh_r{i,1} contains the $x$-coordinates of the mesh nodes. mesh_r{i,2} contains the $y$-coordinates of the mesh nodes. mesh_r{i,3} contains the $z$-coordinates of the mesh nodes. Each entry is a column vector of size $N_q(i) \\times 1, $ where $N_q(i)$ is the number of mesh nodes at time index $i$. | . | mesh_F: A cell array of size $ N_t \\times 1.$Each entry mesh_F{i} contains the mesh connectivity at time index $i$ as a matrix of size $N_f(i) \\times 3,$ where $N_f(i)$ is the number of triangular faces at that time. Each row of mesh_F{i} contains the three node indices that define one triangular face. | mesh_v: A cell array of size $N_t \\times 3.$For each time index $i \\in {1,2,\\dots,N_t}$: . | mesh_v{i,1} contains the $x$-component of the velocity.mesh_v{i,2} contains the $y$-component of the velocity. mesh_v{i,3} contains the $z$-component of the velocity. Each entry is a column vector of size $N_q(i) \\times 1, $ where $N_q(i)$ is the number of mesh nodes at time index $i$. | . | . An example dataset, example_data.mat, is included in the GitHub repository. Note: Accurate Lagrangian analysis requires the mesh to sample the manifold approximately uniformly. In particular, mesh faces should be close to equal in size. Strong deviations from uniform sampling can introduce spurious deformation estimates. Finer meshes generally improve the accuracy of both trajectory advection and deformation calculations. If the original mesh does not satisfy these requirements, remeshing is recommended before running the analysis. ",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#mesh-and-velocity-data-format",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#4-mesh-and-velocity-data-format"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#mesh-and-velocity-data-format"
   },"9": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "5. Performing the Lagrangian Analysis",
-    "content": "To run the Lagrangian analysis on your own dataset: . | Open the relevant MATLAB script. | Load your dataset by replacing the dataset path with the path to your .mat file: | . load('path_to_dataset.mat') . | Set the parameter delta. | . The parameter delta specifies the geodesic distance over which deformation is computed. This value should be chosen based on the mesh resolution and the spatial scale over which deformation is to be estimated. | Set the time indices ct0 and ctf. | . These define the time interval over which the Lagrangian analysis is performed: . mesh_time(ct0) % initial time mesh_time(ctf) % final time . The code computes the Lagrangian deformation diagnostics from mesh_time(ct0) to mesh_time(ctf). | Run the script. | . The output includes the FTLE field, principal deformation directions, and isotropic and anisotropic deformation measures. ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#5-performing-the-lagrangian-analysis",
+    "title": "Performing the Lagrangian Analysis",
+    "content": "To run the Lagrangian analysis on your own dataset: . | Open the relevant MATLAB script. | Load your dataset by replacing the dataset path with the path to your .mat file: load('path_to_dataset.mat') . | Set the parameter delta. The parameter delta specifies the geodesic distance over which deformation is computed. This value should be chosen based on the mesh resolution and the spatial scale over which deformation is to be estimated. | Set the time indices ct0 and ctf. These define the time interval over which the Lagrangian analysis is performed.The code computes the Lagrangian deformation diagnostics from mesh_time(ct0) to mesh_time(ctf). | Run the script. The output includes the FTLE field, principal deformation directions, and isotropic and anisotropic deformation measures. | . ",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#performing-the-lagrangian-analysis",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#5-performing-the-lagrangian-analysis"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#performing-the-lagrangian-analysis"
   },"10": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "6. Eulerian Coherent Structures for Flows on Curved Surfaces",
-    "content": "The same GitHub repository also contains MATLAB code for computing Eulerian coherent structures on curved surfaces. These structures are obtained from the eigenvalues and eigenvectors of the surface strain-rate tensor. The code is available at: . flow_coherent_structure . For the mathematical background, refer to the accompanying manuscript [1]. Prerequisites, Installation, and Data Formatting . The Eulerian code uses the same software requirements, installation procedure, and data format as the Lagrangian code described above. Therefore, users should first follow Sections 1–4 of this tutorial. To test the Eulerian code, run the following MATLAB script: . example_code_eulerian.m . This script loads example_data.mat, runs the Eulerian analysis, and displays the coherent-structure diagnostics. The figure above visualizes the Eulerian coherent structures at $t=0$. Regions with large positive values of the largest strain-rate eigenvalue, . \\[s_2(\\mathbf{x},t),\\] correspond to short-time repelling structures. Regions with large negative values of the smallest strain-rate eigenvalue, . \\[s_1(\\mathbf{x},t),\\] correspond to short-time attracting structures. The associated eigenvectors have the following interpretations: . | $\\mathbf{e}_2(\\mathbf{x},t)$ gives the direction of maximum instantaneous repulsion. | $\\mathbf{e}_1(\\mathbf{x},t)$ gives the direction of maximum instantaneous attraction. | . ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#6-eulerian-coherent-structures-for-flows-on-curved-surfaces",
+    "title": "Eulerian Coherent Structures for Flows on Curved Surfaces",
+    "content": "The same GitHub repository also contains MATLAB code for computing Eulerian coherent structures on curved surfaces. These structures are obtained from the eigenvalues and eigenvectors of the surface strain-rate tensor. The code is available at: flow_coherent_structure. For the mathematical background, refer to the accompanying manuscript [1]. Prerequisites, Installation, and Data Formatting . The Eulerian code uses the same software requirements, installation procedure, and data format as the Lagrangian code described above. Therefore, users should first follow Sections 1–4 of this tutorial. To test the Eulerian code, run the following MATLAB script: . example_code_eulerian.m . This script loads example_data.mat, runs the Eulerian analysis, and displays the coherent-structure diagnostics. The figure above visualizes the Eulerian coherent structures at $t=0$. Regions with large positive values of the largest strain-rate eigenvalue, $s_2(\\mathbf{x},t),$ correspond to short-time repelling structures. Regions with large negative values of the smallest strain-rate eigenvalue, $ s_1(\\mathbf{x},t),$ correspond to short-time attracting structures. The associated eigenvectors have the following interpretations: $\\mathbf{e}_2(\\mathbf{x},t)$ gives the direction of maximum instantaneous repulsion. $\\mathbf{e}_1(\\mathbf{x},t)$ gives the direction of maximum instantaneous attraction. ",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#eulerian-coherent-structures-for-flows-on-curved-surfaces",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#6-eulerian-coherent-structures-for-flows-on-curved-surfaces"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#eulerian-coherent-structures-for-flows-on-curved-surfaces"
   },"11": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
-    "title": "7. Performing the Eulerian Analysis",
-    "content": "To compute Eulerian coherent structures for a given flow field, open the Eulerian analysis script and follow the steps below. 1. Load the Data . After formatting the data as described above, load the .mat file in MATLAB: . load('path_to_dataset.mat') Nt = size(mesh_time, 2); . 2. Set the Eulerian Parameters . Set the following parameters: . | delta: regularization parameter used to estimate the surface strain-rate tensor. This plays a role similar to the regularization parameter in the Lagrangian analysis. | ct0: time index at which the Eulerian analysis is performed. The code computes the Eulerian coherent structures at mesh_time(ct0). | . 3. Run the Code . After setting the data path and parameters, run the script. The code visualizes: . | the velocity field, | the strain-rate eigenvalues $(s_1,s_2)$, | the corresponding eigenvectors $(\\mathbf{e}_1,\\mathbf{e}_2)$, | and the resulting Eulerian coherent-structure diagnostics. | . ",
-    "url": "/docs/Tutorials/ftle_curved_surface.html#7-performing-the-eulerian-analysis",
+    "title": "Performing the Eulerian Analysis",
+    "content": "To compute Eulerian coherent structures for a given flow field, open the Eulerian analysis script and follow the steps below. | Load the data.After formatting the data as described above, load the .mat file in MATLAB: | . load('path_to_dataset.mat') Nt = size(mesh_time, 2); . | Set the Eulerian Parameters Set the following parameters: . | delta: regularization parameter used to estimate the surface strain-rate tensor. This plays a role similar to the regularization parameter in the Lagrangian analysis. | ct0: time index at which the Eulerian analysis is performed. The code computes the Eulerian coherent structures at mesh_time(ct0). | . | Run the Code. After setting the data path and parameters, run the script. The code visualizes: . | the velocity field, | the strain-rate eigenvalues $(s_1,s_2)$, | the corresponding eigenvectors $(\\mathbf{e}_1,\\mathbf{e}_2)$, | and the resulting Eulerian coherent-structure diagnostics. | . | . ",
+    "url": "/docs/Tutorials/ftle_curved_surface.html#performing-the-eulerian-analysis",
     
-    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#7-performing-the-eulerian-analysis"
+    "relUrl": "/docs/Tutorials/ftle_curved_surface.html#performing-the-eulerian-analysis"
   },"12": {
     "doc": "FTLE from flows on curved surfaces (MATLAB)",
     "title": "References",
@@ -99,193 +99,179 @@
   },"14": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
     "title": "Lagrangian Coherent Structures for Flows in 2D/3D Euclidean Spaces",
-    "content": "This tutorial explains how to use the MATLAB code for computing finite-time Lyapunov exponent (FTLE) fields for flows defined on 2D and 3D Euclidean grids. The MATLAB code is available in the GitHub repository: . flow_coherent_structure . The code computes Lagrangian coherent structures by approximating the deformation gradient using finite differences. The FTLE field is then obtained from the singular values of the deformation gradient. The numerical method follows the approach described in [1]. ",
+    "content": "This tutorial explains how to use the MATLAB code for computing finite-time Lyapunov exponent (FTLE) fields for flows defined on 2D and 3D Euclidean grids. The MATLAB code is available in the GitHub repository: flow_coherent_structure. The code computes Lagrangian coherent structures by approximating the deformation gradient using finite differences. The FTLE field is then obtained from the singular values of the deformation gradient. The numerical method follows the approach described in [1]. ",
     "url": "/docs/Tutorials/ftle_euclidean.html#lagrangian-coherent-structures-for-flows-in-2d3d-euclidean-spaces",
     
     "relUrl": "/docs/Tutorials/ftle_euclidean.html#lagrangian-coherent-structures-for-flows-in-2d3d-euclidean-spaces"
   },"15": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "1. Prerequisites",
+    "title": "Prerequisites",
     "content": "The code was developed using MATLAB R2025b on a Windows 10 system. It has also been tested on: . | macOS 15 | Ubuntu 20 | . The recommended installation method is through Git, since the code is hosted on GitHub. This tutorial assumes that Git is already installed and configured on your system. If Git is not installed, follow the installation instructions here: . Installing Git . ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#1-prerequisites",
+    "url": "/docs/Tutorials/ftle_euclidean.html#prerequisites",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#1-prerequisites"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#prerequisites"
   },"16": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "2. Installation",
+    "title": "Installation",
     "content": "Navigate to the directory where you want to install the code, then clone the GitHub repository: . git clone https://github.com/SreejithSanthosh/flow_coherent_structure.git . This command creates a directory called: . flow_coherent_structure . which contains the MATLAB scripts, functions, and example files. To test the Euclidean-grid FTLE code, navigate to the folder: . ftle_from_euclidean_grid . and set it as the root directory in MATLAB. ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#2-installation",
+    "url": "/docs/Tutorials/ftle_euclidean.html#installation",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#2-installation"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#installation"
   },"17": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "3. Example: 2D Double-Gyre Flow",
+    "title": "Example: 2D Double-Gyre Flow",
     "content": "To test the 2D FTLE computation, run the following MATLAB script: . example_euclideangrid2d.m . This script computes the deformation field and FTLE field for the double-gyre velocity field. The output is shown below. Here: . | $\\Lambda$ is the FTLE field. | $\\xi$ is the axis of maximum deformation. | . ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#3-example-2d-double-gyre-flow",
+    "url": "/docs/Tutorials/ftle_euclidean.html#example-2d-double-gyre-flow",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#3-example-2d-double-gyre-flow"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#example-2d-double-gyre-flow"
   },"18": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "4. Example: 3D ABC Flow",
+    "title": "Example: 3D ABC Flow",
     "content": "To test the 3D FTLE computation, run: . example_euclideangrid3d.m . This script computes the deformation field and FTLE field for the ABC flow. The output is shown below. As in the 2D case, the code computes the FTLE field from the deformation of an initially defined grid over a prescribed time interval. ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#4-example-3d-abc-flow",
+    "url": "/docs/Tutorials/ftle_euclidean.html#example-3d-abc-flow",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#4-example-3d-abc-flow"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#example-3d-abc-flow"
   },"19": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "5. Updating the Code",
+    "title": "Updating the Code",
     "content": "The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run: . git pull . ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#5-updating-the-code",
+    "url": "/docs/Tutorials/ftle_euclidean.html#updating-the-code",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#5-updating-the-code"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#updating-the-code"
   },"20": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "6. Performing Deformation Analysis on Your Own Data",
+    "title": "Performing Deformation Analysis on Your Own Data",
     "content": "The example scripts are written for specific test flows: . | example_euclideangrid2d.m uses the 2D double-gyre flow. | example_euclideangrid3d.m uses the 3D ABC flow. | . To apply the analysis to your own velocity field, you must first advect an initial grid from the initial time $t_0$ to the final time $t_f$. ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#6-performing-deformation-analysis-on-your-own-data",
+    "url": "/docs/Tutorials/ftle_euclidean.html#performing-deformation-analysis-on-your-own-data",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#6-performing-deformation-analysis-on-your-own-data"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#performing-deformation-analysis-on-your-own-data"
   },"21": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "7. 2D Flow Data Format and Analysis",
-    "content": "For a 2D flow, define the initial grid coordinates as: . x0, y0 . After advecting this grid from $t_0$ to $t_f$, the final grid coordinates should be stored as: . xf, yf . The deformation analysis is performed using: . compute_deform_euclidean2d.m . This function takes the initial and final grid coordinates, . x0, y0, xf, yf . and computes the singular values of the deformation gradient, along with the associated deformation axes. The FTLE field can then be visualized using the plotting section labeled: . %% Visualize the result . in example_euclideangrid2d.m. ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#7-2d-flow-data-format-and-analysis",
+    "title": "2D and 3D Flow Data Format and Analysis",
+    "content": "The two example scripts for 2D and 3D flows, example_euclidean2D.m and example_euclidean3D.m, are written for a specific flow field. To apply this analysis to your own flow field, you must advect an initial grid from time \\(t_0\\) to the final time \\(t_f\\). For a 2D flow, the initial grid coordinates x0, y0 are advected to the final coordinates xf, yf. The function compute_deform_euclidean2d.m takes x0, y0, xf, yf as inputs and computes the singular values and their associated directions. The resulting FTLE field can then be visualized using the code provided in the %% Visualize the result section of example_euclidean2D.m. Similarly, for a 3D flow, the initial grid coordinates x0, y0, z0 are advected to xf, yf, zf. These initial and final grids are passed to compute_deform_euclidean3d.m, which computes the deformation quantities needed to visualize the FTLE field. ",
+    "url": "/docs/Tutorials/ftle_euclidean.html#2d-and-3d-flow-data-format-and-analysis",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#7-2d-flow-data-format-and-analysis"
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#2d-and-3d-flow-data-format-and-analysis"
   },"22": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "8. 3D Flow Data Format and Analysis",
-    "content": "For a 3D flow, define the initial grid coordinates as: . x0, y0, z0 . After advecting this grid from $t_0$ to $t_f$, the final grid coordinates should be stored as: . xf, yf, zf . The deformation analysis is performed using: . compute_deform_euclidean3d.m . This function takes the initial and final grid coordinates, . x0, y0, z0, xf, yf, zf . and computes the singular values of the deformation gradient and the associated deformation axes. The resulting FTLE field can then be visualized using the visualization section in example_euclideangrid3d.m. ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#8-3d-flow-data-format-and-analysis",
-    
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#8-3d-flow-data-format-and-analysis"
-  },"23": {
-    "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
-    "title": "9. Summary of Workflow",
+    "title": "Summary of Workflow",
     "content": "The general workflow for computing FTLE fields on Euclidean grids is: . | Define an initial grid at time $t_0$. | Advect the grid through the velocity field from $t_0$ to $t_f$. | Store the final grid positions at time $t_f$. | Use the appropriate deformation-analysis function: . | compute_deform_euclidean2d.m for 2D flows. | compute_deform_euclidean3d.m for 3D flows. | . | Compute the singular values of the deformation gradient. | Visualize the FTLE field and the corresponding deformation axes. | . ",
-    "url": "/docs/Tutorials/ftle_euclidean.html#9-summary-of-workflow",
+    "url": "/docs/Tutorials/ftle_euclidean.html#summary-of-workflow",
     
-    "relUrl": "/docs/Tutorials/ftle_euclidean.html#9-summary-of-workflow"
-  },"24": {
+    "relUrl": "/docs/Tutorials/ftle_euclidean.html#summary-of-workflow"
+  },"23": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
     "title": "References",
     "content": "[1] Haller, G. (2015). Lagrangian coherent structures. Annual Review of Fluid Mechanics, 47(1). ",
     "url": "/docs/Tutorials/ftle_euclidean.html#references",
     
     "relUrl": "/docs/Tutorials/ftle_euclidean.html#references"
-  },"25": {
+  },"24": {
     "doc": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
     "title": "FTLE from Flows on 2D/3D Euclidean Grids (MATLAB)",
     "content": " ",
     "url": "/docs/Tutorials/ftle_euclidean.html",
     
     "relUrl": "/docs/Tutorials/ftle_euclidean.html"
-  },"26": {
+  },"25": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
     "title": "Lagrangian Coherent Structures from Sparse and Noisy Trajectories in 2D/3D Euclidean Spaces",
-    "content": "This tutorial explains how to use the MATLAB code for computing finite-time Lyapunov exponent (FTLE) fields from sparse and noisy trajectory data in 2D and 3D Euclidean spaces. The MATLAB code is available in the GitHub repository: . flow_coherent_structure . The method is designed for cases where the full velocity field is not available, but particle or material trajectories are known at an initial and final time. The numerical method follows the approach described in [1]. ",
+    "content": "This tutorial explains how to use the MATLAB code for computing finite-time Lyapunov exponent (FTLE) fields from sparse and noisy trajectory data in 2D and 3D Euclidean spaces. The MATLAB code is available in the GitHub repository: flow_coherent_structure. The method is designed for cases where the full velocity field is not available, but particle or material trajectories are known at an initial and final time. The numerical method follows the approach described in [1]. ",
     "url": "/docs/Tutorials/ftle_sparse_matlab.html#lagrangian-coherent-structures-from-sparse-and-noisy-trajectories-in-2d3d-euclidean-spaces",
     
     "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#lagrangian-coherent-structures-from-sparse-and-noisy-trajectories-in-2d3d-euclidean-spaces"
+  },"26": {
+    "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
+    "title": "Prerequisites",
+    "content": "The code was developed using MATLAB R2025b on a Windows 10 system. It has also been tested on: . | macOS 15 | Ubuntu 20 | . The recommended installation method is through Git, since the code is hosted on GitHub. This tutorial assumes that Git is already installed and configured on your system. If Git is not installed, follow the installation instructions here: . Installing Git . ",
+    "url": "/docs/Tutorials/ftle_sparse_matlab.html#prerequisites",
+    
+    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#prerequisites"
   },"27": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "1. Prerequisites",
-    "content": "The code was developed using MATLAB R2025b on a Windows 10 system. It has also been tested on: . | macOS 15 | Ubuntu 20 | . The recommended installation method is through Git, since the code is hosted on GitHub. This tutorial assumes that Git is already installed and configured on your system. If Git is not installed, follow the installation instructions here: . Installing Git . ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#1-prerequisites",
-    
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#1-prerequisites"
-  },"28": {
-    "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "2. Installation",
+    "title": "Installation",
     "content": "Navigate to the directory where you want to install the code, then clone the GitHub repository: . git clone https://github.com/SreejithSanthosh/flow_coherent_structure.git . This command creates a directory called: . flow_coherent_structure . which contains the MATLAB scripts, functions, and example files. To test the sparse-trajectory FTLE code, navigate to the folder: . ftle_from_sparse_trajec . and set it as the root directory in MATLAB. ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#2-installation",
+    "url": "/docs/Tutorials/ftle_sparse_matlab.html#installation",
     
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#2-installation"
-  },"29": {
+    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#installation"
+  },"28": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
     "title": "3. Example: Sparse Trajectories from a 2D Double-Gyre Flow",
     "content": "To test the code, run the following MATLAB script: . example_sparsetrajec2d.m . This script performs the deformation analysis using sparse trajectory data generated from the 2D double-gyre velocity field. The output is shown below. Here: . | $\\Lambda$ is the FTLE field. | $\\xi$ is the axis of maximum deformation. | . ",
     "url": "/docs/Tutorials/ftle_sparse_matlab.html#3-example-sparse-trajectories-from-a-2d-double-gyre-flow",
     
     "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#3-example-sparse-trajectories-from-a-2d-double-gyre-flow"
+  },"29": {
+    "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
+    "title": "Updating the Code",
+    "content": "The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run: . git pull . ",
+    "url": "/docs/Tutorials/ftle_sparse_matlab.html#updating-the-code",
+    
+    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#updating-the-code"
   },"30": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "4. Updating the Code",
-    "content": "The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run: . git pull . ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#4-updating-the-code",
+    "title": "Performing Deformation Analysis on Your Own Trajectory Data",
+    "content": "The example script example_sparsetrajec2d.m is written for a specific test flow. To apply the analysis to your own data, you need the initial and final positions of a set of trajectories. The Lagrangian analysis is performed over the time interval $t_0$ to $t_f$. For each trajectory, the code requires: * its initial position at time $t_0$, * its final position at time $t_f$. The deformation metrics are computed using: . compute_deform_sparsetrajec.m . This function estimates the singular values of the deformation gradient and the corresponding deformation axes from the sparse trajectory data. ",
+    "url": "/docs/Tutorials/ftle_sparse_matlab.html#performing-deformation-analysis-on-your-own-trajectory-data",
     
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#4-updating-the-code"
+    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#performing-deformation-analysis-on-your-own-trajectory-data"
   },"31": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "5. Performing Deformation Analysis on Your Own Trajectory Data",
-    "content": "The example script example_sparsetrajec2d.m is written for a specific test flow. To apply the analysis to your own data, you need the initial and final positions of a set of trajectories. The Lagrangian analysis is performed over the time interval . \\[t_0 \\rightarrow t_f.\\] For each trajectory, the code requires: . | its initial position at time $t_0$, | its final position at time $t_f$. | . The deformation metrics are computed using: . compute_deform_sparsetrajec.m . This function estimates the singular values of the deformation gradient and the corresponding deformation axes from the sparse trajectory data. ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#5-performing-deformation-analysis-on-your-own-trajectory-data",
+    "title": "2D/3D Trajectory Data Format",
+    "content": "The example script example_sparsetrajec2d.m is written for a specific flow field. To apply this analysis to your own data, you need the initial and final positions of the trajectories over the time interval \\(t_0 \\rightarrow t_f\\). For a 2D flow, the initial trajectory coordinates x0, y0 at time \\(t_0\\) are advected to the final coordinates xf, yf at time \\(t_f\\). These coordinates are formatted as r0 and rf, which are then passed to compute_deform_sparsetrajec.m. This function computes the singular values and their associated directions from the initial and final trajectory positions. The resulting FTLE field can then be visualized using the code provided in the %% Visualize the result section of example_sparsetrajec2d.m. The function compute_deform_sparsetrajec.m can also compute deformation metrics for 3D trajectories. In this case, r0 and rf should be formatted as double arrays of size Nq x 3, where Nq is the number of trajectories and the three columns correspond to the three spatial coordinates of each trajectory. ",
+    "url": "/docs/Tutorials/ftle_sparse_matlab.html#2d3d-trajectory-data-format",
     
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#5-performing-deformation-analysis-on-your-own-trajectory-data"
+    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#2d3d-trajectory-data-format"
   },"32": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "6. 2D Trajectory Data Format",
-    "content": "For a 2D flow, let the initial trajectory positions at time $t_0$ be given by: . x0, y0 . and the final trajectory positions at time $t_f$ be given by: . xf, yf . These positions should be combined into two arrays: . r0 = [x0, y0]; rf = [xf, yf]; . where: . | r0 contains the initial trajectory positions, | rf contains the final trajectory positions. | . The function . compute_deform_sparsetrajec.m . uses r0 and rf to compute the deformation metrics. The resulting FTLE field can then be visualized using the section labeled: . %% Visualize the result . in example_sparsetrajec2d.m. ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#6-2d-trajectory-data-format",
-    
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#6-2d-trajectory-data-format"
-  },"33": {
-    "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "7. 3D Trajectory Data Format",
-    "content": "The same function can also compute deformation metrics for trajectories in 3D. For a 3D flow, format the initial and final trajectory positions as arrays of size: . Nq x 3 . where Nq is the number of trajectories and the three columns correspond to the three spatial coordinates. For example: . r0 = [x0, y0, z0]; rf = [xf, yf, zf]; . Here: . | each row of r0 contains the initial position of one trajectory at time $t_0$, | each row of rf contains the final position of the same trajectory at time $t_f$, | the columns correspond to the $x$-, $y$-, and $z$-coordinates. | . These arrays are passed to: . compute_deform_sparsetrajec.m . which computes the singular values of the deformation gradient and the corresponding deformation axes. ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#7-3d-trajectory-data-format",
-    
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#7-3d-trajectory-data-format"
-  },"34": {
-    "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
-    "title": "8. Summary of Workflow",
+    "title": "Summary of Workflow",
     "content": "The general workflow for computing FTLE fields from sparse and noisy trajectories is: . | Collect or generate trajectory data. | Store the initial trajectory positions at time $t_0$ in r0. | Store the corresponding final trajectory positions at time $t_f$ in rf. | Pass r0 and rf to compute_deform_sparsetrajec.m. | Compute the singular values and deformation axes. | Visualize the FTLE field and the axis of maximum deformation. | . This method is especially useful when the full velocity field is unavailable, but trajectory data are available from experiments, simulations, or particle-tracking measurements. ",
-    "url": "/docs/Tutorials/ftle_sparse_matlab.html#8-summary-of-workflow",
+    "url": "/docs/Tutorials/ftle_sparse_matlab.html#summary-of-workflow",
     
-    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#8-summary-of-workflow"
-  },"35": {
+    "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#summary-of-workflow"
+  },"33": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
     "title": "References",
     "content": "[1] Mowlavi, S., Serra, M., Maiorino, E., &amp; Mahadevan, L. (2022). Detecting Lagrangian coherent structures from sparse and noisy trajectory data. Journal of Fluid Mechanics, 948, A4. ",
     "url": "/docs/Tutorials/ftle_sparse_matlab.html#references",
     
     "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html#references"
-  },"36": {
+  },"34": {
     "doc": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
     "title": "FTLE from 2D/3D Sparse and Noisy Trajectories (MATLAB)",
     "content": " ",
     "url": "/docs/Tutorials/ftle_sparse_matlab.html",
     
     "relUrl": "/docs/Tutorials/ftle_sparse_matlab.html"
-  },"37": {
+  },"35": {
     "doc": "Introduction",
     "title": "What are Coherent Structures?",
     "content": "Coherent Structures are persistent, robust structures in a flow that organize complex fluid trajectories and material deformations [1]. Lagrangian Coherent Structures (LCSs) [1] organize material transport over a finite time interval and are computable from fluid trajectories. Eulerian Coherent Structures [2], on the other hand, organize short-time material transport and are computable from single snapshots of the velocity field. There exist different types of Coherent Structures and different methods for computing them from velocity or trajectory flow data (see, e.g., [3]). Here, we focus on Attracting and Repelling Coherent Structures—special surfaces in 3D flows or curves in 2D flows where nearby tracer particles maximally converge or separate. We identify Attracting and Repelling Coherent Structures based on the Finite Time Lyapunov Exponent (FTLE) [4,5] and instantaneous Lyapunov Exponents [6] fields, which are the most common due to their simplicity and straightforward visualization. (a) Deformation of a fluid patch close to a saddle point (i.e., a fixed point) of a steady (i.e., time independent) velocity (left), and to Attracting and repelling LCSs in an unsteady (i.e., time dependent) velocity (right). Attracting and Repelling Coherent Structures are special surfaces in 3D flows or curves in 2D flows where nearby tracer particles maximally converge or separate. (b-i) Examples of Coherent Structures in physical and biological flows. (b) Short-time attractors (or Attracting Eulerian Coherent Structures) aid search and rescue operations at sea [7]. (c-d) Attracting and Repelling LCSs in (c) atmospheric flows [8] and (d) CFD flows for a cylinder wake [9]. (e) FTLE and Attracting LCSs in active nematic flows [10]. (f) FTLE and Attracting LCSs in a beating zebrafish heart [10]. (g) FTLE and Attracting LCSs in multicellular flows during avian gastrulation [11]. ",
     "url": "/#what-are-coherent-structures",
     
     "relUrl": "/#what-are-coherent-structures"
-  },"38": {
+  },"36": {
     "doc": "Introduction",
     "title": "Why is coherent structure identification useful?",
     "content": "Consider the flow field around a saddle point (Panel (a)): a nearby patch of fluid (cyan) converges to the fixed point along its stable manifold (red curve) and separates along the unstable manifold (blue curve). Stable and unstable manifolds of saddle points, however, have important limitations: i) are meaningful only in steady velocities (\\(\\mathbf{v}(\\mathbf{x})\\)); ii) describe the evolution of material patches only in the infinite-time limit (not over finite or short times); iii) are static (do not deform/move in time). Repelling and Attracting LCSs generalize stable and unstable manifolds of fixed points, overcoming the above limitations. i) They are computable for both steady and unsteady (\\(\\mathbf{v}(\\mathbf{x},t)\\)) velocity fields; ii) they shape material patches over the desired time interval of interest \\([t_0, t]\\); iii) they are dynamic (move and deform over time); iv) they reveal regions on the flow with the highest Lagrangian deformations; v) they are objective; i.e., invariant to time-dependent rotations and translations of the coordinate system used to describe motion. Overall, Repelling and Attracting LCSs provide a reduced representation of a temporally and spatially varying flow, enabling robust quantification of complex and noisy velocity datasets, a systematic comparison between flows in different experiments and comparisons with theoretical models. Coherent structures also provide a simplified understanding of flow geometry, identify dynamic domain boundaries, and provide a new perspective for optimal flow control. While Coherent Structures were initially motivated to analyze atmospheric and oceanic flows, recent works have demonstrated their utility in studying biological systems and active matter, see e.g. panels (e-g) above and examples of recent papers [10-15] summarized here. ",
     "url": "/#why-is-coherent-structure-identification-useful",
     
     "relUrl": "/#why-is-coherent-structure-identification-useful"
-  },"39": {
+  },"37": {
     "doc": "Introduction",
     "title": "How to calculate FTLE?",
     "content": "Finite-Time-Lyapunov-Exponents enable identifying Repelling and Attracting LCSs as ridges (or regions with high FTLE values) of a scalar field [4,5]. We describe how to compute FTLE and Attracting/Repelling LCSs for a 2D flow described by the velocity field \\(\\mathbf{v}(\\mathbf{x},t)\\). For the new formalism to compute FTLE for flows on dynamic 2D surfaces embedded in 3D, please refer to [10]. We assume a simulated or measured velocity field is given. If one needs to reconstruct the velocity from experimental flow data, Particle Image Velocimetry methods are common (See Ref, and PIVLab is a MATLAB toolbox). To study the Lagrangian features of the flow, we compute the flow (or trajectory) map . $$ \\mathbf{F}_{t_0}^t(\\mathbf{x}_0) = \\mathbf{x}_0 + \\int_{t_0}^t \\mathbf{v}(\\mathbf{F}_{t_0}^\\tau(\\mathbf{x}_0),\\tau) d\\tau,$$ that maps initial positions \\((\\mathbf{x}_0)\\) at \\(t_0\\) to their time \\(t\\) position \\(\\mathbf{F}_{t_0}^t(\\mathbf{x}_0)\\). The deformation gradient \\(\\mathbf{\\nabla}_{\\mathbf{x}_0}\\mathbf{F}_{t_0}^t(\\mathbf{x}_0)\\) quantifies derivatives of the flow map with respect to small changes in initial conditions and is represented as a 2x2 matrix for any \\((\\mathbf{x}_0)\\) and time interval \\([t_0,t]\\). The FTLE field is given by . $$ \\Lambda_{t_0}^t(\\mathbf{x}_0) = \\frac{1}{|t-t_0|}\\text{log}(\\lambda_2(\\mathbf{x}_0)),$$ where \\(\\lambda_2(\\mathbf{x}_0)\\) is the largest singular value of \\(\\mathbf{\\nabla}_{\\mathbf{x}_0}\\mathbf{F}_{t_0}^t(\\mathbf{x}_0)\\). High \\(\\lambda_2(\\mathbf{x}_0)\\) (or \\(\\Lambda_{t_0}^t(\\mathbf{x}_0)\\)) mark initial fluid positions \\((\\mathbf{x}_0)\\) where initially close tracers will highly separate by time \\(t\\) (left panel). Repelling LCSs are identified by ridges (i.e. regions of high values) of the \\(\\Lambda_{t_0}^t(\\mathbf{x}_0)\\) (or \\(_{f}\\Lambda\\)) computed from trajectories in forward time. By contrast, Attracting LCSs are identified by ridges (i.e. regions of high values) of the \\(\\Lambda_{t}^{t_0}(\\mathbf{x}_t)\\) (or \\(_{b}\\Lambda\\)) computed from trajectories in backward time (right panel). Attracting LCSs locate the final positions \\((\\mathbf{x}_t)\\) where initially distinct tracers will maximally converge. ",
     "url": "/#how-to-calculate-ftle",
     
     "relUrl": "/#how-to-calculate-ftle"
-  },"40": {
+  },"38": {
     "doc": "Introduction",
     "title": "References",
     "content": "[1] : Haller, G., 2015. Lagrangian coherent structures. Annual review of fluid mechanics, 47(1) . [2] : Serra, M., &amp; Haller, G. (2016). Objective Eulerian coherent structures. Chaos: An Interdisciplinary Journal of Nonlinear Science, 26(5) . [3] : Hadjighasem, A., Farazmand, M., Blazevski, D., Froyland, G., &amp; Haller, G. (2017). A critical comparison of Lagrangian methods for coherent structure detection. Chaos: An Interdisciplinary Journal of Nonlinear Science, 27(5). [4] : Haller, G. (2001). Distinguished material surfaces and coherent structures in three-dimensional fluid flows. Physica D: Nonlinear Phenomena, 149(4), 248-277. [5] : Shadden, S. C., Lekien, F., &amp; Marsden, J. E. (2005). Definition and properties of Lagrangian coherent structures from finite-time Lyapunov exponents in two-dimensional aperiodic flows. Physica D: Nonlinear Phenomena, 212(3-4), 271-304. [6] : Nolan, P. J., Serra, M., &amp; Ross, S. D. (2020). Finite-time Lyapunov exponents in the instantaneous limit and material transport. Nonlinear Dynamics, 100(4), 3825-3852. [7] : Serra, M., Sathe, P., Rypina, I., Kirincich, A., Ross, S. D., Lermusiaux, P., … &amp; Haller, G. (2020). Search and rescue at sea aided by hidden flow structures. Nature communications, 11(1), 2525. [8] : Lekien, F., &amp; Ross, S. D. (2010). The computation of finite-time Lyapunov exponents on unstructured meshes and for non-Euclidean manifolds. Chaos: An Interdisciplinary Journal of Nonlinear Science, 20(1). [9] : Kasten, J., Petz, C., Hotz, I., Hege, H. C., Noack, B. R., &amp; Tadmor, G. (2010). Lagrangian feature extraction of the cylinder wake. Physics of fluids, 22(9). [10] : Santhosh, S., Zhu, C., Fencil, B., &amp; Serra, M. (2025). Coherent Structures in Active Flows on Dynamic Surfaces. bioRxiv, 2025-05. [11] : Serra, M., Streichan, S., Chuai, M., Weijer, C. J., &amp; Mahadevan, L. (2020). Dynamic morphoskeletons in development. Proceedings of the National Academy of Sciences, 117(21), 11444-11449. [12] : Lange, M., Granados, A., VijayKumar, S., Bragantini, J., Ancheta, S., Kim, Y. J., … &amp; Royer, L. A. (2024). A multimodal zebrafish developmental atlas reveals the state-transition dynamics of late-vertebrate pluripotent axial progenitors. Cell, 187(23), 6742-6759. [13] : Serra, M., Lemma, L., Giomi, L., Dogic, Z., &amp; Mahadevan, L. (2023). Defect-mediated dynamics of coherent structures in active nematics. Nature Physics, 19(9), 1355-1361. [14] : Sinigaglia, C., Braghin, F., &amp; Serra, M. (2024). Optimal control of short-time attractors in active nematics. Physical Review Letters, 132(21), 218302. [15] : Serra, M., Serrano Nájera, G., Chuai, M., Plum, A. M., Santhosh, S., Spandan, V., … &amp; Mahadevan, L. (2023). A mechanochemical model recapitulates distinct vertebrate gastrulation modes. Science advances, 9(49), eadh8152. IMPORTANT NOTE: This page is intended to provide a minimal, elementary introduction to Coherent Structures and a limited set of references, primarily for the biology and soft matter physics communities. We refer readers to the aforementioned publications and their references for an extensive list. ",
     "url": "/#references",
     
     "relUrl": "/#references"
-  },"41": {
+  },"39": {
     "doc": "Introduction",
     "title": "Introduction",
     "content": " ",

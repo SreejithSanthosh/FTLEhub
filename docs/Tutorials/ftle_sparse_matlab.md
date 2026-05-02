@@ -9,15 +9,8 @@ nav_order: 3
 
 This tutorial explains how to use the MATLAB code for computing finite-time Lyapunov exponent (FTLE) fields from sparse and noisy trajectory data in 2D and 3D Euclidean spaces.
 
-The MATLAB code is available in the GitHub repository:
-
-[flow_coherent_structure](https://github.com/SreejithSanthosh/flow_coherent_structure.git)
-
-The method is designed for cases where the full velocity field is not available, but particle or material trajectories are known at an initial and final time. The numerical method follows the approach described in [1].
-
----
-
-## 1. Prerequisites
+The MATLAB code is available in the GitHub repository: [flow_coherent_structure](https://github.com/SreejithSanthosh/flow_coherent_structure.git). The method is designed for cases where the full velocity field is not available, but particle or material trajectories are known at an initial and final time. The numerical method follows the approach described in [1].
+## Prerequisites
 
 The code was developed using **MATLAB R2025b** on a Windows 10 system. It has also been tested on:
 
@@ -30,7 +23,7 @@ The recommended installation method is through Git, since the code is hosted on 
 
 ---
 
-## 2. Installation
+## Installation
 
 Navigate to the directory where you want to install the code, then clone the GitHub repository:
 
@@ -75,7 +68,7 @@ Here:
 
 ---
 
-## 4. Updating the Code
+## Updating the Code
 
 The code is under active development. To update your local copy with the latest changes, navigate to the repository directory and run:
 
@@ -85,111 +78,28 @@ git pull
 
 ---
 
-## 5. Performing Deformation Analysis on Your Own Trajectory Data
+## Performing Deformation Analysis on Your Own Trajectory Data
 
 The example script `example_sparsetrajec2d.m` is written for a specific test flow. To apply the analysis to your own data, you need the initial and final positions of a set of trajectories.
 
-The Lagrangian analysis is performed over the time interval
-
-$$
-t_0 \rightarrow t_f.
-$$
-
-For each trajectory, the code requires:
-
-* its initial position at time $t_0$,
-* its final position at time $t_f$.
+The Lagrangian analysis is performed over the time interval $t_0$ to $t_f$. For each trajectory, the code requires:
+    * its initial position at time $t_0$,
+    * its final position at time $t_f$.
 
 The deformation metrics are computed using:
-
 ```matlab
 compute_deform_sparsetrajec.m
 ```
-
 This function estimates the singular values of the deformation gradient and the corresponding deformation axes from the sparse trajectory data.
 
----
+## 2D/3D Trajectory Data Format
 
-## 6. 2D Trajectory Data Format
+The example script `example_sparsetrajec2d.m` is written for a specific flow field. To apply this analysis to your own data, you need the initial and final positions of the trajectories over the time interval $$t_0 \rightarrow t_f$$.
 
-For a 2D flow, let the initial trajectory positions at time $t_0$ be given by:
+For a 2D flow, the initial trajectory coordinates `x0, y0` at time $$t_0$$ are advected to the final coordinates `xf, yf` at time $$t_f$$. These coordinates are formatted as `r0` and `rf`, which are then passed to `compute_deform_sparsetrajec.m`. This function computes the singular values and their associated directions from the initial and final trajectory positions. The resulting FTLE field can then be visualized using the code provided in the `%% Visualize the result` section of `example_sparsetrajec2d.m`.
 
-```matlab
-x0, y0
-```
-
-and the final trajectory positions at time $t_f$ be given by:
-
-```matlab
-xf, yf
-```
-
-These positions should be combined into two arrays:
-
-```matlab
-r0 = [x0, y0];
-rf = [xf, yf];
-```
-
-where:
-
-* `r0` contains the initial trajectory positions,
-* `rf` contains the final trajectory positions.
-
-The function
-
-```matlab
-compute_deform_sparsetrajec.m
-```
-
-uses `r0` and `rf` to compute the deformation metrics.
-
-The resulting FTLE field can then be visualized using the section labeled:
-
-```matlab
-%% Visualize the result
-```
-
-in `example_sparsetrajec2d.m`.
-
----
-
-## 7. 3D Trajectory Data Format
-
-The same function can also compute deformation metrics for trajectories in 3D.
-
-For a 3D flow, format the initial and final trajectory positions as arrays of size:
-
-```matlab
-Nq x 3
-```
-
-where `Nq` is the number of trajectories and the three columns correspond to the three spatial coordinates.
-
-For example:
-
-```matlab
-r0 = [x0, y0, z0];
-rf = [xf, yf, zf];
-```
-
-Here:
-
-* each row of `r0` contains the initial position of one trajectory at time $t_0$,
-* each row of `rf` contains the final position of the same trajectory at time $t_f$,
-* the columns correspond to the $x$-, $y$-, and $z$-coordinates.
-
-These arrays are passed to:
-
-```matlab
-compute_deform_sparsetrajec.m
-```
-
-which computes the singular values of the deformation gradient and the corresponding deformation axes.
-
----
-
-## 8. Summary of Workflow
+The function `compute_deform_sparsetrajec.m` can also compute deformation metrics for 3D trajectories. In this case, `r0` and `rf` should be formatted as double arrays of size `Nq x 3`, where `Nq` is the number of trajectories and the three columns correspond to the three spatial coordinates of each trajectory.
+## Summary of Workflow
 
 The general workflow for computing FTLE fields from sparse and noisy trajectories is:
 
